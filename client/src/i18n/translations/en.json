@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "base_title_suffix": "Speaker & Strategist",
+    "default_description": "TEDx Speaker, CEO of ToSellMore and Strategic Growth Architect."
+  },
+  "nav": {
+    "home": "Home", 
+    "agendar": "agendar", 
+    "language_toggle": "English / ES"
+  }, 
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Strategic Growth Architecture. CEO of ToSellMore and Co-founder of nexito.ai, an AI-powered startup incubation platform.",
+    "trusted_label": "Leadership in innovation in Ecuador and Latin America.",
+    "architect_label": "Architecture",
+    "ecosystem_label": "Ecosystem",
+    "privacy_protocol": "Privacy Protocol",
+    "designed_by": "Designed by PD Agencia"
+  }, 
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "button": "Back to Home"
+  },
+  "mediaPage": {
+    "title": "On Air",
+    "hero": {
+      "label": "Media Intelligence System",
+      "title": "The Authority of a Voice that Scales.",
+      "description": "Measurable results of Mariángel Hernández's media and strategic presence across leading business and innovation ecosystems."
+    }
+  }
+}

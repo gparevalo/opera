@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "base_title_suffix": "base_title_suffix",
+    "default_description": "base_title_suffix"
+  },
+  "nav": {
+    "home": "Inicio", 
+    "agendar": "Agendar", 
+    "language_toggle": "Español / EN"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Arquitectura Estratégica de Crecimiento. CEO de ToSellMore y cofundadora de nexito.ai, plataforma de incubación de emprendimientos basada en inteligencia artificial.",
+    "trusted_label": "Liderazgo en innovación en Ecuador y Latinoamérica",
+    "architect_label": "Arquitectura",
+    "ecosystem_label": "Ecosistema",
+    "privacy_protocol": "Privacy Protocol",
+    "designed_by": "Designed by PD Agencia"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "button": "Volver al Inicio"
+  },
+  "mediaPage": {
+    "title": "En Acción",
+    "hero": {
+      "label": "Presencia en Medios & Liderazgo de Opinión",
+      "title": "Una voz que hoy ya está en los medios que importan.",
+      "description": "Mariángel Hernández participa activamente en conversaciones de alto nivel en medios de negocios, innovación y transformación digital en Latinoamérica. Su presencia no es teórica: es pública, constante y estratégica."
+    }
+  }
+}

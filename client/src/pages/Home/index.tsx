@@ -1,32 +1,42 @@
 import { SEO } from "@/components/seo";
 import { BaseLayout } from "@/layout/base-layout";
-import { Link } from "wouter";
+import { DifferentialsSection } from "./sections/DifferentialsSection";
+import { FinalCtaSection } from "./sections/FinalCtaSection";
+import { HeroSection } from "./sections/HeroSection";
+import { InfraPreviewSection } from "./sections/InfraPreviewSection";
+import { ProcessSection } from "./sections/ProcessSection";
+import { SpecialistsWorkflowSection } from "./sections/SpecialistsWorkflowSection";
+import { TrustSection } from "./sections/TrustSection";
 
 export default function Home() {
   return (
     <BaseLayout>
       <SEO
-        title="Mariángel Hernández | Fundadora de startups de innovación y tecnología en Ecuador"
-        description="CEO de ToSellMore y cofundadora de nexito.ai. Especialista en innovación, inteligencia artificial y crecimiento empresarial en Ecuador y Latinoamérica."
-        canonicalPath="/fundadora-startups-innovacion-ecuador"
+        canonicalPath="/"
         extraSchemas={[
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Landing principal de Mariángel Hernández",
-            url: "https://tosellmore.com/fundadora-startups-innovacion-ecuador",
+            name: "Ópera Surgical Center — Inicio",
+            description:
+              "Centro quirúrgico en Quito: infraestructura moderna, cirugía de mediana y baja complejidad, quirófanos para especialistas.",
             about: [
-              "innovación empresarial",
-              "inteligencia artificial",
-              "crecimiento empresarial",
+              "centro quirúrgico Quito",
+              "cirugía ambulatoria Quito",
+              "infraestructura quirúrgica",
+              "quirófanos para especialistas",
+              "centro quirúrgico privado Quito",
             ],
           },
         ]}
       />
-      <nav aria-label="SEO funnel home links" className="sr-only">
-        <Link href="/keynotes">Keynotes de Mariángel Hernández</Link>
-        <Link href="/media">Media y apariciones públicas</Link>
-      </nav>
+      <HeroSection />
+      <DifferentialsSection />
+      <SpecialistsWorkflowSection />
+      <ProcessSection />
+      <InfraPreviewSection />
+      <TrustSection />
+      <FinalCtaSection />
     </BaseLayout>
   );
 }

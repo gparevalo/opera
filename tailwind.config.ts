@@ -80,6 +80,12 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        clinical: "hsl(var(--clinical) / <alpha-value>)",
+        petrol: "hsl(var(--petrol) / <alpha-value>)",
+        "opera-blue": "hsl(var(--opera-blue) / <alpha-value>)",
+        "opera-amber": "hsl(var(--opera-amber) / <alpha-value>)",
+        "opera-ivory": "hsl(var(--opera-ivory) / <alpha-value>)",
+        "opera-warm": "hsl(var(--opera-warm) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sans)"],

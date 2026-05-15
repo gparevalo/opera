@@ -7,9 +7,14 @@ import { HelmetProvider } from "react-helmet-async";
 import { Route, Switch, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 
-// Pages
 import Home from "@/pages/Home";
+import ContactoPage from "@/pages/ContactoPage";
+import EspecialidadesPage from "@/pages/EspecialidadesPage";
+import InfraestructuraPage from "@/pages/InfraestructuraPage";
+import NosotrosPage from "@/pages/NosotrosPage";
+import ParaEspecialistasPage from "@/pages/ParaEspecialistasPage";
 import NotFound from "./pages/not-found";
+
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
@@ -22,7 +27,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/fundadora-startups-innovacion-ecuador" component={Home} />
+      <Route path="/nosotros" component={NosotrosPage} />
+      <Route path="/infraestructura" component={InfraestructuraPage} />
+      <Route path="/especialidades" component={EspecialidadesPage} />
+      <Route path="/para-especialistas" component={ParaEspecialistasPage} />
+      <Route path="/contacto" component={ContactoPage} />
       <Route component={NotFound} />
     </Switch>
   );

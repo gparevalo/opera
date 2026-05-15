@@ -1,136 +1,116 @@
 import { useLanguage } from "@/i18n";
-import logo from "@assets/images/logo_header.png";
 import { motion } from "framer-motion";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { Link } from "wouter";
+
+const paths = [
+  { href: "/", key: "home" as const },
+  { href: "/nosotros", key: "about" as const },
+  { href: "/infraestructura", key: "infrastructure" as const },
+  { href: "/especialidades", key: "specialties" as const },
+  { href: "/para-especialistas", key: "specialists" as const },
+  { href: "/contacto", key: "contact" as const },
+];
 
 export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-[#050505] border-t border-white/5 py-10 px-6 lg:px-10 relative overflow-hidden">
-      {/* cinematic separator line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+    <footer className="opera-footer text-opera-ivory">
+      <div className="opera-footer-glow pointer-events-none absolute inset-0" aria-hidden />
+      <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 lg:px-8 lg:py-20">
+        <motion.div
+          className="opera-separator mb-14"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        />
 
-      {/* ambient glow */}
-      <div className="absolute -bottom-48 left-1/2 -translate-x-1/2 w-[90%] aspect-square bg-primary/[0.03] rounded-full blur-[160px] pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto">
-        {/* GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 mb-10">
-          {/* BRAND */}
-          <motion.div
-            className="lg:col-span-6 justify-self-start"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <Link href="/" className="group mb-8 flex   gap-4">
-              <img
-                src={logo}
-                alt="Logo"
-                className="w-full h-[100px] object-contain"
-              />
-            </Link>
-
-            <p className="text-white/50 max-w-md text-lg leading-relaxed font-light italic border-l border-primary/20 pl-6 mb-10">
+        <motion.div
+          className="grid gap-12 lg:grid-cols-12 lg:gap-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="lg:col-span-5">
+            <p className="font-heading text-2xl font-semibold tracking-tight text-opera-ivory">
+              Ópera Surgical Center
+            </p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-opera-warm/65">
               {t.footer.tagline}
             </p>
-
-            <div className="flex items-center gap-3 px-5 py-2 border border-white/5 bg-white/[0.02] inline-flex">
-              <ShieldCheck className="w-4 h-4 text-primary" />
-
-              <span className="text-[9px] uppercase tracking-[0.35em] font-bold text-white/50">
-                {t.footer.trusted_label}
-              </span>
-            </div>
-          </motion.div>
-
-          {/* NAVIGATION */}
-          <motion.div
-            className="lg:col-span-3"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.8 }}
-          >
-            <h4 className="text-primary text-[10px] uppercase tracking-[0.6em] font-bold mb-8">
-              {t.footer.architect_label}
-            </h4>
-
-            <div className="flex flex-col gap-5">
-              {[{ href: "/", label: t.nav.home }].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex items-center gap-3 text-white/40 hover:text-white transition-all duration-500 text-[11px] uppercase tracking-[0.3em] font-bold"
-                >
-                  <span className="w-1.5 h-1.5 bg-primary/20 group-hover:bg-primary transition-colors" />
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* SOCIAL */}
-          <motion.div
-            className="lg:col-span-3"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
-            <h4 className="text-primary text-[10px] uppercase tracking-[0.6em] font-bold mb-8">
-              {t.footer.ecosystem_label}
-            </h4>
-
-            <div className="flex flex-col gap-5">
-              {["LinkedIn", "Instagram"].map((platform) => (
-                <a
-                  key={platform}
-                  href="#"
-                  target="_blank"
-                  rel="noopener"
-                  className="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-500 text-[11px] uppercase tracking-[0.3em] font-bold"
-                >
-                  {platform}
-
-                  <ArrowUpRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-                </a>
-              ))}
-
-              <a
-                href="#"
-                className="group flex items-center justify-between text-white/40 hover:text-white transition-all duration-500 text-[11px] uppercase tracking-[0.3em] font-bold"
-              >
-                {t.footer.privacy_protocol}
-                <ShieldCheck className="w-4 h-4 text-white/10" />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* LEGAL */}
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex flex-col gap-1 text-center md:text-left">
-            <p className="text-white/20 text-[10px] uppercase tracking-[0.4em] font-bold">
-              © {new Date().getFullYear()} Mariángel Hernández —{" "}
-              {t.footer.rights}
-            </p>
-
-            <p className="text-[9px] uppercase tracking-[0.35em] font-bold text-white/10 italic">
-              Strategy / Innovation / Execution
-            </p>
+            <motion.div
+              className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/5 px-4 py-2 text-xs font-medium uppercase tracking-wider text-opera-warm/80 backdrop-blur-sm"
+              whileHover={{ borderColor: "rgba(174,147,56,0.4)" }}
+            >
+              <MapPin className="h-3.5 w-3.5 text-opera-amber" aria-hidden />
+              {t.footer.address_line}
+            </motion.div>
           </div>
 
-          <div className="group flex items-center gap-4">
-            <span className="text-white/10 text-[10px] uppercase tracking-[0.35em] font-bold group-hover:text-white/30 transition-colors">
-              {t.footer.designed_by}
-            </span>
+          <motion.div
+            className="lg:col-span-3"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05, duration: 0.6 }}
+          >
+            <h2 className="opera-eyebrow opera-eyebrow-light">{t.footer.nav_label}</h2>
+            <ul className="mt-5 space-y-3">
+              {paths.map((p) => (
+                <li key={p.href}>
+                  <Link
+                    href={p.href}
+                    className="group inline-flex items-center gap-2 text-sm text-opera-warm/65 transition-all duration-500 hover:text-opera-ivory"
+                  >
+                    <span className="h-px w-4 bg-opera-amber/40 transition-all group-hover:w-6 group-hover:bg-opera-amber" />
+                    {t.nav[p.key]}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
 
-            <div className="w-10 h-[1px] bg-white/5 group-hover:w-20 group-hover:bg-primary transition-all duration-700" />
-          </div>
+          <motion.div
+            className="lg:col-span-4"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+          >
+            <h2 className="opera-eyebrow opera-eyebrow-light">{t.footer.contact_label}</h2>
+            <p className="mt-5 text-sm leading-relaxed text-opera-warm/65">
+              {t.contact_page.intro}
+            </p>
+            <Link
+              href="/contacto"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-opera-ivory transition-all duration-500 hover:text-opera-amber"
+            >
+              {t.nav.contact}
+              <ArrowUpRight className="h-4 w-4" aria-hidden />
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-center md:flex-row md:text-left">
+          <p className="text-xs text-opera-warm/45">
+            © {new Date().getFullYear()} Ópera Surgical Center — {t.footer.rights}
+          </p>
+          <motion.div
+            className="flex flex-wrap items-center justify-center gap-6 text-xs text-opera-warm/45"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <span>{t.footer.legal_label}</span>
+            <a href="#" className="transition-colors hover:text-opera-ivory">
+              {t.footer.privacy}
+            </a>
+            <span className="text-white/20">·</span>
+            <span>{t.footer.designed_by}</span>
+          </motion.div>
         </div>
       </div>
     </footer>

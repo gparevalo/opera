@@ -1,33 +1,174 @@
 {
   "metadata": {
-    "base_title_suffix": "Speaker & Strategist",
-    "default_description": "TEDx Speaker, CEO of ToSellMore and Strategic Growth Architect."
+    "base_title_suffix": "Ópera Surgical Center",
+    "default_description": "Modern surgical infrastructure in Quito for specialists and referred patients. Medium- and low-complexity procedures with comprehensive perioperative support."
   },
   "nav": {
-    "home": "Home", 
-    "agendar": "agendar", 
+    "home": "Home",
+    "about": "About",
+    "infrastructure": "Infrastructure",
+    "specialties": "Specialties",
+    "specialists": "For specialists",
+    "contact": "Contact",
+    "visit": "Book a tour",
+    "advisor": "Speak with an advisor",
+    "installations": "Explore facilities",
     "language_toggle": "English / ES"
-  }, 
+  },
   "footer": {
     "rights": "All rights reserved.",
-    "tagline": "Strategic Growth Architecture. CEO of ToSellMore and Co-founder of nexito.ai, an AI-powered startup incubation platform.",
-    "trusted_label": "Leadership in innovation in Ecuador and Latin America.",
-    "architect_label": "Architecture",
-    "ecosystem_label": "Ecosystem",
-    "privacy_protocol": "Privacy Protocol",
+    "tagline": "We streamline surgical and administrative workflows so specialists can focus on patients—with modern infrastructure, in-house medical staff, and end-to-end perioperative support.",
+    "trusted_label": "Private surgical center · Quito, Ecuador",
+    "nav_label": "Navigate",
+    "contact_label": "Contact",
+    "legal_label": "Legal",
+    "privacy": "Privacy",
+    "address_line": "Quito, Ecuador",
     "designed_by": "Designed by PD Agencia"
-  }, 
-  "notFound": {
-    "title": "Page Not Found",
-    "description": "The page you're looking for doesn't exist or has been moved.",
-    "button": "Back to Home"
   },
-  "mediaPage": {
-    "title": "On Air",
+  "cta": {
+    "whatsapp": "WhatsApp",
+    "schedule": "Book a tour",
+    "advisor": "Contact advisor",
+    "mobile_bar": "Book a tour or message us"
+  },
+  "home": {
     "hero": {
-      "label": "Media Intelligence System",
-      "title": "The Authority of a Voice that Scales.",
-      "description": "Measurable results of Mariángel Hernández's media and strategic presence across leading business and innovation ecosystems."
+      "eyebrow": "Surgical center · Quito",
+      "headline": "The surgical backing your patients deserve.",
+      "sub": "Specialized surgical center for medium- and low-complexity procedures with comprehensive perioperative support.",
+      "trust1": "Institutional-grade protocols",
+      "trust2": "Dedicated coordination",
+      "trust3": "Modern perioperative flow"
+    },
+    "diff": {
+      "title": "What sets Ópera apart",
+      "subtitle": "A premium operating environment designed for predictable, safe, and efficient surgical days.",
+      "items": {
+        "agility": { "title": "Operational agility", "body": "Lean scheduling and clear communication so procedures move with momentum." },
+        "safety": { "title": "Perioperative safety", "body": "Structured pathways, checklists, and clinical discipline at every step." },
+        "team": { "title": "In-house medical team", "body": "Experienced support so the specialist can stay focused on the procedure." },
+        "stay": { "title": "Short-stay model", "body": "Comfortable recovery aligned with ambulatory and short-hospitalization care." },
+        "infra": { "title": "Modern infrastructure", "body": "OR-ready spaces, controlled environments, and premium clinical aesthetics." },
+        "care": { "title": "End-to-end support", "body": "Coordination from assessment through follow-up—without administrative noise." }
+      }
+    },
+    "b2b": {
+      "eyebrow": "Built for specialists",
+      "title": "Designed so you can operate with clarity and confidence.",
+      "lead": "Ópera simplifies surgical coordination: fewer friction points, clearer timelines, and institutional support around your practice.",
+      "points": {
+        "admin": { "title": "Less administrative load", "body": "We absorb operational detail so your team is not chasing loose ends." },
+        "coord": { "title": "Aligned coordination", "body": "One accountable workflow across pre-op, intra-op, and recovery." },
+        "backup": { "title": "Clinical backup", "body": "Perioperative support structured to complement your medical leadership." },
+        "speed": { "title": "Responsive scheduling", "body": "Agile programming for predictable surgical blocks." },
+        "safety": { "title": "Safety-first culture", "body": "Standards, protocols, and traceability you can present to patients with confidence." },
+        "ops": { "title": "Operational partnership", "body": "A premium environment that elevates how your practice is perceived—before the first visit." }
+      }
+    },
+    "process": {
+      "title": "Surgical journey",
+      "subtitle": "A clear, enterprise-grade workflow from indication to follow-up.",
+      "steps": {
+        "1": { "title": "Procedure assessment", "body": "Clinical and logistical feasibility aligned with your criteria." },
+        "2": { "title": "Preoperative coordination", "body": "Documentation, timing, and patient preparation under one orchestrated plan." },
+        "3": { "title": "Surgical scheduling", "body": "OR allocation with predictable turnover and premium readiness." },
+        "4": { "title": "Perioperative support", "body": "Dedicated team support through induction, procedure, and immediate recovery." },
+        "5": { "title": "Recovery & follow-up", "body": "Short-stay monitoring and structured continuity instructions." }
+      }
+    },
+    "infra": {
+      "title": "Infrastructure you can see and feel",
+      "subtitle": "Spaces engineered for sterility, calm, and precision—without the cold “hospital” cliché.",
+      "labels": {
+        "or": "Operating suites",
+        "rec": "Recovery",
+        "short": "Short stay",
+        "equip": "Equipment",
+        "areas": "Clinical areas",
+        "sterile": "Sterilization",
+        "reception": "Reception"
+      },
+      "link": "View full infrastructure"
+    },
+    "trust": {
+      "title": "Trust, standards, and institutional calm",
+      "subtitle": "We address the objections that matter most to specialists and referred patients—before they are even spoken.",
+      "bullets": {
+        "protocols": "Protocol-driven culture with traceable perioperative standards.",
+        "staff": "Experienced in-house team aligned to specialist-led care.",
+        "support": "Comprehensive support across scheduling, preparation, and recovery.",
+        "modern": "Modern, premium environment that signals seriousness and control."
+      }
+    },
+    "final": {
+      "title": "Book a tour and see how Ópera can optimize your surgical practice.",
+      "sub": "We will walk you through workflows, spaces, and coordination—no pressure, full transparency."
     }
+  },
+  "about": {
+    "title": "About Ópera",
+    "intro": "Ópera Surgical Center is a private surgical facility in Quito focused on medium- and low-complexity procedures—with a premium experience for specialists and patients.",
+    "vision_title": "Vision",
+    "vision": "To be the reference private surgical center in Ecuador for specialists who demand agility, safety, and institutional-grade support.",
+    "mission_title": "Mission",
+    "mission": "To deliver modern infrastructure, disciplined coordination, and human perioperative care—so every procedure day feels controlled, calm, and excellent.",
+    "pillars_title": "Pillars",
+    "pillars": {
+      "excellence": { "title": "Medical excellence", "body": "Rigorous standards and continuous improvement across clinical and operational practice." },
+      "safety": { "title": "Safety culture", "body": "Structured checks, clear accountability, and environments designed for controlled workflows." },
+      "innovation": { "title": "Modern operations", "body": "Technology-forward processes that reduce friction for teams and patients." }
+    }
+  },
+  "infrastructure_page": {
+    "title": "Infrastructure",
+    "intro": "A visual walkthrough of the spaces that power predictable surgical outcomes—ORs, recovery, short stay, sterilization, and premium reception.",
+    "gallery_caption": "Representative environments—lighting, materials, and circulation designed for premium clinical work."
+  },
+  "specialties_page": {
+    "title": "Specialties",
+    "intro": "Structured pages for SEO and clarity. Each specialty highlights how Ópera supports your procedures with infrastructure and perioperative backing.",
+    "cta_title": "Discuss a specialty pathway",
+    "cta_body": "Tell us your specialty and typical case mix—we will map support, documentation, and scheduling.",
+    "items": {
+      "plastic": { "name": "Plastic surgery", "desc": "Controlled environments for aesthetic and reconstructive procedures with discreet recovery." },
+      "trauma": { "name": "Orthopedic / trauma", "desc": "OR readiness and support for focused orthopedic interventions within our complexity scope." },
+      "gyn": { "name": "Gynecology", "desc": "Private coordination for gynecologic surgery with emphasis on comfort and clear perioperative communication." },
+      "uro": { "name": "Urology", "desc": "Efficient programming and equipment-aligned workflows for endoscopic and selected open procedures." },
+      "general": { "name": "General surgery", "desc": "Structured pathways for common surgical indications with short-stay optimization." }
+    }
+  },
+  "specialists_page": {
+    "title": "For specialists",
+    "intro": "Ópera exists to remove friction from your surgical practice: coordination, environment, and institutional perception—aligned to your leadership in the OR.",
+    "why_title": "Why operate at Ópera",
+    "why": "You keep medical authority while we elevate operational precision: scheduling discipline, perioperative staffing, and a premium patient experience that reflects your brand.",
+    "how_title": "How it works",
+    "how": "We start with your case profile and preferences, align protocols, then co-design scheduling and patient communication—so the day of surgery feels inevitable, not improvised.",
+    "back_title": "What backing you receive",
+    "back": "In-house medical support, institutional coordination, and a facility built to communicate safety before a word is said.",
+    "schedule_title": "How to schedule procedures",
+    "schedule": "Contact our coordination desk with the proposed procedure and timing window. We return a structured plan—including documentation checklist and OR readiness timeline."
+  },
+  "contact_page": {
+    "title": "Contact",
+    "intro": "Fast channels for specialists, patients, and international partners. Prefer WhatsApp for immediate routing to coordination.",
+    "form_name": "Full name",
+    "form_email": "Email",
+    "form_phone": "Phone",
+    "form_role": "I am",
+    "form_role_specialist": "Specialist",
+    "form_role_patient": "Patient / family",
+    "form_role_partner": "Partner / institution",
+    "form_message": "Message",
+    "form_submit": "Send request",
+    "form_note": "This form opens your email client with a prefilled message—no data is stored on this static preview.",
+    "map_title": "Location",
+    "quick": "Quick actions"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has moved.",
+    "button": "Back to home"
   }
 }

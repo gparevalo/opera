@@ -29,7 +29,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("tsm-lang");
+      const saved = localStorage.getItem("opera-lang");
       if (saved === "en" || saved === "es") {
         setLanguageState(saved);
       }
@@ -42,7 +42,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("tsm-lang", lang);
+    localStorage.setItem("opera-lang", lang);
     document.documentElement.lang = lang;
   }, []);
 

@@ -1,10 +1,18 @@
 import { useLanguage } from "@/i18n";
 import { cn } from "@/lib/utils";
-import logo from "@assets/images/iniciales_logo.png";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Globe, Menu, X } from "lucide-react";
+import { Globe, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
+
+const paths = {
+  home: "/",
+  about: "/nosotros",
+  infrastructure: "/infraestructura",
+  specialties: "/especialidades",
+  specialists: "/para-especialistas",
+  contact: "/contacto",
+} as const;
 
 export function Navbar() {
   const { t, language, setLanguage } = useLanguage();
@@ -13,174 +21,145 @@ export function Navbar() {
   const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navItems = [{ href: "/", label: t.nav.home }];
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  const navItems = [
+    { href: paths.home, label: t.nav.home },
+    { href: paths.about, label: t.nav.about },
+    { href: paths.infrastructure, label: t.nav.infrastructure },
+    { href: paths.specialties, label: t.nav.specialties },
+    { href: paths.specialists, label: t.nav.specialists },
+    { href: paths.contact, label: t.nav.contact },
+  ];
+
+  const onHero = location === "/" && !scrolled;
 
   return (
-    <nav
+    <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-700",
-        scrolled
-          ? "bg-black/60 backdrop-blur-2xl border-b border-white/5 py-5"
-          : "bg-transparent border-b border-transparent py-10",
+        onHero ? "opera-nav-hero" : "opera-nav-glass",
       )}
     >
-      {/* Dynamic Stage Lighting Accent Line */}
-      <div
-        className={cn(
-          "absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent transition-opacity duration-1000",
-          scrolled ? "opacity-100" : "opacity-0",
-        )}
+      <motion.div
+        className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-opera-amber/40 to-transparent"
+        animate={{ opacity: scrolled ? 1 : 0.4 }}
+        transition={{ duration: 0.5 }}
+        aria-hidden
       />
 
-      <div className="max-w-[1400px] mx-auto px-8 lg:px-12 flex items-center justify-between">
-        <Link href="/" className="group relative">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
-          >
-            <img src={logo} alt="Logo" className="w-30 h-8 object-contain" />
-          </motion.div>
+      <motion.div
+        className={cn(
+          "mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 transition-[padding] duration-500 lg:px-8",
+          scrolled ? "py-3" : "py-5",
+        )}
+      >
+        <Link href="/" className="group flex shrink-0 flex-col leading-none">
+          <span className="font-heading text-xl font-semibold tracking-tight text-opera-ivory transition-colors group-hover:text-white">
+            Ópera
+          </span>
+          <span className="text-[10px] font-medium uppercase tracking-[0.28em] text-opera-warm/55 transition-colors group-hover:text-opera-amber/80">
+            Surgical Center
+          </span>
         </Link>
 
-        {/* DESKTOP NAV */}
-        <div className="hidden lg:flex items-center gap-16">
-          <div className="flex items-center gap-10">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
+        <nav className="hidden items-center gap-0.5 lg:flex" aria-label="Principal">
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href}>
+              <span
                 className={cn(
-                  "relative group py-2 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-500",
+                  "rounded-lg px-3 py-2 text-sm font-medium transition-all duration-500",
                   location === item.href
-                    ? "text-primary"
-                    : "text-white/30 hover:text-white",
+                    ? "bg-white/12 text-opera-ivory shadow-[inset_0_0_0_1px_rgba(174,147,56,0.25)]"
+                    : "text-opera-warm/70 hover:bg-white/8 hover:text-opera-ivory",
                 )}
               >
                 {item.label}
-                <motion.span
-                  className={cn(
-                    "absolute -bottom-1 left-0 w-full h-px bg-primary transform origin-right",
-                    location === item.href
-                      ? "scale-x-100"
-                      : "scale-x-0 group-hover:scale-x-100",
-                  )}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                />
-              </Link>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-8">
-            <button
-              onClick={() => setLanguage(language === "en" ? "es" : "en")}
-              className="group flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] font-bold text-white/20 hover:text-white transition-all duration-500"
-            >
-              <Globe className="w-3.5 h-3.5 transition-transform group-hover:rotate-12" />
-              <span>{language.toUpperCase()}</span>
-            </button>
-
-            <Link href="/agenda">
-              <button className="px-8 py-3 bg-white text-black text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-primary transition-all duration-500">
-                {t.nav.agendar}
-              </button>
+              </span>
             </Link>
-          </div>
-        </div>
+          ))}
+        </nav>
 
-        {/* MOBILE TOGGLE */}
+        <motion.div className="hidden items-center gap-2 lg:flex">
+          <button
+            type="button"
+            onClick={() => setLanguage(language === "en" ? "es" : "en")}
+            className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-opera-warm/70 backdrop-blur-sm transition-all duration-500 hover:border-opera-amber/30 hover:text-opera-ivory"
+          >
+            <Globe className="h-3.5 w-3.5" aria-hidden />
+            {language.toUpperCase()}
+          </button>
+          <Link href="/contacto">
+            <span className="opera-btn opera-btn-secondary !py-2.5 !text-xs">
+              {t.nav.visit}
+            </span>
+          </Link>
+        </motion.div>
+
         <button
-          className="lg:hidden w-12 h-12 flex items-center justify-center text-white border border-white/5 hover:border-primary/40 transition-all group"
-          onClick={() => setIsOpen(!isOpen)}
+          type="button"
+          className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-opera-ivory backdrop-blur-sm transition-all hover:border-opera-amber/35 lg:hidden"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          onClick={() => setIsOpen((v) => !v)}
         >
-          <AnimatePresence mode="wait">
-            {isOpen ? (
-              <X key="x" size={20} className="text-primary" />
-            ) : (
-              <Menu
-                key="menu"
-                size={20}
-                className="group-hover:scale-110 transition-transform"
-              />
-            )}
-          </AnimatePresence>
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </div>
+      </motion.div>
 
-      {/* MOBILE NAV (Editorial Style) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-3xl z-40 lg:hidden overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="border-t border-white/10 bg-[#0a1218]/95 backdrop-blur-2xl lg:hidden"
           >
-            <div className="flex flex-col h-full pt-40 px-12 pb-12 justify-between">
-              <div className="flex flex-col gap-10">
-                {navItems.map((item, idx) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.1 }}
+            <nav className="flex max-h-[70vh] flex-col gap-1 overflow-y-auto px-5 py-4" aria-label="Móvil">
+              {navItems.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
+                  <span
+                    className={cn(
+                      "block rounded-lg px-3 py-3 text-base font-medium transition-colors",
+                      location === item.href
+                        ? "bg-white/10 text-opera-ivory"
+                        : "text-opera-warm/75 hover:bg-white/5 hover:text-opera-ivory",
+                    )}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={cn(
-                        "relative group flex items-center gap-6 text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-none italic",
-                        location === item.href
-                          ? "text-primary"
-                          : "text-white/40",
-                      )}
-                    >
-                      <span className="text-xs font-mono text-white/10 group-hover:text-primary transition-colors">
-                        0{idx + 1}
-                      </span>
-                      {item.label}
-                      <ArrowUpRight className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0" />
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="pt-12 border-t border-white/5 flex flex-col gap-8"
+                    {item.label}
+                  </span>
+                </Link>
+              ))}
+              <button
+                type="button"
+                className="mt-2 flex items-center gap-2 rounded-lg px-3 py-3 text-left text-sm font-semibold uppercase tracking-wider text-opera-warm/60"
+                onClick={() => setLanguage(language === "en" ? "es" : "en")}
               >
-                <button
-                  onClick={() => setLanguage(language === "en" ? "es" : "en")}
-                  className="flex items-center gap-4 text-[11px] uppercase tracking-[0.4em] font-bold text-white/30"
-                >
-                  <Globe className="w-4 h-4 text-primary" />
-                  {t.nav.language_toggle}
-                </button>
-
-                <p className="text-[10px] uppercase tracking-[0.5em] font-bold text-primary/40 italic">
-                  {t.nav.agendar}
-                </p>
-              </motion.div>
-            </div>
-
-            {/* Close Button Inside Menu */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-12 right-12 w-14 h-14 border border-white/10 flex items-center justify-center text-primary"
-            >
-              <X size={24} />
-            </button>
+                <Globe className="h-4 w-4" />
+                {t.nav.language_toggle}
+              </button>
+              <Link href="/contacto" onClick={() => setIsOpen(false)}>
+                <span className="opera-btn opera-btn-primary mt-2 block w-full text-center">
+                  {t.nav.visit}
+                </span>
+              </Link>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 }

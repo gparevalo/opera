@@ -12,7 +12,10 @@ interface SEOProps {
   extraSchemas?: Array<Record<string, unknown>>;
 }
 
-const SITE_URL = "https://tosellmore.com";
+const SITE_URL =
+  (import.meta.env.VITE_SITE_URL as string | undefined)?.trim() ||
+  "https://operasurgicalcenter.com";
+
 const DEFAULT_OG_IMAGE = `${SITE_URL}/favicon.png`;
 
 function toAbsoluteUrl(path: string): string {
@@ -35,49 +38,46 @@ export function SEO({
   extraSchemas = [],
 }: SEOProps) {
   const { language, t } = useLanguage();
-  const baseTitle = `Mariángel Hernández | ${t.metadata.base_title_suffix}`;
+  const baseTitle = t.metadata.base_title_suffix;
   const finalTitle = title ? `${title} | ${baseTitle}` : baseTitle;
   const finalDescription = description || t.metadata.default_description;
   const canonicalUrl = toAbsoluteUrl(canonicalPath || "/");
-  const currentUrl = canonicalPath ? canonicalUrl : `${SITE_URL}${window.location.pathname}`;
+  const currentUrl =
+    typeof window !== "undefined"
+      ? `${SITE_URL}${window.location.pathname}`
+      : canonicalUrl;
   const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
 
   const defaultSchemas: Array<Record<string, unknown>> = includeDefaultSchemas
     ? [
         {
           "@context": "https://schema.org",
-          "@type": "Person",
-          name: "Mariángel Hernández",
-          jobTitle: "Fundadora de startups tecnológicas",
-          description:
-            "Fundadora de startups tecnológicas en Ecuador especializada en innovación empresarial, inteligencia artificial y desarrollo de negocios.",
+          "@type": "MedicalClinic",
+          name: "Ópera Surgical Center",
+          description: t.metadata.default_description,
           url: SITE_URL,
-          worksFor: [
-            { "@type": "Organization", name: "ToSellMore", url: "https://tosellmore.com" },
-            { "@type": "Organization", name: "nexito.ai", url: "https://nexito.ai" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Quito",
+            addressRegion: "Pichincha",
+            addressCountry: "EC",
+          },
+          medicalSpecialty: [
+            "SurgicalProcedure",
+            "PerioperativeCare",
+            "AmbulatorySurgicalCenter",
           ],
-          sameAs: [],
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "ToSellMore",
-          url: "https://tosellmore.com",
-          founder: { "@type": "Person", name: "Mariángel Hernández" },
-        },
-        {
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "nexito.ai",
-          url: "https://nexito.ai",
-          founder: { "@type": "Person", name: "Mariángel Hernández" },
         },
         {
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Mariángel Hernández",
+          name: "Ópera Surgical Center",
           url: SITE_URL,
           inLanguage: language,
+          potentialAction: {
+            "@type": "ContactAction",
+            target: `${SITE_URL}/contacto`,
+          },
         },
       ]
     : [];
@@ -98,7 +98,7 @@ export function SEO({
       <meta property="og:description" content={finalDescription} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:image" content={toAbsoluteUrl(ogImage)} />
-      <meta property="og:site_name" content="Mariángel Hernández" />
+      <meta property="og:site_name" content="Ópera Surgical Center" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={finalTitle} />

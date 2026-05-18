@@ -15,3 +15,8 @@ claude --model openrouter/free --api-provider openrouter
 
 
 ANTHROPIC_API_KEY="" ANTHROPIC_BASE_URL="https://openrouter.ai/api" ANTHROPIC_AUTH_TOKEN="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" claude --model openrouter/free 
+
+
+
+set -a && source .env && set +a
+claude

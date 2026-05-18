@@ -2,6 +2,7 @@ import { SEO } from "@/components/seo";
 import { BaseLayout } from "@/layout/base-layout";
 import { DifferentialsSection } from "./sections/DifferentialsSection";
 import { FinalCtaSection } from "./sections/FinalCtaSection";
+import HeroHome from "./sections/HeroHome";
 import { HeroSection } from "./sections/HeroSection";
 import { InfraPreviewSection } from "./sections/InfraPreviewSection";
 import { ProcessSection } from "./sections/ProcessSection";
@@ -30,6 +31,7 @@ export default function Home() {
           },
         ]}
       />
+      <HeroHome />
       <HeroSection />
       <DifferentialsSection />
       <SpecialistsWorkflowSection />

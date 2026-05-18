@@ -36,6 +36,7 @@
     "hero": {
       "eyebrow": "Surgical center · Quito",
       "headline": "The surgical backing your patients deserve.",
+      "headline2": "alta precisión.",
       "sub": "Specialized surgical center for medium- and low-complexity procedures with comprehensive perioperative support.",
       "trust1": "Institutional-grade protocols",
       "trust2": "Dedicated coordination",
@@ -45,12 +46,30 @@
       "title": "What sets Ópera apart",
       "subtitle": "A premium operating environment designed for predictable, safe, and efficient surgical days.",
       "items": {
-        "agility": { "title": "Operational agility", "body": "Lean scheduling and clear communication so procedures move with momentum." },
-        "safety": { "title": "Perioperative safety", "body": "Structured pathways, checklists, and clinical discipline at every step." },
-        "team": { "title": "In-house medical team", "body": "Experienced support so the specialist can stay focused on the procedure." },
-        "stay": { "title": "Short-stay model", "body": "Comfortable recovery aligned with ambulatory and short-hospitalization care." },
-        "infra": { "title": "Modern infrastructure", "body": "OR-ready spaces, controlled environments, and premium clinical aesthetics." },
-        "care": { "title": "End-to-end support", "body": "Coordination from assessment through follow-up—without administrative noise." }
+        "agility": {
+          "title": "Operational agility",
+          "body": "Lean scheduling and clear communication so procedures move with momentum."
+        },
+        "safety": {
+          "title": "Perioperative safety",
+          "body": "Structured pathways, checklists, and clinical discipline at every step."
+        },
+        "team": {
+          "title": "In-house medical team",
+          "body": "Experienced support so the specialist can stay focused on the procedure."
+        },
+        "stay": {
+          "title": "Short-stay model",
+          "body": "Comfortable recovery aligned with ambulatory and short-hospitalization care."
+        },
+        "infra": {
+          "title": "Modern infrastructure",
+          "body": "OR-ready spaces, controlled environments, and premium clinical aesthetics."
+        },
+        "care": {
+          "title": "End-to-end support",
+          "body": "Coordination from assessment through follow-up—without administrative noise."
+        }
       }
     },
     "b2b": {
@@ -58,23 +77,56 @@
       "title": "Designed so you can operate with clarity and confidence.",
       "lead": "Ópera simplifies surgical coordination: fewer friction points, clearer timelines, and institutional support around your practice.",
       "points": {
-        "admin": { "title": "Less administrative load", "body": "We absorb operational detail so your team is not chasing loose ends." },
-        "coord": { "title": "Aligned coordination", "body": "One accountable workflow across pre-op, intra-op, and recovery." },
-        "backup": { "title": "Clinical backup", "body": "Perioperative support structured to complement your medical leadership." },
-        "speed": { "title": "Responsive scheduling", "body": "Agile programming for predictable surgical blocks." },
-        "safety": { "title": "Safety-first culture", "body": "Standards, protocols, and traceability you can present to patients with confidence." },
-        "ops": { "title": "Operational partnership", "body": "A premium environment that elevates how your practice is perceived—before the first visit." }
+        "admin": {
+          "title": "Less administrative load",
+          "body": "We absorb operational detail so your team is not chasing loose ends."
+        },
+        "coord": {
+          "title": "Aligned coordination",
+          "body": "One accountable workflow across pre-op, intra-op, and recovery."
+        },
+        "backup": {
+          "title": "Clinical backup",
+          "body": "Perioperative support structured to complement your medical leadership."
+        },
+        "speed": {
+          "title": "Responsive scheduling",
+          "body": "Agile programming for predictable surgical blocks."
+        },
+        "safety": {
+          "title": "Safety-first culture",
+          "body": "Standards, protocols, and traceability you can present to patients with confidence."
+        },
+        "ops": {
+          "title": "Operational partnership",
+          "body": "A premium environment that elevates how your practice is perceived—before the first visit."
+        }
       }
     },
     "process": {
       "title": "Surgical journey",
       "subtitle": "A clear, enterprise-grade workflow from indication to follow-up.",
       "steps": {
-        "1": { "title": "Procedure assessment", "body": "Clinical and logistical feasibility aligned with your criteria." },
-        "2": { "title": "Preoperative coordination", "body": "Documentation, timing, and patient preparation under one orchestrated plan." },
-        "3": { "title": "Surgical scheduling", "body": "OR allocation with predictable turnover and premium readiness." },
-        "4": { "title": "Perioperative support", "body": "Dedicated team support through induction, procedure, and immediate recovery." },
-        "5": { "title": "Recovery & follow-up", "body": "Short-stay monitoring and structured continuity instructions." }
+        "1": {
+          "title": "Procedure assessment",
+          "body": "Clinical and logistical feasibility aligned with your criteria."
+        },
+        "2": {
+          "title": "Preoperative coordination",
+          "body": "Documentation, timing, and patient preparation under one orchestrated plan."
+        },
+        "3": {
+          "title": "Surgical scheduling",
+          "body": "OR allocation with predictable turnover and premium readiness."
+        },
+        "4": {
+          "title": "Perioperative support",
+          "body": "Dedicated team support through induction, procedure, and immediate recovery."
+        },
+        "5": {
+          "title": "Recovery & follow-up",
+          "body": "Short-stay monitoring and structured continuity instructions."
+        }
       }
     },
     "infra": {
@@ -115,9 +167,18 @@
     "mission": "To deliver modern infrastructure, disciplined coordination, and human perioperative care—so every procedure day feels controlled, calm, and excellent.",
     "pillars_title": "Pillars",
     "pillars": {
-      "excellence": { "title": "Medical excellence", "body": "Rigorous standards and continuous improvement across clinical and operational practice." },
-      "safety": { "title": "Safety culture", "body": "Structured checks, clear accountability, and environments designed for controlled workflows." },
-      "innovation": { "title": "Modern operations", "body": "Technology-forward processes that reduce friction for teams and patients." }
+      "excellence": {
+        "title": "Medical excellence",
+        "body": "Rigorous standards and continuous improvement across clinical and operational practice."
+      },
+      "safety": {
+        "title": "Safety culture",
+        "body": "Structured checks, clear accountability, and environments designed for controlled workflows."
+      },
+      "innovation": {
+        "title": "Modern operations",
+        "body": "Technology-forward processes that reduce friction for teams and patients."
+      }
     }
   },
   "infrastructure_page": {
@@ -131,11 +192,26 @@
     "cta_title": "Discuss a specialty pathway",
     "cta_body": "Tell us your specialty and typical case mix—we will map support, documentation, and scheduling.",
     "items": {
-      "plastic": { "name": "Plastic surgery", "desc": "Controlled environments for aesthetic and reconstructive procedures with discreet recovery." },
-      "trauma": { "name": "Orthopedic / trauma", "desc": "OR readiness and support for focused orthopedic interventions within our complexity scope." },
-      "gyn": { "name": "Gynecology", "desc": "Private coordination for gynecologic surgery with emphasis on comfort and clear perioperative communication." },
-      "uro": { "name": "Urology", "desc": "Efficient programming and equipment-aligned workflows for endoscopic and selected open procedures." },
-      "general": { "name": "General surgery", "desc": "Structured pathways for common surgical indications with short-stay optimization." }
+      "plastic": {
+        "name": "Plastic surgery",
+        "desc": "Controlled environments for aesthetic and reconstructive procedures with discreet recovery."
+      },
+      "trauma": {
+        "name": "Orthopedic / trauma",
+        "desc": "OR readiness and support for focused orthopedic interventions within our complexity scope."
+      },
+      "gyn": {
+        "name": "Gynecology",
+        "desc": "Private coordination for gynecologic surgery with emphasis on comfort and clear perioperative communication."
+      },
+      "uro": {
+        "name": "Urology",
+        "desc": "Efficient programming and equipment-aligned workflows for endoscopic and selected open procedures."
+      },
+      "general": {
+        "name": "General surgery",
+        "desc": "Structured pathways for common surgical indications with short-stay optimization."
+      }
     }
   },
   "specialists_page": {

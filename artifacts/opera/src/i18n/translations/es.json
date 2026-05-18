@@ -1,0 +1,179 @@
+{
+  "metadata": {
+    "base_title_suffix": "Ópera Surgical Center",
+    "default_description": "Infraestructura quirúrgica moderna en Quito para especialistas y pacientes referidos. Procedimientos de mediana y baja complejidad con acompañamiento perioperatorio integral."
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "infrastructure": "Infraestructura",
+    "specialties": "Especialidades",
+    "specialists": "Para especialistas",
+    "contact": "Contacto",
+    "visit": "Agendar visita",
+    "advisor": "Hablar con un asesor",
+    "installations": "Conocer instalaciones",
+    "language_toggle": "Español / EN"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Simplificamos procesos quirúrgicos y administrativos para que el especialista se enfoque en sus pacientes: infraestructura moderna, equipo médico interno y acompañamiento perioperatorio integral.",
+    "trusted_label": "Centro quirúrgico privado · Quito, Ecuador",
+    "nav_label": "Navegación",
+    "contact_label": "Contacto",
+    "legal_label": "Legal",
+    "privacy": "Privacidad",
+    "address_line": "Quito, Ecuador",
+    "designed_by": "Diseñado por PD Agencia"
+  },
+  "cta": {
+    "whatsapp": "WhatsApp",
+    "schedule": "Agendar visita",
+    "advisor": "Contactar asesor",
+    "mobile_bar": "Agendar visita o escribirnos"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Centro quirúrgico · Quito",
+      "headline": "Tecnología quirúrgica diseñada para procedimientos de",
+      "headline2": "alta precisión.",
+      "sub": "Infraestructura moderna, espacios estériles y equipamiento especializado para brindar seguridad, eficiencia y confianza en cada procedimiento.",
+      "trust1": "Protocolos de nivel institucional",
+      "trust2": "Coordinación dedicada",
+      "trust3": "Flujo perioperatorio moderno"
+    },
+    "diff": {
+      "eyebrow": "Diferenciales",
+      "title": "Diseñado para resultados predecibles",
+      "subtitle": "Un entorno quirúrgico premium pensado para jornadas seguras, predecibles y eficientes.",
+      "items": {
+        "agility": { "title": "Agilidad operativa", "body": "Programación ágil y comunicación clara para que los procedimientos avancen con ritmo." },
+        "safety": { "title": "Seguridad perioperatoria", "body": "Rutas estructuradas, listas de verificación y disciplina clínica en cada etapa." },
+        "team": { "title": "Equipo médico interno", "body": "Respaldo experimentado para que el especialista mantenga el foco en el acto quirúrgico." },
+        "stay": { "title": "Hospitalización corta", "body": "Recuperación confortable alineada con cirugía ambulatoria y estadía breve." },
+        "infra": { "title": "Infraestructura moderna", "body": "Espacios listos para quirófano, ambientes controlados y estética clínica premium." },
+        "care": { "title": "Acompañamiento integral", "body": "Coordinación desde la evaluación hasta el seguimiento, sin ruido administrativo." }
+      }
+    },
+    "b2b": {
+      "eyebrow": "Pensado para especialistas",
+      "title": "Diseñado para que operes con claridad y tranquilidad.",
+      "lead": "Ópera simplifica la coordinación quirúrgica: menos fricción, tiempos claros y respaldo institucional alrededor de tu práctica.",
+      "points": {
+        "admin": { "title": "Menos carga administrativa", "body": "Absorbemos el detalle operativo para que tu equipo no persiga cabos sueltos." },
+        "coord": { "title": "Coordinación alineada", "body": "Un solo flujo responsable entre preoperatorio, intraoperatorio y recuperación." },
+        "backup": { "title": "Respaldo clínico", "body": "Soporte perioperatorio estructurado para complementar tu liderazgo médico." },
+        "speed": { "title": "Rapidez en programación", "body": "Agenda reactiva y bloques quirúrgicos predecibles." },
+        "safety": { "title": "Cultura de seguridad", "body": "Estándares, protocolos y trazabilidad que puedes transmitir a tus pacientes con confianza." },
+        "ops": { "title": "Partnership operativo", "body": "Un entorno premium que eleva la percepción de tu práctica antes del primer contacto." }
+      }
+    },
+    "process": {
+      "eyebrow": "Proceso quirúrgico",
+      "title": "Flujo claro de la indicación al seguimiento",
+      "subtitle": "Un flujo claro y ordenado, tipo enterprise healthcare, de la indicación al seguimiento.",
+      "steps": {
+        "1": { "title": "Evaluación del procedimiento", "body": "Viabilidad clínica y logística alineada a tus criterios." },
+        "2": { "title": "Coordinación preoperatoria", "body": "Documentación, tiempos y preparación del paciente bajo un solo plan orquestado." },
+        "3": { "title": "Programación quirúrgica", "body": "Asignación de quirófano con turnover predecible y readiness premium." },
+        "4": { "title": "Soporte perioperatorio", "body": "Equipo dedicado en inducción, procedimiento y recuperación inmediata." },
+        "5": { "title": "Recuperación y seguimiento", "body": "Monitoreo de estadía corta e instrucciones de continuidad estructuradas." }
+      }
+    },
+    "infra": {
+      "eyebrow": "Infraestructura",
+      "title": "Infraestructura que se ve y se siente",
+      "subtitle": "Espacios pensados para esterilidad, calma y precisión—sin el cliché frío del hospital tradicional.",
+      "labels": {
+        "or": "Quirófanos",
+        "rec": "Recuperación",
+        "short": "Hospitalización corta",
+        "equip": "Equipamiento",
+        "areas": "Áreas médicas",
+        "sterile": "Esterilización",
+        "reception": "Recepción"
+      },
+      "link": "Ver infraestructura completa"
+    },
+    "trust": {
+      "eyebrow": "Confianza",
+      "title": "Confianza, estándares y calma institucional",
+      "subtitle": "Respondemos a las objeciones que más importan a especialistas y pacientes referidos—antes de que se planteen.",
+      "bullets": {
+        "protocols": "Cultura basada en protocolos con estándares perioperatorios trazables.",
+        "staff": "Equipo interno experimentado, alineado al liderazgo médico del especialista.",
+        "support": "Respaldo integral en programación, preparación y recuperación.",
+        "modern": "Entorno moderno y premium que comunica seriedad y control."
+      }
+    },
+    "final": {
+      "title": "Agenda una visita y conoce cómo Ópera puede optimizar tu práctica quirúrgica.",
+      "sub": "Te mostramos flujos, espacios y coordinación—sin presión, con total transparencia."
+    }
+  },
+  "about": {
+    "title": "Nosotros",
+    "intro": "Ópera Surgical Center es un centro quirúrgico privado en Quito, orientado a procedimientos de mediana y baja complejidad, con una experiencia premium para especialistas y pacientes.",
+    "vision_title": "Visión",
+    "vision": "Ser el centro quirúrgico privado de referencia en Ecuador para especialistas que exigen agilidad, seguridad y respaldo institucional.",
+    "mission_title": "Misión",
+    "mission": "Ofrecer infraestructura moderna, coordinación disciplinada y acompañamiento perioperatorio humano—para que cada jornada quirúrgica se sienta controlada, serena y excelente.",
+    "pillars_title": "Pilares",
+    "pillars": {
+      "excellence": { "title": "Excelencia médica", "body": "Estándares rigurosos y mejora continua en la práctica clínica y operativa." },
+      "safety": { "title": "Cultura de seguridad", "body": "Listas de verificación, responsabilidades claras y entornos diseñados para flujos controlados." },
+      "innovation": { "title": "Innovación operativa", "body": "Procesos modernos que reducen fricción para equipos y pacientes." }
+    }
+  },
+  "infrastructure_page": {
+    "title": "Infraestructura",
+    "intro": "Recorrido visual de los espacios que sostienen resultados quirúrgicos predecibles: quirófanos, recuperación, estadía corta, esterilización y recepción premium.",
+    "gallery_caption": "Ambientes representativos—iluminación, materiales y circulación pensados para trabajo clínico de alto nivel."
+  },
+  "specialties_page": {
+    "title": "Especialidades",
+    "intro": "Estructura preparada para SEO y claridad. Cada especialidad describe cómo Ópera respalda tus procedimientos con infraestructura y acompañamiento perioperatorio.",
+    "cta_title": "Conversemos sobre tu especialidad",
+    "cta_body": "Indícanos tu especialidad y mix de casos: mapeamos soporte, documentación y programación.",
+    "items": {
+      "plastic": { "name": "Cirugía plástica", "desc": "Entornos controlados para procedimientos estéticos y reconstructivos con recuperación discreta." },
+      "trauma": { "name": "Traumatología / ortopedia", "desc": "Preparación de quirófano y soporte para intervenciones ortopédicas focalizadas dentro de nuestro alcance de complejidad." },
+      "gyn": { "name": "Ginecología", "desc": "Coordinación privada para cirugía ginecológica con énfasis en confort y comunicación perioperatoria clara." },
+      "uro": { "name": "Urología", "desc": "Programación eficiente y flujos alineados a equipamiento para procedimientos endoscópicos y abiertos seleccionados." },
+      "general": { "name": "Cirugía general", "desc": "Rutas estructuradas para indicaciones quirúrgicas frecuentes con optimización de estadía corta." }
+    }
+  },
+  "specialists_page": {
+    "title": "Para especialistas",
+    "intro": "Ópera existe para quitar fricción a tu práctica quirúrgica: coordinación, entorno y percepción institucional—alineados a tu liderazgo en el quirófano.",
+    "why_title": "Por qué operar en Ópera",
+    "why": "Mantienes la autoridad médica mientras elevamos la precisión operativa: disciplina de agenda, staffing perioperatorio y experiencia premium que refleja tu marca.",
+    "how_title": "Cómo funciona",
+    "how": "Partimos del perfil de casos y preferencias, alineamos protocolos y co-diseñamos programación y comunicación con el paciente—para que el día de cirugía se sienta inevitable, no improvisado.",
+    "back_title": "Qué respaldo ofrecemos",
+    "back": "Soporte médico interno, coordinación institucional y un centro construido para comunicar seguridad antes de decir una palabra.",
+    "schedule_title": "Cómo programar procedimientos",
+    "schedule": "Contacta a coordinación con el procedimiento propuesto y ventana de tiempo. Respondemos con un plan estructurado—checklist documental y timeline de readiness de quirófano."
+  },
+  "contact_page": {
+    "title": "Contacto",
+    "intro": "Canales rápidos para especialistas, pacientes y socios internacionales. WhatsApp enruta de inmediato a coordinación.",
+    "form_name": "Nombre completo",
+    "form_email": "Correo electrónico",
+    "form_phone": "Teléfono",
+    "form_role": "Soy",
+    "form_role_specialist": "Especialista",
+    "form_role_patient": "Paciente / familiar",
+    "form_role_partner": "Socio / institución",
+    "form_message": "Mensaje",
+    "form_submit": "Enviar solicitud",
+    "form_note": "Este formulario abre tu cliente de correo con un mensaje prellenado; no almacenamos datos.",
+    "map_title": "Ubicación",
+    "quick": "Acciones rápidas"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "button": "Volver al inicio"
+  }
+}

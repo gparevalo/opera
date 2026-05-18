@@ -1,25 +1,36 @@
+# obsidian - papwer clip
+
+# Instalar modelo ollama
+
+ollama pull qwen3:8b
+ollama pull qwen3-coder
+ollama pull gpt-oss:20b
+
+ollama cp qwen3-coder claude-3-5-sonnet
 
 
-claude --model openrouter/free
+# Contenido .env
+ANTHROPIC_BASE_URL=http://localhost:11434
+ANTHROPIC_API_KEY=ollama
+ANTHROPIC_AUTH_TOKEN=ollama
+ANTHROPIC_MODEL=claude-3-5-sonnet
 
 
-obsidian
-
-papwer clip
-
-
-export ANTHROPIC_API_KEY="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"
-export OPENROUTER_API_KEY="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"
-claude --model openrouter/free --api-provider openrouter
+# Variables de entorno
+export ANTHROPIC_BASE_URL=http://localhost:11434
+export ANTHROPIC_API_KEY=ollama
+export ANTHROPIC_AUTH_TOKEN=ollama
+export ANTHROPIC_MODEL=claude-3-5-sonnet
 
 
+# Test 
+curl http://localhost:11434/api/tags
 
-ANTHROPIC_API_KEY="" ANTHROPIC_BASE_URL="https://openrouter.ai/api" ANTHROPIC_AUTH_TOKEN="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" claude --model openrouter/free 
 
-
-
+# Iniciar claude
 set -a && source .env && set +a
 claude
 
 
+# Listar todos los modelos instalados
 du -sh ~/.ollama

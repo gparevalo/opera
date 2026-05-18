@@ -4,12 +4,12 @@ import { OPERA_CONTACT_EMAIL, whatsappHref } from "@/lib/site";
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 
 const NAV_LINKS = [
-  { href: "/", labelKey: "home" },
-  { href: "/nosotros", labelKey: "about" },
-  { href: "/infraestructura", labelKey: "infrastructure" },
-  { href: "/especialidades", labelKey: "specialties" },
-  { href: "/para-especialistas", labelKey: "specialists" },
-  { href: "/contacto", labelKey: "contact" },
+  { href: "/", key: "home" },
+  { href: "/nosotros", key: "about" },
+  { href: "/infraestructura", key: "infrastructure" },
+  { href: "/especialidades", key: "specialties" },
+  { href: "/para-especialistas", key: "specialists" },
+  { href: "/contacto", key: "contact" },
 ] as const;
 
 export function Footer() {
@@ -18,44 +18,51 @@ export function Footer() {
 
   const whatsappMsg =
     language === "es"
-      ? "Hola, me gustaría más información sobre Ópera."
-      : "Hello, I would like information about Ópera.";
+      ? "Hola, me gustaría más información sobre Ópera Surgical Center."
+      : "Hello, I would like more information about Ópera Surgical Center.";
 
   return (
-    <footer className="opera-footer">
-      {/* Gradient top line */}
+    <footer className="footer-bg relative overflow-hidden">
       <div className="amber-line" />
 
-      <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-12 py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="lg:col-span-2 max-w-sm">
-            <Link href="/">
-              <span className="flex items-center gap-2.5 cursor-pointer mb-4">
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none" aria-hidden>
-                  <circle cx="14" cy="14" r="13.25" stroke="rgba(174,147,56,0.5)" strokeWidth="1.5" />
-                  <circle cx="14" cy="14" r="9" fill="rgba(0,72,117,0.6)" />
-                  <circle cx="14" cy="14" r="5.5" fill="none" stroke="rgba(174,147,56,0.65)" strokeWidth="1" />
-                  <circle cx="14" cy="14" r="2.25" fill="rgba(174,147,56,0.9)" />
-                </svg>
-                <span className="font-heading text-base font-black text-opera-ivory tracking-tight">
-                  Ópera <span className="font-medium opacity-60 text-sm">Surgical Center</span>
-                </span>
-              </span>
-            </Link>
-            <p className="text-sm text-opera-ivory/55 leading-relaxed">{t.footer.tagline}</p>
-            <p className="mt-3 text-xs text-opera-amber/70 font-medium tracking-wide uppercase">{t.footer.trusted_label}</p>
+      <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12 py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-[1.8fr_1fr_1.2fr]">
+
+          {/* Brand column */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden>
+                <circle cx="17" cy="17" r="16" stroke="rgba(201,168,76,0.4)" strokeWidth="1" />
+                <circle cx="17" cy="17" r="11" fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.2)" strokeWidth="1" />
+                <circle cx="17" cy="17" r="6" fill="none" stroke="rgba(201,168,76,0.4)" strokeWidth="1" />
+                <circle cx="17" cy="17" r="2.5" fill="var(--op-amber)" />
+                <line x1="17" y1="6" x2="17" y2="11" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
+                <line x1="17" y1="23" x2="17" y2="28" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
+                <line x1="6" y1="17" x2="11" y2="17" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
+                <line x1="23" y1="17" x2="28" y2="17" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
+              </svg>
+              <div className="leading-none">
+                <p className="font-display font-black text-[16px] tracking-tight" style={{ color: "var(--op-white)" }}>ÓPERA</p>
+                <p className="text-[9px] font-medium uppercase tracking-[0.22em] mt-0.5" style={{ color: "var(--op-amber)" }}>Surgical Center</p>
+              </div>
+            </div>
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: "var(--op-mist)" }}>
+              {t.footer.tagline}
+            </p>
+            <p className="mt-4 text-[10.5px] font-semibold uppercase tracking-[0.2em]" style={{ color: "var(--op-amber)" }}>
+              {t.footer.trusted_label}
+            </p>
           </div>
 
-          {/* Navigation */}
+          {/* Nav */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-opera-ivory/40 mb-4">{t.footer.nav_label}</p>
-            <ul className="flex flex-col gap-2">
+            <p className="t-label mb-5">{t.footer.nav_label}</p>
+            <ul className="flex flex-col gap-2.5">
               {NAV_LINKS.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href}>
-                    <span className="text-sm text-opera-ivory/60 hover:text-opera-ivory transition-colors cursor-pointer">
-                      {t.nav[item.labelKey]}
+                    <span className="text-sm transition-colors cursor-pointer hover:text-white" style={{ color: "var(--op-mist)" }}>
+                      {t.nav[item.key]}
                     </span>
                   </Link>
                 </li>
@@ -65,31 +72,27 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-opera-ivory/40 mb-4">{t.footer.contact_label}</p>
-            <ul className="flex flex-col gap-3">
+            <p className="t-label mb-5">{t.footer.contact_label}</p>
+            <ul className="flex flex-col gap-3.5">
               <li>
-                <a
-                  href={whatsappHref(whatsappMsg)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-sm text-opera-ivory/60 hover:text-opera-ivory transition-colors"
-                >
-                  <MessageCircle className="h-4 w-4 text-emerald-400 shrink-0" aria-hidden />
+                <a href={whatsappHref(whatsappMsg)} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm transition-colors hover:text-white"
+                  style={{ color: "var(--op-mist)" }}>
+                  <MessageCircle className="h-4 w-4 shrink-0" style={{ color: "#25D366" }} />
                   WhatsApp
                 </a>
               </li>
               <li>
-                <a
-                  href={`mailto:${OPERA_CONTACT_EMAIL}`}
-                  className="flex items-center gap-2.5 text-sm text-opera-ivory/60 hover:text-opera-ivory transition-colors break-all"
-                >
-                  <Mail className="h-4 w-4 text-opera-amber/70 shrink-0" aria-hidden />
+                <a href={`mailto:${OPERA_CONTACT_EMAIL}`}
+                  className="flex items-start gap-3 text-sm transition-colors hover:text-white break-all"
+                  style={{ color: "var(--op-mist)" }}>
+                  <Mail className="h-4 w-4 shrink-0 mt-0.5" style={{ color: "var(--op-amber)" }} />
                   {OPERA_CONTACT_EMAIL}
                 </a>
               </li>
               <li>
-                <span className="flex items-center gap-2.5 text-sm text-opera-ivory/40">
-                  <MapPin className="h-4 w-4 text-opera-amber/50 shrink-0" aria-hidden />
+                <span className="flex items-center gap-3 text-sm" style={{ color: "rgba(138,144,153,0.5)" }}>
+                  <MapPin className="h-4 w-4 shrink-0" style={{ color: "rgba(201,168,76,0.5)" }} />
                   {t.footer.address_line}
                 </span>
               </li>
@@ -97,12 +100,14 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/08 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-opera-ivory/30">
-            © {year} Ópera Surgical Center. {t.footer.rights}
+        <div className="mt-14 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <p className="text-xs" style={{ color: "rgba(138,144,153,0.4)" }}>
+            © {year} Ópera Surgical Center · {t.footer.rights}
           </p>
-          <p className="text-xs text-opera-ivory/25">{t.footer.designed_by}</p>
+          <p className="text-xs" style={{ color: "rgba(138,144,153,0.3)" }}>
+            {t.footer.designed_by}
+          </p>
         </div>
       </div>
     </footer>

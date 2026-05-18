@@ -1,22 +1,23 @@
 import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n";
 import { Layout } from "@/layout/Layout";
-import { SectionHeader } from "@/components/site/SectionHeader";
 import { motion } from "framer-motion";
 import { whatsappHref } from "@/lib/site";
-import { CheckCircle2, MessageCircle, CalendarDays } from "lucide-react";
+import { CheckCircle2, MessageCircle, Calendar, Star, Settings, Shield, CalendarDays } from "lucide-react";
 import { Link } from "wouter";
 
-const SECTIONS = [
-  { key: "why_title", bodyKey: "why", icon: "🎯" },
-  { key: "how_title", bodyKey: "how", icon: "⚙️" },
-  { key: "back_title", bodyKey: "back", icon: "🛡️" },
-  { key: "schedule_title", bodyKey: "schedule", icon: "📅" },
-] as const;
+const SECTION_ICONS = [Star, Settings, Shield, CalendarDays];
 
 export default function ForSpecialistsPage() {
   const { t, language } = useLanguage();
   const sp = t.specialists_page;
+
+  const SECTIONS = [
+    { key: "why_title" as const, bodyKey: "why" as const, icon: SECTION_ICONS[0] },
+    { key: "how_title" as const, bodyKey: "how" as const, icon: SECTION_ICONS[1] },
+    { key: "back_title" as const, bodyKey: "back" as const, icon: SECTION_ICONS[2] },
+    { key: "schedule_title" as const, bodyKey: "schedule" as const, icon: SECTION_ICONS[3] },
+  ];
 
   const whatsappMsg =
     language === "es"
@@ -31,44 +32,68 @@ export default function ForSpecialistsPage() {
       </Helmet>
 
       <Layout>
-        {/* Hero */}
-        <section className="opera-page-hero py-28 md:py-40">
-          <div className="scene-glow" />
-          <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
+        {/* ── Hero ── */}
+        <section className="relative s-ink overflow-hidden py-32 md:py-44">
+          <div className="scene-glow-dark" />
+          <div className="grain-overlay" />
+          <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none" aria-hidden>
+            <svg viewBox="0 0 600 700" className="w-full h-full opacity-[0.04]" preserveAspectRatio="xMinYMid slice">
+              <circle cx="300" cy="350" r="300" fill="none" stroke="white" strokeWidth="1" />
+              <circle cx="300" cy="350" r="200" fill="none" stroke="white" strokeWidth="0.75" />
+              <circle cx="300" cy="350" r="100" fill="none" stroke="white" strokeWidth="0.5" />
+              <path d="M 50 350 L 300 100 L 550 350 L 300 600 Z" fill="none" stroke="white" strokeWidth="0.3" />
+            </svg>
+          </div>
+          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-3xl"
             >
-              <p className="opera-eyebrow mb-4">{t.home.b2b.eyebrow}</p>
-              <h1 className="opera-display max-w-2xl">{sp.title}</h1>
-              <p className="opera-lead mt-5 max-w-2xl">{sp.intro}</p>
+              <span className="t-eyebrow">{t.home.b2b.eyebrow}</span>
+              <h1 className="t-display-xl mt-6">{sp.title}</h1>
+              <p className="t-lead mt-6 max-w-2xl">{sp.intro}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="/contacto">
+                  <span className="btn btn-amber btn-lg flex items-center gap-2">
+                    <Calendar className="h-5 w-5" />
+                    {language === "es" ? "Agendar recorrido" : "Book tour"}
+                  </span>
+                </Link>
+                <a href={whatsappHref(whatsappMsg)} target="_blank" rel="noopener noreferrer"
+                  className="btn btn-ghost btn-lg flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5" />
+                  WhatsApp
+                </a>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Content sections */}
-        <section className="opera-section opera-section-midnight py-24 md:py-36">
-          <div className="scene-glow" />
-          <div className="mx-auto max-w-7xl px-5 md:px-8 lg:px-12">
-            <div className="grid gap-8 md:grid-cols-2">
-              {SECTIONS.map(({ key, bodyKey, icon }, i) => (
+        {/* ── Content ── */}
+        <section className="s-graphite py-24 md:py-36 overflow-hidden">
+          <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+            <div className="grid gap-5 md:grid-cols-2">
+              {SECTIONS.map(({ key, bodyKey, icon: Icon }, i) => (
                 <motion.div
                   key={key}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.75, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="opera-glass-card-dark"
+                  className="card-glass p-8"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="opera-icon-well-dark shrink-0 text-xl">{icon}</div>
+                    <div className="icon-well shrink-0">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
                     <div>
-                      <h2 className="font-heading font-bold text-opera-ivory text-lg mb-3">
-                        {sp[key as keyof typeof sp] as string}
+                      <h2 className="t-headline mb-3" style={{ fontSize: "1.125rem" }}>
+                        {sp[key] as string}
                       </h2>
-                      <p className="text-sm leading-relaxed text-opera-ivory/55">
-                        {sp[bodyKey as keyof typeof sp] as string}
+                      <p className="t-body text-sm leading-relaxed">
+                        {sp[bodyKey] as string}
                       </p>
                     </div>
                   </div>
@@ -82,21 +107,19 @@ export default function ForSpecialistsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-12 opera-glass-card-dark"
+              className="mt-6 card-glass p-8"
             >
-              <SectionHeader
-                eyebrow={t.home.b2b.eyebrow}
-                title={t.home.b2b.title}
-                light
-                className="mb-8"
-              />
-              <div className="grid gap-3 sm:grid-cols-2">
+              <div className="mb-8">
+                <span className="t-eyebrow">{t.home.b2b.eyebrow}</span>
+                <h2 className="t-display mt-4">{t.home.b2b.title}</h2>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
                 {Object.values(t.home.b2b.points).map((point) => (
                   <div key={point.title} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-opera-amber/70 shrink-0 mt-0.5" aria-hidden />
+                    <CheckCircle2 className="h-5 w-5 shrink-0 mt-0.5" style={{ color: "rgba(201,168,76,0.7)" }} aria-hidden />
                     <div>
-                      <p className="text-sm font-semibold text-opera-ivory">{point.title}</p>
-                      <p className="text-xs text-opera-ivory/45 mt-0.5">{point.body}</p>
+                      <p className="text-sm font-semibold" style={{ color: "var(--op-ivory)" }}>{point.title}</p>
+                      <p className="text-xs leading-relaxed mt-0.5" style={{ color: "rgba(138,144,153,0.7)" }}>{point.body}</p>
                     </div>
                   </div>
                 ))}
@@ -105,35 +128,32 @@ export default function ForSpecialistsPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section
-          className="opera-section py-24 md:py-32"
-          style={{ background: "linear-gradient(160deg, #003a5c, #004875, #003050)" }}
-        >
-          <div className="mx-auto max-w-4xl px-5 md:px-8 lg:px-12">
+        {/* ── CTA ── */}
+        <section className="s-ink py-24 md:py-36 overflow-hidden relative">
+          <div className="scene-glow-dark" />
+          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="opera-cta-panel"
+              className="cta-panel-dark py-16 px-8 md:px-14 text-center"
             >
-              <h2 className="opera-display">{t.home.final.title}</h2>
-              <p className="opera-lead mt-4">{t.home.final.sub}</p>
+              <span className="t-eyebrow justify-center">
+                {language === "es" ? "Hablemos de tu práctica" : "Let's talk about your practice"}
+              </span>
+              <h2 className="t-display mt-6 mx-auto max-w-2xl">{t.home.final.title}</h2>
+              <p className="t-lead mt-4 mx-auto max-w-lg">{t.home.final.sub}</p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link href="/contacto">
-                  <span className="opera-btn opera-btn-primary">
-                    <CalendarDays className="h-4 w-4" aria-hidden />
+                  <span className="btn btn-amber btn-lg flex items-center gap-2">
+                    <Calendar className="h-5 w-5" />
                     {t.nav.visit}
                   </span>
                 </Link>
-                <a
-                  href={whatsappHref(whatsappMsg)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="opera-btn opera-btn-whatsapp"
-                >
-                  <MessageCircle className="h-4 w-4" aria-hidden />
+                <a href={whatsappHref(whatsappMsg)} target="_blank" rel="noopener noreferrer"
+                  className="btn btn-ghost btn-lg flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5" />
                   WhatsApp
                 </a>
               </div>

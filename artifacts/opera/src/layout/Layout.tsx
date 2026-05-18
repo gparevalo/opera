@@ -12,10 +12,10 @@ interface LayoutProps {
 
 export function Layout({ children, navTransparent = false }: LayoutProps) {
   return (
-    <div className="opera-canvas min-h-screen">
+    <div style={{ background: "var(--op-ink)", minHeight: "100vh" }}>
       <ScrollProgress />
       <Navbar transparent={navTransparent} />
-      <main className="pt-14">{children}</main>
+      <main className="pt-[60px]">{children}</main>
       <Footer />
       <WhatsAppFab />
       <MobileCtaBar />

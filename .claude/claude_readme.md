@@ -20,3 +20,6 @@ ANTHROPIC_API_KEY="" ANTHROPIC_BASE_URL="https://openrouter.ai/api" ANTHROPIC_AU
 
 set -a && source .env && set +a
 claude
+
+
+du -sh ~/.ollama

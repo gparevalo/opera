@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { I18nProvider } from "@/i18n";
 import { useLenis } from "@/hooks/useLenis";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 import HomePage from "@/pages/Home/index";
 import AboutPage from "@/pages/About";
@@ -18,15 +19,18 @@ const queryClient = new QueryClient();
 function AppRoutes() {
   useLenis();
   return (
-    <Switch>
-      <Route path="/" component={HomePage} />
-      <Route path="/nosotros" component={AboutPage} />
-      <Route path="/infraestructura" component={InfrastructurePage} />
-      <Route path="/especialidades" component={SpecialtiesPage} />
-      <Route path="/para-especialistas" component={ForSpecialistsPage} />
-      <Route path="/contacto" component={ContactPage} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <ScrollToTop />
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/nosotros" component={AboutPage} />
+        <Route path="/infraestructura" component={InfrastructurePage} />
+        <Route path="/especialidades" component={SpecialtiesPage} />
+        <Route path="/para-especialistas" component={ForSpecialistsPage} />
+        <Route path="/contacto" component={ContactPage} />
+        <Route component={NotFound} />
+      </Switch>
+    </>
   );
 }
 

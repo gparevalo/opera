@@ -1,0 +1,299 @@
+# FASE 2 — PERFORMANCE, RENDERIZADO Y SEO TÉCNICO AVANZADO
+
+Quiero trabajar únicamente la FASE 2 del proyecto SEO.
+
+La prioridad ahora es:
+
+* performance,
+* renderizado,
+* indexabilidad real,
+* Core Web Vitals,
+* SSR,
+* crawlability avanzada,
+* y optimización técnica para buscadores e IA.
+
+NO quiero cambios visuales agresivos ni rediseños completos.
+
+---
+
+# OBJETIVO
+
+Optimizar el sitio para que:
+
+* cargue rápido,
+* sea correctamente renderizado,
+* sea completamente indexable,
+* funcione bien en mobile,
+* y esté preparado para Google, AI Overviews y motores de IA.
+
+---
+
+# ANALIZAR TODO EL PROYECTO
+
+Analiza:
+
+* renderizado,
+* carga inicial,
+* hydration,
+* JavaScript,
+* imágenes,
+* animaciones,
+* scroll effects,
+* layouts,
+* fuentes,
+* bundles,
+* scripts,
+* lazy loading,
+* componentes pesados,
+* mobile rendering,
+* crawler accessibility,
+* SSR/CSR.
+
+---
+
+# AUDITORÍA DE PERFORMANCE
+
+Analizar:
+
+* Largest Contentful Paint (LCP)
+* First Input Delay (FID/INP)
+* Cumulative Layout Shift (CLS)
+* Time To First Byte (TTFB)
+* render blocking
+* hydration cost
+* bundle size
+* unused JavaScript
+* unused CSS
+* layout shifts
+* oversized assets
+
+Detectar:
+
+* cuellos de botella,
+* componentes pesados,
+* problemas de renderizado,
+* animaciones costosas,
+* exceso de re-renders.
+
+---
+
+# SSR Y RENDERIZADO — CRÍTICO
+
+Validar:
+
+* qué contenido se renderiza server-side,
+* qué contenido depende completamente de JS,
+* qué contenido no puede leer un crawler,
+* qué secciones podrían perder indexación.
+
+Priorizar:
+
+* SSR,
+* contenido HTML visible,
+* semantic rendering,
+* indexabilidad real.
+
+Evitar:
+
+* páginas vacías para crawlers,
+* renderizado exclusivamente client-side,
+* contenido importante oculto en animaciones.
+
+---
+
+# SCROLL Y ANIMACIONES — MUY IMPORTANTE
+
+El sitio tiene:
+
+* motion,
+* animaciones,
+* posibles efectos 3D,
+* scrollytelling.
+
+Optimizar para que:
+
+* no rompan SEO,
+* no destruyan performance,
+* no afecten mobile,
+* no oculten contenido crítico,
+* no generen CLS.
+
+Mantener:
+
+* fallback semántico,
+* HTML indexable,
+* accesibilidad del contenido.
+
+---
+
+# OPTIMIZACIÓN DE IMÁGENES
+
+Analizar:
+
+* formatos,
+* tamaños,
+* responsive loading,
+* lazy loading,
+* imágenes innecesarias,
+* imágenes pesadas,
+* compresión.
+
+Implementar:
+
+* next/image o equivalente,
+* formatos modernos,
+* responsive sizing,
+* carga optimizada.
+
+---
+
+# OPTIMIZACIÓN DE FUENTES
+
+Revisar:
+
+* cantidad de fuentes,
+* weights innecesarios,
+* FOIT/FOUT,
+* preload correcto,
+* impacto visual y performance.
+
+---
+
+# BUNDLES Y JAVASCRIPT
+
+Analizar:
+
+* tamaño de bundles,
+* imports innecesarios,
+* librerías pesadas,
+* dependencias duplicadas,
+* scripts bloqueantes.
+
+Optimizar:
+
+* code splitting,
+* lazy imports,
+* dynamic imports,
+* tree shaking,
+* reducción de JS innecesario.
+
+---
+
+# MOBILE PERFORMANCE
+
+Validar:
+
+* velocidad mobile,
+* estabilidad visual,
+* interacción táctil,
+* layout responsive,
+* scroll smoothness,
+* performance en dispositivos lentos.
+
+Priorizar mobile-first.
+
+---
+
+# ACCESIBILIDAD TÉCNICA
+
+Analizar:
+
+* aria labels,
+* semantic HTML,
+* keyboard navigation,
+* contraste,
+* navegación accesible,
+* lectores de pantalla.
+
+---
+
+# GEO / AI SEO TÉCNICO
+
+Preparar el sitio para:
+
+* Google AI Overviews,
+* ChatGPT browsing,
+* Gemini,
+* Claude,
+* Perplexity,
+* motores RAG.
+
+Asegurar:
+
+* HTML entendible,
+* contenido renderizado,
+* headings claros,
+* estructura semántica,
+* crawlability limpia.
+
+---
+
+# IMPLEMENTACIONES QUE SÍ PUEDES HACER
+
+Puedes:
+
+* optimizar renderizado,
+* mejorar SSR,
+* mejorar hydration,
+* optimizar imágenes,
+* optimizar bundles,
+* optimizar carga,
+* mejorar lazy loading,
+* mejorar Core Web Vitals,
+* mejorar mobile performance,
+* optimizar scripts,
+* mejorar semantic rendering.
+
+---
+
+# IMPLEMENTACIONES QUE NO QUIERO TODAVÍA
+
+NO tocar:
+
+* branding,
+* copywriting,
+* estructura comercial,
+* diseño general,
+* arquitectura SEO,
+* cambios masivos de UI,
+* rediseños completos.
+
+---
+
+# PRIORIDADES
+
+Priorizar:
+
+1. indexabilidad real,
+2. Core Web Vitals,
+3. SSR,
+4. mobile performance,
+5. estabilidad visual,
+6. renderizado semántico,
+7. performance escalable.
+
+---
+
+# EVITAR
+
+NO hacer:
+
+* hacks inseguros,
+* optimizaciones destructivas,
+* ocultar contenido importante,
+* sacrificar UX por métricas,
+* animaciones bloqueantes,
+* dependencias innecesarias.
+
+---
+
+# RESULTADO ESPERADO
+
+Quiero terminar esta fase con:
+
+* un sitio rápido,
+* completamente indexable,
+* optimizado para mobile,
+* preparado para SEO moderno,
+* preparado para motores de IA,
+* y con una base técnica sólida y escalable.

@@ -30,23 +30,24 @@ export default function ContactPage() {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    borderRadius: "0.625rem",
-    border: "1px solid rgba(255,255,255,0.08)",
-    background: "rgba(255,255,255,0.03)",
-    padding: "0.75rem 1rem",
+    borderRadius: "0.75rem",
+    border: "1px solid var(--op-border)",
+    background: "var(--op-canvas)",
+    padding: "0.8125rem 1rem",
     fontSize: "0.875rem",
-    color: "var(--op-ivory)",
+    color: "var(--op-ink)",
     outline: "none",
-    transition: "border-color 0.3s",
+    transition: "border-color 0.3s, box-shadow 0.3s",
+    fontFamily: "inherit",
   };
 
   const labelStyle: React.CSSProperties = {
     display: "block",
-    fontSize: "11px",
-    fontWeight: 600,
+    fontSize: "10.5px",
+    fontWeight: 700,
     textTransform: "uppercase",
-    letterSpacing: "0.12em",
-    color: "rgba(138,144,153,0.7)",
+    letterSpacing: "0.14em",
+    color: "var(--op-fog)",
     marginBottom: "0.5rem",
   };
 
@@ -62,10 +63,15 @@ export default function ContactPage() {
 
       <Layout>
         {/* ── Hero ── */}
-        <section className="relative s-ink overflow-hidden py-32 md:py-44">
-          <div className="scene-glow-dark" />
+        <section className="relative overflow-hidden" style={{ background: "var(--op-canvas)" }}>
+          <div className="absolute inset-0 pointer-events-none" aria-hidden style={{
+            background: `
+              radial-gradient(ellipse 65% 55% at 80% 0%, rgba(43,122,140,0.07) 0%, transparent 60%),
+              radial-gradient(ellipse 45% 40% at 10% 100%, rgba(148,98,81,0.04) 0%, transparent 55%)
+            `
+          }} />
           <div className="grain-overlay" />
-          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12 pt-36 pb-24 md:pt-44 md:pb-32">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -80,8 +86,9 @@ export default function ContactPage() {
         </section>
 
         {/* ── Main ── */}
-        <section className="s-graphite py-24 md:py-36 overflow-hidden">
-          <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
+        <section className="relative overflow-hidden" style={{ background: "var(--op-surface)", borderTop: "1px solid var(--op-border)" }}>
+          <div className="scene-glow-dark" />
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12 py-24 md:py-36">
             <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:items-start">
 
               {/* Quick actions */}
@@ -117,7 +124,7 @@ export default function ContactPage() {
                     sub: language === "es" ? "Centro quirúrgico privado" : "Private surgical center",
                     href: "https://maps.google.com/?q=Quito+Ecuador",
                     external: true,
-                    iconColor: "rgba(95,131,144,0.7)",
+                    iconColor: "var(--op-mist)",
                   },
                 ].map(({ icon: Icon, label, sub, href, external, iconColor }) => (
                   <a
@@ -126,15 +133,16 @@ export default function ContactPage() {
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
                     className="group card-glass flex items-start gap-4 p-5 no-underline"
+                    style={{ textDecoration: "none" }}
                   >
                     <Icon className="h-6 w-6 shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110"
                       style={{ color: iconColor }} aria-hidden />
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold truncate" style={{ color: "var(--op-ivory)" }}>{label}</p>
-                      <p className="text-xs mt-0.5" style={{ color: "rgba(138,144,153,0.6)" }}>{sub}</p>
+                      <p className="text-sm font-semibold truncate" style={{ color: "var(--op-ink)" }}>{label}</p>
+                      <p className="text-xs mt-0.5" style={{ color: "var(--op-fog)" }}>{sub}</p>
                     </div>
                     <ArrowRight className="h-4 w-4 shrink-0 mt-0.5 transition-all duration-300 group-hover:translate-x-0.5"
-                      style={{ color: "rgba(95,131,144,0.28)" }} aria-hidden />
+                      style={{ color: "var(--op-amber-line)" }} aria-hidden />
                   </a>
                 ))}
 
@@ -144,12 +152,13 @@ export default function ContactPage() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="card-amber p-6 mt-2"
+                  className="p-6 mt-2 rounded-[1.5rem]"
+                  style={{ background: "var(--op-amber-dim)", border: "1px solid var(--op-amber-line)" }}
                 >
                   <p className="text-sm font-semibold mb-2" style={{ color: "var(--op-amber)" }}>
                     {language === "es" ? "¿Prefiere hablar directamente?" : "Prefer to speak directly?"}
                   </p>
-                  <p className="text-xs mb-4" style={{ color: "rgba(196,200,204,0.6)" }}>
+                  <p className="text-xs mb-4" style={{ color: "var(--op-mist)" }}>
                     {language === "es"
                       ? "Agendamos un recorrido privado sin compromiso."
                       : "Book a private tour with no commitment."}
@@ -168,21 +177,36 @@ export default function ContactPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-                className="card-glass p-8"
+                className="card p-8"
               >
+                <h3 className="font-display font-semibold text-lg mb-6" style={{ color: "var(--op-ink)" }}>
+                  {language === "es" ? "Enviar mensaje" : "Send message"}
+                </h3>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label style={labelStyle}>{cp.form_name}</label>
                       <input name="name" required style={inputStyle} placeholder={cp.form_name}
-                        onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
-                        onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
+                        onFocus={(e) => {
+                          e.target.style.borderColor = "var(--op-amber)";
+                          e.target.style.boxShadow = "0 0 0 3px var(--op-amber-dim)";
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = "var(--op-border)";
+                          e.target.style.boxShadow = "none";
+                        }} />
                     </div>
                     <div>
                       <label style={labelStyle}>{cp.form_email}</label>
                       <input name="email" type="email" required style={inputStyle} placeholder={cp.form_email}
-                        onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
-                        onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
+                        onFocus={(e) => {
+                          e.target.style.borderColor = "var(--op-amber)";
+                          e.target.style.boxShadow = "0 0 0 3px var(--op-amber-dim)";
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = "var(--op-border)";
+                          e.target.style.boxShadow = "none";
+                        }} />
                     </div>
                   </div>
 
@@ -190,13 +214,19 @@ export default function ContactPage() {
                     <div>
                       <label style={labelStyle}>{cp.form_phone}</label>
                       <input name="phone" type="tel" style={inputStyle} placeholder="+593..."
-                        onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
-                        onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
+                        onFocus={(e) => {
+                          e.target.style.borderColor = "var(--op-amber)";
+                          e.target.style.boxShadow = "0 0 0 3px var(--op-amber-dim)";
+                        }}
+                        onBlur={(e) => {
+                          e.target.style.borderColor = "var(--op-border)";
+                          e.target.style.boxShadow = "none";
+                        }} />
                     </div>
                     <div>
                       <label style={labelStyle}>{cp.form_role}</label>
                       <select value={role} onChange={(e) => setRole(e.target.value)}
-                        style={{ ...inputStyle, background: "rgba(13,17,23,0.95)" }}>
+                        style={{ ...inputStyle, background: "var(--op-canvas)" }}>
                         <option value="specialist">{cp.form_role_specialist}</option>
                         <option value="patient">{cp.form_role_patient}</option>
                         <option value="partner">{cp.form_role_partner}</option>
@@ -208,15 +238,21 @@ export default function ContactPage() {
                     <label style={labelStyle}>{cp.form_message}</label>
                     <textarea name="message" rows={5} style={{ ...inputStyle, resize: "none" }}
                       placeholder={cp.form_message}
-                      onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
-                      onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
+                      onFocus={(e) => {
+                        e.target.style.borderColor = "var(--op-amber)";
+                        e.target.style.boxShadow = "0 0 0 3px var(--op-amber-dim)";
+                      }}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = "var(--op-border)";
+                        e.target.style.boxShadow = "none";
+                      }} />
                   </div>
 
                   <button type="submit" className="btn btn-amber w-full flex items-center justify-center gap-2">
                     <Calendar className="h-4 w-4" />
                     {cp.form_submit}
                   </button>
-                  <p className="text-xs text-center" style={{ color: "rgba(138,144,153,0.35)" }}>
+                  <p className="text-xs text-center" style={{ color: "var(--op-fog)" }}>
                     {cp.form_note}
                   </p>
                 </form>

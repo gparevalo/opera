@@ -13,7 +13,7 @@ interface LayoutProps {
 
 export function Layout({ children, navTransparent = false }: LayoutProps) {
   return (
-    <div style={{ background: "var(--op-ink)", minHeight: "100vh" }}>
+    <div style={{ background: "var(--op-canvas)", minHeight: "100vh" }}>
       <JsonLd />
       <ScrollProgress />
       <Navbar transparent={navTransparent} />

@@ -1,0 +1,236 @@
+Now I fully understand the visual direction I want.
+
+Use the attached reference screenshots as the PRIMARY DESIGN SYSTEM for the ENTIRE website.
+
+I want the Ópera Surgical Center website to visually feel ALMOST IDENTICAL to this style language:
+- same atmosphere
+- same spacing
+- same softness
+- same composition
+- same typography rhythm
+- same card styling
+- same section structure
+- same premium minimalism
+- same bright editorial healthcare aesthetic
+
+IMPORTANT:
+Do NOT keep the current visual structure.
+Do NOT preserve the current dark-heavy SaaS layout.
+This needs a near-complete visual redesign.
+
+The current site still feels:
+- dark SaaS
+- dashboard-like
+- corporate
+- dense
+- too many heavy elements
+
+The new design must feel:
+- luxury healthcare editorial
+- futuristic and soft
+- clean and cinematic
+- minimal and premium
+- airy and calm
+- elegant and modern
+- world-class biotech startup
+- Apple/Linear inspired
+- highly polished
+
+GLOBAL VISUAL SYSTEM:
+
+BACKGROUND:
+Create a soft premium background system inspired by the references:
+- off-white / ultra-light neutral backgrounds
+- subtle blue/teal atmospheric gradients
+- smooth blur lighting
+- soft radial glow
+- layered ambient lighting
+- elegant empty space
+- premium grain texture
+- no hard dark sections
+
+The website should breathe visually.
+
+COLORS:
+Keep Ópera branding tones but reinterpret them softly.
+
+Primary tones:
+- soft surgical blue
+- elegant graphite
+- pale teal accents
+- ultra-light neutral backgrounds
+- subtle luxury gradients
+
+Avoid:
+- aggressive dark mode
+- heavy blacks
+- harsh contrast
+- neon colors
+- saturated tech gradients
+
+TYPOGRAPHY:
+The typography style must match the references almost exactly.
+
+Requirements:
+- giant editorial headlines
+- very clean hierarchy
+- refined line spacing
+- luxury biotech typography rhythm
+- sophisticated text wrapping
+- lots of breathing room
+
+Fonts:
+- General Sans
+- Satoshi
+- Cabinet Grotesk
+- Inter
+
+Headlines should feel:
+- calm
+- futuristic
+- intelligent
+- premium
+
+SECTION DESIGN:
+EVERY section should feel like a premium presentation slide.
+
+I want:
+- huge spacing
+- centered editorial layouts
+- soft floating cards
+- clean compositions
+- minimal clutter
+- visual calmness
+- elegant storytelling flow
+- large whitespace areas
+- subtle separators
+
+The references use:
+- extremely clean section rhythm
+- simple but premium composition
+- high-end spacing
+- very restrained UI
+- soft rounded containers
+
+Replicate that exactly.
+
+CARDS:
+All cards should become:
+- larger
+- softer
+- brighter
+- more minimal
+
+Use:
+- subtle shadows
+- soft borders
+- very light backgrounds
+- elegant blur
+- large radius (24–32px)
+- floating appearance
+
+Avoid:
+- hard borders
+- dark glassmorphism
+- sharp containers
+- dashboard styling
+
+BUTTONS:
+Buttons should match the references:
+- rounded pill buttons
+- soft gradients
+- elegant shadows
+- smooth hover lift
+- subtle glow
+- minimal styling
+
+The CTA style should feel:
+“premium healthcare startup”
+
+SECTION STRUCTURE:
+Rebuild sections to match the references:
+- centered heading blocks
+- minimal supporting text
+- large visual spacing
+- image + text editorial compositions
+- floating visual systems
+- FAQ layouts like the references
+- pricing-style layout spacing
+- soft integration diagrams
+- clean icon compositions
+
+MOTION DESIGN:
+Completely redesign animations.
+
+Animation style:
+- cinematic
+- slow
+- smooth
+- premium
+- subtle
+- floating
+
+Use:
+- Framer Motion
+- fade-up reveals
+- stagger animations
+- subtle parallax
+- floating motion
+- smooth hover transitions
+- ambient movement
+- soft scale animations
+- elegant scroll choreography
+
+Avoid:
+- aggressive motion
+- bouncing
+- flashy effects
+- gaming aesthetics
+
+SCROLL EXPERIENCE:
+The scrolling experience should feel:
+- immersive
+- fluid
+- premium
+- cinematic
+
+Use:
+- Lenis smooth scrolling
+- subtle parallax
+- layered reveals
+- elegant section transitions
+
+VISUAL PRIORITIES:
+Prioritize:
+1. spacing
+2. typography
+3. atmosphere
+4. composition
+5. motion
+6. softness
+7. premium minimalism
+
+NOT:
+- too many cards
+- too much text
+- overly dense layouts
+- dashboard feeling
+- corporate medical look
+
+IMPORTANT:
+I do NOT want you to simply improve the current design.
+
+I want you to rebuild the visual language of the website so it closely matches the attached references in:
+- composition
+- spacing
+- atmosphere
+- card styling
+- typography rhythm
+- section flow
+- premium editorial aesthetic
+
+Keep the Ópera content and branding essence,
+but visually transform the site into a luxury editorial healthcare experience inspired by the references.
+
+The final result should feel like:
+“Awwwards-winning luxury AI healthcare website.”

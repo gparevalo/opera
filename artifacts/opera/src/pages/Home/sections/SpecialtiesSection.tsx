@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n";
+import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 
 const SPECIALTIES = [
   { es: "Cirugía plástica", en: "Plastic surgery" },
@@ -20,71 +22,55 @@ export function SpecialtiesSection() {
   const { language } = useLanguage();
 
   return (
-    <section
-      className="relative overflow-hidden py-28 md:py-40"
-      style={{ background: "var(--op-ink)" }}
-    >
-      <div className="scene-glow-dark" />
+    <section className="relative overflow-hidden" style={{ background: "var(--op-surface)", borderTop: "1px solid var(--op-border)", borderBottom: "1px solid var(--op-border)" }}>
+      <div className="scene-glow-warm" />
 
-      {/* Background architectural accent */}
-      <div className="absolute right-0 top-0 bottom-0 w-[40%] pointer-events-none" aria-hidden>
-        <svg viewBox="0 0 600 800" className="w-full h-full opacity-[0.025]" preserveAspectRatio="xMinYMid slice">
-          <circle cx="300" cy="400" r="350" fill="none" stroke="white" strokeWidth="1" />
-          <circle cx="300" cy="400" r="250" fill="none" stroke="white" strokeWidth="0.75" />
-          <circle cx="300" cy="400" r="150" fill="none" stroke="white" strokeWidth="0.5" />
-          <circle cx="300" cy="400" r="60" fill="none" stroke="white" strokeWidth="0.5" />
-        </svg>
-      </div>
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12 py-32 md:py-48">
 
-      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
+        <div className="grid gap-16 lg:grid-cols-[1fr_1.6fr] lg:items-center">
 
-        {/* Header */}
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center">
+          {/* Left — heading */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="t-eyebrow">
+            <span className="t-eyebrow mb-5 inline-flex">
               {language === "es" ? "Especialidades" : "Specialties"}
             </span>
             <h2 className="t-display mt-5">
               {language === "es"
-                ? "Infraestructura compatible con tu especialidad."
-                : "Infrastructure compatible with your specialty."}
+                ? "Compatible con tu especialidad."
+                : "Compatible with your specialty."}
             </h2>
             <p className="t-lead mt-5">
               {language === "es"
-                ? "Ópera está diseñada para procedimientos de mediana y baja complejidad. Si tienes dudas sobre compatibilidad, conversemos."
-                : "Ópera is designed for medium and low-complexity procedures. If you have compatibility questions, let's talk."}
+                ? "Ópera está diseñada para procedimientos de mediana y baja complejidad. Conversemos si tienes dudas sobre compatibilidad."
+                : "Ópera is designed for medium and low-complexity procedures. Let's talk if you have compatibility questions."}
             </p>
             <div className="mt-8">
-              <a
-                href="#contacto"
-                onClick={(e) => { e.preventDefault(); window.location.href = "/contacto"; }}
-                className="btn btn-amber flex-inline"
-              >
-                {language === "es" ? "Consultar disponibilidad" : "Check availability"}
-              </a>
+              <Link href="/contacto">
+                <span className="btn btn-amber flex items-center gap-2">
+                  {language === "es" ? "Consultar disponibilidad" : "Check availability"}
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
             </div>
           </motion.div>
 
-          {/* Specialty pills ecosystem */}
-          <div className="flex flex-wrap gap-3">
+          {/* Right — pill cloud */}
+          <div className="flex flex-wrap gap-2.5">
             {SPECIALTIES.map((spec, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.55, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
                 className="specialty-pill"
               >
-                <span
-                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{ background: "var(--op-amber)" }}
-                />
+                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "var(--op-amber)" }} />
                 {language === "es" ? spec.es : spec.en}
               </motion.div>
             ))}

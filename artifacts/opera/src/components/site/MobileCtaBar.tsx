@@ -8,9 +8,10 @@ export function MobileCtaBar() {
     <div
       className="fixed bottom-0 left-0 right-0 z-[55] py-3 pl-4 pr-16 md:hidden"
       style={{
-        borderTop: "1px solid rgba(255,255,255,0.07)",
-        background: "rgba(15,17,21,0.94)",
-        backdropFilter: "blur(24px)",
+        borderTop: "1px solid var(--op-border)",
+        background: "rgba(242,246,249,0.94)",
+        backdropFilter: "blur(24px) saturate(1.8)",
+        WebkitBackdropFilter: "blur(24px) saturate(1.8)",
       }}
     >
       <Link href="/contacto">

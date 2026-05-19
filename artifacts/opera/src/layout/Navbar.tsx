@@ -23,7 +23,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 32);
+    const fn = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", fn, { passive: true });
     fn();
     return () => window.removeEventListener("scroll", fn);
@@ -53,13 +53,13 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
 
           {/* Logo */}
           <Link href="/">
-            <span className="flex items-center gap-3 cursor-pointer group">
+            <span className="flex items-center gap-2.5 cursor-pointer group">
               <OperaLogo />
               <div className="flex flex-col leading-none">
-                <span className="font-display font-bold text-[15px] tracking-tight" style={{ color: "var(--op-white)" }}>
+                <span className="font-display font-bold text-[15px] tracking-tight" style={{ color: "var(--op-ink)" }}>
                   ÓPERA
                 </span>
-                <span className="text-[9px] font-medium uppercase tracking-[0.22em]" style={{ color: "var(--op-amber)" }}>
+                <span className="text-[9px] font-semibold uppercase tracking-[0.2em]" style={{ color: "var(--op-amber)" }}>
                   Surgical Center
                 </span>
               </div>
@@ -70,24 +70,21 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
           <nav className="hidden lg:flex items-center gap-0.5">
             {NAV_ITEMS.map((item) => {
               const active = location.startsWith(item.href);
-              const label = t.nav[item.key as NavKey];
               return (
                 <Link key={item.key} href={item.href}>
                   <span className={cn(
                     "relative px-3.5 py-2 rounded-full text-[13px] font-medium transition-all duration-300 cursor-pointer",
-                    active
-                      ? "text-white"
-                      : "text-[color:var(--op-mist)] hover:text-white",
+                    active ? "text-[color:var(--op-amber)]" : "text-[color:var(--op-mist)] hover:text-[color:var(--op-ink)]",
                   )}>
                     {active && (
                       <motion.span
                         layoutId="nav-active"
                         className="absolute inset-0 rounded-full"
-                        style={{ background: "rgba(95,131,144,0.12)", border: "1px solid rgba(95,131,144,0.2)" }}
+                        style={{ background: "var(--op-amber-dim)", border: "1px solid var(--op-amber-line)" }}
                         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       />
                     )}
-                    <span className="relative">{label}</span>
+                    <span className="relative">{t.nav[item.key as NavKey]}</span>
                   </span>
                 </Link>
               );
@@ -95,18 +92,22 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
           </nav>
 
           {/* Right actions */}
-          <div className="hidden lg:flex items-center gap-2.5">
+          <div className="hidden lg:flex items-center gap-2">
             <button
               onClick={() => setLanguage(language === "es" ? "en" : "es")}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[12px] font-medium transition-all duration-300 hover:border-[color:var(--op-amber-line)] hover:text-white"
-              style={{ borderColor: "rgba(255,255,255,0.1)", color: "var(--op-mist)", background: "rgba(255,255,255,0.03)" }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-medium transition-all duration-300"
+              style={{
+                border: "1px solid var(--op-border)",
+                color: "var(--op-mist)",
+                background: "var(--op-surface)",
+              }}
             >
-              <Globe className="h-3.5 w-3.5" aria-hidden />
+              <Globe className="h-3.5 w-3.5" />
               {language === "es" ? "EN" : "ES"}
             </button>
             <Link href="/contacto">
               <span className="btn btn-amber btn-sm flex items-center gap-1.5">
-                <Calendar className="h-3.5 w-3.5" aria-hidden />
+                <Calendar className="h-3.5 w-3.5" />
                 {t.nav.visit}
               </span>
             </Link>
@@ -116,7 +117,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
           <button
             onClick={() => setMobileOpen((v) => !v)}
             className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full transition-colors"
-            style={{ border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "var(--op-fog)" }}
+            style={{ border: "1px solid var(--op-border)", background: "var(--op-surface)", color: "var(--op-mist)" }}
             aria-label="Menu"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -131,9 +132,13 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden lg:hidden"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(15,17,21,0.97)", backdropFilter: "blur(32px)" }}
+            style={{
+              borderTop: "1px solid var(--op-border)",
+              background: "rgba(242,246,249,0.98)",
+              backdropFilter: "blur(32px)",
+            }}
           >
             <div className="mx-auto max-w-[1440px] px-5 py-5 flex flex-col gap-1">
               {NAV_ITEMS.map((item) => {
@@ -141,20 +146,19 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
                 return (
                   <Link key={item.key} href={item.href}>
                     <span className={cn(
-                      "flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-medium transition-all cursor-pointer",
-                      active ? "text-white" : "hover:text-white",
+                      "flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-medium cursor-pointer transition-all",
+                      active ? "text-[color:var(--op-amber)]" : "text-[color:var(--op-slate)]",
                     )}
                     style={active
-                      ? { background: "rgba(95,131,144,0.1)", border: "1px solid rgba(95,131,144,0.18)", color: "white" }
-                      : { color: "var(--op-mist)" }}
-                    >
+                      ? { background: "var(--op-amber-dim)", border: "1px solid var(--op-amber-line)" }
+                      : {}}>
                       {t.nav[item.key as NavKey]}
                       <ArrowRight className="h-4 w-4 opacity-40" />
                     </span>
                   </Link>
                 );
               })}
-              <div className="mt-3 pt-3 flex flex-col gap-2.5" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="mt-3 pt-3 flex flex-col gap-2.5" style={{ borderTop: "1px solid var(--op-border)" }}>
                 <a href={whatsappHref(whatsappMsg)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full justify-center">
                   WhatsApp
                 </a>
@@ -183,14 +187,14 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
 function OperaLogo() {
   return (
     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden>
-      <circle cx="17" cy="17" r="16" stroke="rgba(95,131,144,0.45)" strokeWidth="1" />
-      <circle cx="17" cy="17" r="11" fill="rgba(95,131,144,0.06)" stroke="rgba(95,131,144,0.22)" strokeWidth="1" />
-      <circle cx="17" cy="17" r="6" fill="none" stroke="rgba(95,131,144,0.45)" strokeWidth="1" />
+      <circle cx="17" cy="17" r="16" stroke="rgba(43,122,140,0.3)" strokeWidth="1" />
+      <circle cx="17" cy="17" r="11" fill="rgba(43,122,140,0.06)" stroke="rgba(43,122,140,0.2)" strokeWidth="1" />
+      <circle cx="17" cy="17" r="6" fill="none" stroke="rgba(43,122,140,0.35)" strokeWidth="1" />
       <circle cx="17" cy="17" r="2.5" fill="var(--op-amber)" />
-      <line x1="17" y1="6" x2="17" y2="11" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
-      <line x1="17" y1="23" x2="17" y2="28" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
-      <line x1="6" y1="17" x2="11" y2="17" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
-      <line x1="23" y1="17" x2="28" y2="17" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
+      <line x1="17" y1="6" x2="17" y2="11" stroke="rgba(43,122,140,0.3)" strokeWidth="0.75" />
+      <line x1="17" y1="23" x2="17" y2="28" stroke="rgba(43,122,140,0.3)" strokeWidth="0.75" />
+      <line x1="6" y1="17" x2="11" y2="17" stroke="rgba(43,122,140,0.3)" strokeWidth="0.75" />
+      <line x1="23" y1="17" x2="28" y2="17" stroke="rgba(43,122,140,0.3)" strokeWidth="0.75" />
     </svg>
   );
 }

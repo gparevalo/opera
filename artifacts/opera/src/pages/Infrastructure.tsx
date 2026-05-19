@@ -4,66 +4,10 @@ import { SeoHead } from "@/components/SeoHead";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Calendar } from "lucide-react";
-
-const INFRA_AREAS = [
-  { key: "or",        colClass: "lg:col-span-2", minH: 360,
-    bg: "linear-gradient(145deg, #0c1a22 0%, #2B4F57 55%, #0a1318 100%)", pattern: "reticle" },
-  { key: "rec",       colClass: "",             minH: 240,
-    bg: "linear-gradient(155deg, #111418 0%, #1a2228 100%)", pattern: "dots" },
-  { key: "short",     colClass: "",             minH: 240,
-    bg: "linear-gradient(150deg, #0a1318 0%, #111c22 100%)", pattern: "grid" },
-  { key: "equip",     colClass: "",             minH: 240,
-    bg: "linear-gradient(145deg, #2B4F57 0%, #1e3840 100%)", pattern: "cross" },
-  { key: "sterile",   colClass: "",             minH: 240,
-    bg: "linear-gradient(160deg, #0a0e11 0%, #111820 100%)", pattern: "lines" },
-  { key: "areas",     colClass: "lg:col-span-2", minH: 300,
-    bg: "linear-gradient(145deg, #1e3840 0%, #2B4F57 100%)", pattern: "radial" },
-  { key: "reception", colClass: "lg:col-span-3", minH: 280,
-    bg: "linear-gradient(155deg, rgba(148,98,81,0.2), #111418 100%)", pattern: "grid" },
-];
-
-function PatternSvg({ type }: { type: string }) {
-  return (
-    <svg className="absolute inset-0 w-full h-full opacity-[0.06]"
-      viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden>
-      {type === "reticle" && (<>
-        <circle cx="200" cy="150" r="120" fill="none" stroke="white" strokeWidth="1" />
-        <circle cx="200" cy="150" r="70" fill="none" stroke="white" strokeWidth="0.75" />
-        <circle cx="200" cy="150" r="30" fill="none" stroke="white" strokeWidth="0.5" />
-        <line x1="200" y1="0" x2="200" y2="100" stroke="white" strokeWidth="0.5" />
-        <line x1="200" y1="200" x2="200" y2="300" stroke="white" strokeWidth="0.5" />
-        <line x1="0" y1="150" x2="140" y2="150" stroke="white" strokeWidth="0.5" />
-        <line x1="260" y1="150" x2="400" y2="150" stroke="white" strokeWidth="0.5" />
-      </>)}
-      {type === "dots" && Array.from({ length: 6 }).map((_, r) =>
-        Array.from({ length: 9 }).map((_, c) => (
-          <circle key={`${r}-${c}`} cx={c * 50 + 25} cy={r * 55 + 27} r="1.5" fill="white" />
-        ))
-      )}
-      {type === "grid" && (<>
-        {Array.from({ length: 9 }).map((_, i) => (<line key={`v${i}`} x1={i*50} y1="0" x2={i*50} y2="300" stroke="white" strokeWidth="0.5" />))}
-        {Array.from({ length: 7 }).map((_, i) => (<line key={`h${i}`} x1="0" y1={i*50} x2="400" y2={i*50} stroke="white" strokeWidth="0.5" />))}
-      </>)}
-      {type === "cross" && (<>
-        <line x1="0" y1="150" x2="400" y2="150" stroke="white" strokeWidth="0.75" />
-        <line x1="200" y1="0" x2="200" y2="300" stroke="white" strokeWidth="0.75" />
-        <rect x="140" y="90" width="120" height="120" fill="none" stroke="white" strokeWidth="0.75" />
-        <rect x="160" y="110" width="80" height="80" fill="none" stroke="white" strokeWidth="0.5" />
-      </>)}
-      {type === "lines" && Array.from({ length: 14 }).map((_, i) => (
-        <line key={i} x1="0" y1={i * 24} x2="400" y2={i * 24} stroke="white" strokeWidth="0.5" />
-      ))}
-      {type === "radial" && Array.from({ length: 16 }).map((_, i) => {
-        const a = (i * 22.5 * Math.PI) / 180;
-        return <line key={i} x1="200" y1="150" x2={200 + 220 * Math.cos(a)} y2={150 + 220 * Math.sin(a)} stroke="white" strokeWidth="0.5" />;
-      })}
-    </svg>
-  );
-}
+import { InfraStorySection } from "@/components/site/InfraStorySection";
 
 export default function InfrastructurePage() {
   const { t, language } = useLanguage();
-  const labels = t.home.infra.labels;
 
   return (
     <>
@@ -99,37 +43,8 @@ export default function InfrastructurePage() {
           </div>
         </section>
 
-        {/* ── Gallery ── */}
-        <section className="relative overflow-hidden" style={{ background: "var(--op-surface)", borderTop: "1px solid var(--op-border)", borderBottom: "1px solid var(--op-border)" }}>
-          <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12 py-24 md:py-36">
-            <div className="grid gap-4 lg:grid-cols-3">
-              {INFRA_AREAS.map(({ key, colClass, minH, bg, pattern }, i) => (
-                <motion.div
-                  key={key}
-                  initial={{ opacity: 0, scale: 0.97 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.75, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                  className={`gallery-card ${colClass}`}
-                  style={{ minHeight: `${minH}px` }}
-                >
-                  <div className="gallery-card-inner absolute inset-0" style={{ background: bg }} />
-                  <PatternSvg type={pattern} />
-                  <div className="absolute inset-0 pointer-events-none"
-                    style={{ background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(43,122,140,0.07) 0%, transparent 65%)" }} />
-                  <div className="gallery-card-label">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-0.5" style={{ color: "var(--op-amber-light)" }}>
-                      {labels[key as keyof typeof labels]}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <p className="text-center text-[12px] italic mt-8" style={{ color: "var(--op-fog)" }}>
-              {t.infrastructure_page.gallery_caption}
-            </p>
-          </div>
-        </section>
+        {/* ── Scroll storytelling section ── */}
+        <InfraStorySection />
 
         {/* ── CTA ── */}
         <section className="relative overflow-hidden" style={{ background: "var(--op-canvas)", borderTop: "1px solid var(--op-border)" }}>

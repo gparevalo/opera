@@ -494,20 +494,29 @@ export function InfraStorySection() {
   const stories = language === "es" ? STORIES_ES : STORIES_EN;
   const [active, setActive] = useState(0);
   const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scrollColRef = useRef<HTMLDivElement | null>(null);
   const VisualComponent = VISUALS[stories[active].visualKey];
 
+  /* Scroll-position based active tracking — more reliable than IO alone */
   useEffect(() => {
-    const observers = blockRefs.current.map((ref, i) => {
-      if (!ref) return null;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(i); },
-        { threshold: 0.4, rootMargin: "-10% 0px -10% 0px" }
-      );
-      obs.observe(ref);
-      return obs;
-    });
-    return () => observers.forEach(obs => obs?.disconnect());
+    const onScroll = () => {
+      const refs = blockRefs.current.filter(Boolean) as HTMLDivElement[];
+      const vpMid = window.scrollY + window.innerHeight * 0.5;
+      let best = 0;
+      refs.forEach((el, i) => {
+        const top = el.getBoundingClientRect().top + window.scrollY;
+        const bottom = top + el.offsetHeight;
+        if (vpMid >= top && vpMid <= bottom) best = i;
+      });
+      setActive(best);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, [stories]);
+
+  const scrollTo = (i: number) =>
+    blockRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" });
 
   return (
     <section style={{ background: "var(--op-surface)", borderTop: "1px solid var(--op-border)" }}>
@@ -536,159 +545,172 @@ export function InfraStorySection() {
           </p>
         </motion.div>
 
-        {/* 3-col storytelling layout */}
-        <div className="relative flex flex-col lg:flex-row gap-8 lg:gap-0 lg:items-start">
+        {/* ── Storytelling layout: sticky-left + scroll-right ── */}
+        {/* On desktop: flex-row. Left = ONE unified sticky panel (timeline + visual). Right = tall scroll column. */}
+        <div className="flex flex-col lg:flex-row lg:gap-16" style={{ alignItems: "flex-start" }}>
 
-          {/* ── Left: sticky numbered timeline ── */}
-          <div className="hidden lg:flex flex-col items-center lg:sticky lg:top-28 lg:self-start lg:w-[72px] shrink-0 pt-2">
-            <div className="flex flex-col items-center gap-0">
+          {/* ════ UNIFIED STICKY PANEL (desktop only) ════ */}
+          <div
+            className="hidden lg:flex flex-row gap-8 shrink-0"
+            style={{
+              position: "sticky",
+              top: "88px",
+              alignSelf: "flex-start",
+              width: 540,
+            }}
+          >
+            {/* Numbered timeline */}
+            <div className="flex flex-col items-center pt-1" style={{ width: 40 }}>
               {stories.map((s, i) => (
                 <button
                   key={s.num}
-                  onClick={() => {
-                    blockRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" });
-                  }}
-                  className="flex flex-col items-center gap-0 cursor-pointer"
-                  style={{ background: "none", border: "none", padding: 0 }}
+                  onClick={() => scrollTo(i)}
+                  className="flex flex-col items-center"
+                  style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
                 >
-                  {/* Number */}
                   <motion.span
                     animate={{
-                      color: active === i ? "#2B7A8C" : "rgba(0,34,63,0.2)",
-                      scale: active === i ? 1.08 : 1,
+                      color: active === i ? "#2B7A8C" : "rgba(0,34,63,0.18)",
+                      scale: active === i ? 1.1 : 1,
                     }}
-                    transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="font-display font-bold tabular-nums"
-                    style={{ fontSize: "15px", letterSpacing: "0.04em", lineHeight: 1 }}
+                    style={{ fontSize: "13px", letterSpacing: "0.05em", lineHeight: 1, display: "block" }}
                   >
                     {s.num}
                   </motion.span>
-                  {/* Connector line segment */}
                   {i < stories.length - 1 && (
-                    <div style={{ width: 1, height: 96, position: "relative", margin: "10px 0" }}>
-                      <div style={{ position: "absolute", inset: 0, background: "rgba(0,34,63,0.08)" }} />
+                    <div style={{ width: 1, height: 88, position: "relative", margin: "8px 0" }}>
+                      <div style={{ position: "absolute", inset: 0, background: "rgba(0,34,63,0.07)" }} />
                       <motion.div
                         style={{ position: "absolute", top: 0, left: 0, right: 0, background: "#2B7A8C", transformOrigin: "top" }}
                         animate={{ scaleY: active > i ? 1 : 0 }}
-                        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                       />
                     </div>
                   )}
                 </button>
               ))}
             </div>
-          </div>
 
-          {/* Mobile: horizontal dots */}
-          <div className="flex lg:hidden items-center justify-center gap-3 mb-8">
-            {stories.map((s, i) => (
-              <button
-                key={s.num}
-                onClick={() => blockRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" })}
-                className="flex items-center gap-2"
-                style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
-              >
-                <motion.span
-                  animate={{ color: active === i ? "#2B7A8C" : "rgba(0,34,63,0.25)", fontWeight: active === i ? 700 : 500 }}
-                  className="text-sm font-display tabular-nums"
-                >
-                  {s.num}
-                </motion.span>
-                {i < stories.length - 1 && <span style={{ width: 24, height: 1, background: "rgba(0,34,63,0.1)", display: "block" }} />}
-              </button>
-            ))}
-          </div>
-
-          {/* ── Center: sticky visual panel ── */}
-          <div className="hidden lg:flex lg:sticky lg:top-20 lg:self-start shrink-0" style={{ width: 480, marginLeft: 32, marginRight: 56 }}>
-            <div style={{ width: "100%", position: "relative" }}>
-              {/* Visual frame */}
+            {/* Visual panel */}
+            <div style={{ flex: 1, position: "relative" }}>
               <div style={{
-                borderRadius: "24px",
+                borderRadius: "20px",
                 overflow: "hidden",
                 border: "1px solid var(--op-border)",
-                boxShadow: "0 20px 60px rgba(43,122,140,0.1), 0 4px 16px rgba(0,0,0,0.05)",
+                boxShadow: "0 24px 64px rgba(43,122,140,0.12), 0 4px 16px rgba(0,0,0,0.05)",
                 background: "var(--op-canvas)",
-                aspectRatio: "520/420",
+                aspectRatio: "520 / 420",
                 position: "relative",
               }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={stories[active].visualKey}
                     className="absolute inset-0"
-                    initial={{ opacity: 0, scale: 1.03, filter: "blur(8px)" }}
+                    initial={{ opacity: 0, scale: 1.04, filter: "blur(10px)" }}
                     animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, scale: 0.97, filter: "blur(6px)" }}
-                    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                    exit={{ opacity: 0, scale: 0.96, filter: "blur(8px)" }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <VisualComponent />
                   </motion.div>
                 </AnimatePresence>
-                {/* Floating cards */}
+
+                {/* Floating glass cards */}
                 <AnimatePresence mode="wait">
-                  <motion.div key={`floats-${stories[active].visualKey}`} className="absolute inset-0">
+                  <motion.div key={`fc-${stories[active].visualKey}`} className="absolute inset-0 pointer-events-none">
                     {stories[active].floats.map(fc => (
                       <FloatCard key={fc.label} card={fc} />
                     ))}
                   </motion.div>
                 </AnimatePresence>
               </div>
-              {/* Progress indicator */}
-              <div className="flex justify-center gap-2 mt-5">
+
+              {/* Dot progress bar */}
+              <div className="flex items-center justify-center gap-2 mt-4">
                 {stories.map((_, i) => (
                   <motion.button
                     key={i}
-                    onClick={() => blockRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "center" })}
-                    animate={{ width: active === i ? 28 : 8, background: active === i ? "#2B7A8C" : "rgba(43,122,140,0.18)" }}
-                    transition={{ duration: 0.35 }}
+                    onClick={() => scrollTo(i)}
+                    animate={{
+                      width: active === i ? 28 : 7,
+                      background: active === i ? "#2B7A8C" : "rgba(43,122,140,0.2)",
+                    }}
+                    transition={{ duration: 0.3 }}
                     style={{ height: 4, borderRadius: 99, border: "none", cursor: "pointer", padding: 0 }}
+                    aria-label={stories[i].num}
                   />
                 ))}
               </div>
             </div>
           </div>
 
-          {/* ── Right: scroll content blocks ── */}
-          <div className="flex-1 flex flex-col gap-0">
+          {/* ════ MOBILE: horizontal stepper ════ */}
+          <div className="flex lg:hidden items-center justify-center gap-3 mb-8">
+            {stories.map((s, i) => (
+              <button
+                key={s.num}
+                onClick={() => scrollTo(i)}
+                className="flex items-center gap-2"
+                style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
+              >
+                <motion.span
+                  animate={{ color: active === i ? "#2B7A8C" : "rgba(0,34,63,0.25)" }}
+                  style={{ fontWeight: active === i ? 700 : 500 }}
+                  className="text-sm font-display tabular-nums"
+                >
+                  {s.num}
+                </motion.span>
+                {i < stories.length - 1 && (
+                  <span style={{ width: 20, height: 1, background: "rgba(0,34,63,0.1)", display: "block" }} />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* ════ SCROLL CONTENT COLUMN ════ */}
+          <div ref={scrollColRef} className="flex-1 flex flex-col">
             {stories.map((story, i) => (
               <div
                 key={story.num}
                 ref={el => { blockRefs.current[i] = el; }}
                 className="flex flex-col justify-center"
-                style={{ minHeight: "60vh", paddingTop: "4vh", paddingBottom: "4vh" }}
+                style={{ minHeight: "85vh", paddingTop: "6vh", paddingBottom: "6vh" }}
               >
-                {/* Mobile: show visual above content */}
-                <div className="flex lg:hidden mb-8 rounded-2xl overflow-hidden"
-                  style={{ border: "1px solid var(--op-border)", boxShadow: "0 8px 32px rgba(43,122,140,0.08)", background: "var(--op-canvas)", aspectRatio: "520/420", position: "relative" }}>
-                  {active === i && <VisualComponent />}
+                {/* Mobile: visual above text */}
+                <div
+                  className="flex lg:hidden mb-8 rounded-2xl overflow-hidden relative"
+                  style={{
+                    border: "1px solid var(--op-border)",
+                    boxShadow: "0 8px 32px rgba(43,122,140,0.08)",
+                    background: "var(--op-canvas)",
+                    aspectRatio: "520/420",
+                  }}
+                >
+                  {(() => { const V = VISUALS[story.visualKey]; return <V />; })()}
                 </div>
 
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: "-20% 0px -20% 0px" }}
-                  transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  {/* Eyebrow */}
-                  <span className="t-eyebrow mb-5 inline-flex">{story.eyebrow}</span>
-
-                  {/* Title */}
+                  <span className="t-eyebrow mb-4 inline-flex">{story.eyebrow}</span>
                   <h3 className="t-headline mt-4 mb-5" style={{ maxWidth: 440 }}>{story.title}</h3>
+                  <p className="t-body mb-8" style={{ maxWidth: 420, lineHeight: 1.8 }}>{story.desc}</p>
 
-                  {/* Description */}
-                  <p className="t-body mb-8" style={{ maxWidth: 420, lineHeight: 1.75 }}>{story.desc}</p>
-
-                  {/* Bullets */}
-                  <ul className="flex flex-col gap-3 mb-10">
+                  <ul className="flex flex-col gap-3.5 mb-10">
                     {story.bullets.map((b, j) => (
                       <motion.li
                         key={b}
                         className="flex items-center gap-3 text-sm"
                         style={{ color: "var(--op-slate)" }}
-                        initial={{ opacity: 0, x: 12 }}
+                        initial={{ opacity: 0, x: 10 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: false, margin: "-20% 0px -20% 0px" }}
-                        transition={{ duration: 0.5, delay: j * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                        viewport={{ once: false, margin: "-15% 0px -15% 0px" }}
+                        transition={{ duration: 0.45, delay: j * 0.07, ease: [0.16, 1, 0.3, 1] }}
                       >
                         <CheckCircle2 className="h-4 w-4 shrink-0" style={{ color: "#2B7A8C" }} />
                         {b}
@@ -696,7 +718,6 @@ export function InfraStorySection() {
                     ))}
                   </ul>
 
-                  {/* CTA */}
                   {i === stories.length - 1 ? (
                     <Link href="/contacto">
                       <span className="btn btn-amber flex w-fit items-center gap-2">
@@ -706,7 +727,7 @@ export function InfraStorySection() {
                     </Link>
                   ) : (
                     <button
-                      onClick={() => blockRefs.current[i + 1]?.scrollIntoView({ behavior: "smooth", block: "center" })}
+                      onClick={() => scrollTo(i + 1)}
                       className="btn btn-ghost flex w-fit items-center gap-2"
                     >
                       {language === "es" ? "Siguiente área" : "Next area"}

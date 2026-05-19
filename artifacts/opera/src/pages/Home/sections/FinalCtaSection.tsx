@@ -20,9 +20,9 @@ export function FinalCtaSection() {
       {/* Deep background glow */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden style={{
         background: `
-          radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 65%),
-          radial-gradient(ellipse 60% 80% at 80% 20%, rgba(0,72,117,0.18) 0%, transparent 60%),
-          radial-gradient(ellipse 50% 60% at 20% 80%, rgba(0,72,117,0.12) 0%, transparent 55%)
+          radial-gradient(ellipse 80% 60% at 50% 50%, rgba(95,131,144,0.07) 0%, transparent 65%),
+          radial-gradient(ellipse 60% 80% at 80% 20%, rgba(43,79,87,0.18) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 60% at 20% 80%, rgba(148,98,81,0.08) 0%, transparent 55%)
         `
       }} />
 
@@ -39,7 +39,7 @@ export function FinalCtaSection() {
 
       <div className="grain-overlay" />
 
-      <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

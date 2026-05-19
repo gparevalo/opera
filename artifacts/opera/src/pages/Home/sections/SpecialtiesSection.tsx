@@ -36,7 +36,7 @@ export function SpecialtiesSection() {
         </svg>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
 
         {/* Header */}
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-center">

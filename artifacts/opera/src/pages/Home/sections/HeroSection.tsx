@@ -3,25 +3,22 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n";
 import { Link } from "wouter";
 import { whatsappHref } from "@/lib/site";
-import { ChevronDown, Calendar } from "lucide-react";
+import { ChevronDown, Calendar, Activity, Shield, Clock } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
-// ── Floating amber particle ───────────────────────────────────────────────────
-function Particle({ style }: { style: React.CSSProperties }) {
+function AmbientBlob({ style }: { style: React.CSSProperties }) {
   return (
     <div
-      className="absolute rounded-full will-change-transform"
+      className="absolute rounded-full pointer-events-none"
       style={{
-        width: "2px",
-        height: "2px",
-        background: "rgba(201,168,76,0.7)",
+        filter: "blur(80px)",
+        animation: "blob-drift 14s ease-in-out infinite",
         ...style,
       }}
     />
   );
 }
 
-// ── Geometric grid overlay ────────────────────────────────────────────────────
 function GeometricOverlay() {
   return (
     <svg
@@ -30,36 +27,21 @@ function GeometricOverlay() {
       preserveAspectRatio="xMidYMid slice"
       aria-hidden
     >
-      {/* Main reticle */}
-      <circle cx="1060" cy="360" r="280" fill="none" stroke="rgba(201,168,76,0.06)" strokeWidth="1" />
-      <circle cx="1060" cy="360" r="180" fill="none" stroke="rgba(201,168,76,0.05)" strokeWidth="1" />
-      <circle cx="1060" cy="360" r="80" fill="none" stroke="rgba(201,168,76,0.08)" strokeWidth="1" />
-      {/* Crosshair */}
-      <line x1="1060" y1="50" x2="1060" y2="310" stroke="rgba(201,168,76,0.06)" strokeWidth="0.5" />
-      <line x1="1060" y1="410" x2="1060" y2="700" stroke="rgba(201,168,76,0.06)" strokeWidth="0.5" />
-      <line x1="750" y1="360" x2="1010" y2="360" stroke="rgba(201,168,76,0.06)" strokeWidth="0.5" />
-      <line x1="1110" y1="360" x2="1380" y2="360" stroke="rgba(201,168,76,0.06)" strokeWidth="0.5" />
-      {/* Corner bracket top-left */}
-      <path d="M 40 50 L 40 100 L 80 100" fill="none" stroke="rgba(201,168,76,0.12)" strokeWidth="1" />
-      {/* Corner bracket bottom-right */}
-      <path d="M 1400 850 L 1400 800 L 1360 800" fill="none" stroke="rgba(201,168,76,0.12)" strokeWidth="1" />
-      {/* Horizontal rule */}
-      <line x1="0" y1="840" x2="1440" y2="840" stroke="rgba(255,255,255,0.03)" strokeWidth="0.5" />
-      {/* Fine grid dots */}
-      {[0, 1, 2, 3, 4, 5].map((r) =>
-        [0, 1, 2, 3, 4, 5, 6, 7].map((c) => (
-          <circle key={`d${r}-${c}`}
-            cx={c * 120 + 80} cy={r * 140 + 60}
-            r="1" fill="rgba(201,168,76,0.06)"
-          />
-        ))
-      )}
+      <circle cx="1080" cy="380" r="340" fill="none" stroke="rgba(95,131,144,0.05)" strokeWidth="1" />
+      <circle cx="1080" cy="380" r="210" fill="none" stroke="rgba(95,131,144,0.04)" strokeWidth="1" />
+      <circle cx="1080" cy="380" r="100" fill="none" stroke="rgba(95,131,144,0.07)" strokeWidth="1" />
+      <line x1="1080" y1="20" x2="1080" y2="260" stroke="rgba(95,131,144,0.04)" strokeWidth="0.5" />
+      <line x1="1080" y1="490" x2="1080" y2="760" stroke="rgba(95,131,144,0.04)" strokeWidth="0.5" />
+      <line x1="710" y1="380" x2="960" y2="380" stroke="rgba(95,131,144,0.04)" strokeWidth="0.5" />
+      <line x1="1200" y1="380" x2="1420" y2="380" stroke="rgba(95,131,144,0.04)" strokeWidth="0.5" />
+      <path d="M 48 60 L 48 120 L 100 120" fill="none" stroke="rgba(95,131,144,0.1)" strokeWidth="1" />
+      <path d="M 1392 840 L 1392 780 L 1340 780" fill="none" stroke="rgba(95,131,144,0.1)" strokeWidth="1" />
     </svg>
   );
 }
 
 export function HeroSection() {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const bgRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -67,7 +49,7 @@ export function HeroSection() {
     if (!bgRef.current || !sectionRef.current) return;
     const ctx = gsap.context(() => {
       gsap.to(bgRef.current, {
-        yPercent: -10,
+        yPercent: -8,
         ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -89,12 +71,10 @@ export function HeroSection() {
     hidden: {},
     show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
   };
-  // H1 and lead text: animate transform only — opacity stays 1 so LCP is immediate
   const itemVisible = {
     hidden: { y: 20 },
     show: { y: 0, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] as [number,number,number,number] } },
   };
-  // Secondary elements (CTAs, trust row): full fade+slide
   const item = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] as [number,number,number,number] } },
@@ -106,125 +86,155 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ background: "var(--op-ink)" }}
     >
-      {/* ── Background layers ── */}
-      <div ref={bgRef} className="absolute inset-0 will-change-transform" style={{ transform: "scale(1.08)" }}>
-        {/* Deep radial gradients */}
+      {/* Parallax background */}
+      <div ref={bgRef} className="absolute inset-0 will-change-transform" style={{ transform: "scale(1.06)" }}>
         <div className="absolute inset-0" style={{
           background: `
-            radial-gradient(ellipse 80% 70% at 68% 50%, rgba(0,72,117,0.35) 0%, transparent 60%),
-            radial-gradient(ellipse 50% 60% at 100% 0%, rgba(201,168,76,0.07) 0%, transparent 55%),
-            radial-gradient(ellipse 70% 50% at 0% 100%, rgba(7,9,12,0.9) 0%, transparent 60%),
-            linear-gradient(155deg, #07090c 0%, #0a1019 40%, #071520 100%)
+            radial-gradient(ellipse 75% 65% at 72% 50%, rgba(43,79,87,0.28) 0%, transparent 60%),
+            radial-gradient(ellipse 55% 65% at 100% 0%, rgba(95,131,144,0.08) 0%, transparent 55%),
+            radial-gradient(ellipse 65% 50% at 0% 100%, rgba(15,17,21,0.95) 0%, transparent 60%),
+            linear-gradient(160deg, #0F1115 0%, #111418 40%, #0d1218 100%)
           `
         }} />
-        {/* Floating particles */}
-        <Particle style={{ left: "22%", top: "65%", animation: "float-up 8s ease-in-out 0s infinite" }} />
-        <Particle style={{ left: "35%", top: "75%", animation: "float-up 11s ease-in-out 1.5s infinite" }} />
-        <Particle style={{ left: "55%", top: "80%", animation: "float-up 9.5s ease-in-out 3s infinite" }} />
-        <Particle style={{ left: "70%", top: "70%", animation: "float-up 12s ease-in-out 0.8s infinite" }} />
-        <Particle style={{ left: "82%", top: "85%", animation: "float-up 10s ease-in-out 2.2s infinite" }} />
-        {/* Grain */}
+        {/* Ambient blobs */}
+        <AmbientBlob style={{ width: 500, height: 500, top: "5%", right: "8%", background: "rgba(43,79,87,0.18)" }} />
+        <AmbientBlob style={{ width: 300, height: 300, top: "55%", right: "30%", background: "rgba(148,98,81,0.08)", animationDelay: "5s" }} />
         <div className="grain-overlay" />
       </div>
 
-      {/* Geometric SVG overlay */}
       <GeometricOverlay />
 
-      {/* Bottom amber line */}
+      {/* Bottom accent line */}
       <div className="absolute bottom-0 left-0 right-0 amber-line" />
 
-      {/* ── Content ── */}
-      <div className="relative z-10 mx-auto max-w-[1380px] w-full px-5 md:px-8 xl:px-12 py-32 md:py-40">
-        <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-[780px]">
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-[1440px] w-full px-5 md:px-8 xl:px-12 py-32 md:py-44">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-8 items-center">
 
-          {/* Eyebrow */}
-          <motion.div variants={itemVisible} className="mb-8">
-            <span className="t-eyebrow">
-              {language === "es" ? "Centro quirúrgico premium · Quito, Ecuador" : "Premium surgical center · Quito, Ecuador"}
-            </span>
+          {/* Left — editorial text */}
+          <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-[820px]">
+
+            <motion.div variants={itemVisible} className="mb-8">
+              <span className="t-eyebrow">
+                {language === "es" ? "Centro quirúrgico premium · Quito, Ecuador" : "Premium surgical center · Quito, Ecuador"}
+              </span>
+            </motion.div>
+
+            <motion.h1 variants={itemVisible} className="t-display-xl">
+              {language === "es" ? (
+                <>
+                  Opera en una<br />
+                  infraestructura<br />
+                  <span className="gradient-text-amber">quirúrgica diseñada</span><br />
+                  para especialistas.
+                </>
+              ) : (
+                <>
+                  Operate in a<br />
+                  surgical infrastructure<br />
+                  <span className="gradient-text-amber">designed for</span><br />
+                  specialists.
+                </>
+              )}
+            </motion.h1>
+
+            <motion.p variants={itemVisible} className="t-lead mt-8 max-w-[600px]">
+              {language === "es"
+                ? "Transforma la experiencia de tus pacientes con instalaciones premium, soporte especializado y una operación quirúrgica sin fricción."
+                : "Transform your patients' experience with premium facilities, specialized support, and a frictionless surgical operation."}
+            </motion.p>
+
+            <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
+              <Link href="/contacto">
+                <span className="btn btn-amber btn-lg flex items-center gap-2.5">
+                  <Calendar className="h-5 w-5" aria-hidden />
+                  {language === "es" ? "Solicitar recorrido privado" : "Request private tour"}
+                </span>
+              </Link>
+              <Link href="/infraestructura">
+                <span className="btn btn-ghost btn-lg">
+                  {language === "es" ? "Explorar instalaciones" : "Explore facilities"}
+                </span>
+              </Link>
+            </motion.div>
+
+            <motion.div variants={item} className="mt-12 flex flex-wrap items-center gap-7">
+              {[
+                { label: language === "es" ? "Quirófanos premium" : "Premium ORs" },
+                { label: language === "es" ? "Soporte 360°" : "360° support" },
+                { label: language === "es" ? "Coordinación dedicada" : "Dedicated coordination" },
+              ].map(({ label }) => (
+                <div key={label} className="flex items-center gap-2.5">
+                  <div className="amber-dot" />
+                  <span className="text-[13px] font-medium" style={{ color: "rgba(206,207,207,0.5)" }}>{label}</span>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
-          {/* Main headline — uses itemVisible so LCP element is never opacity:0 */}
-          <motion.h1 variants={itemVisible} className="t-display-xl">
-            {language === "es" ? (
-              <>
-                Opera en una<br />
-                infraestructura<br />
-                <span className="gradient-text-amber">quirúrgica diseñada</span><br />
-                para especialistas.
-              </>
-            ) : (
-              <>
-                Operate in a<br />
-                surgical infrastructure<br />
-                <span className="gradient-text-amber">designed for</span><br />
-                specialists.
-              </>
-            )}
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p variants={itemVisible} className="t-lead mt-7 max-w-[640px]">
-            {language === "es"
-              ? "Transforma la experiencia de tus pacientes con instalaciones premium, soporte especializado y una operación quirúrgica sin fricción."
-              : "Transform your patients' experience with premium facilities, specialized support, and a frictionless surgical operation."}
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div variants={item} className="mt-10 flex flex-wrap gap-4">
-            <Link href="/contacto">
-              <span className="btn btn-amber btn-lg flex items-center gap-2">
-                <Calendar className="h-5 w-5" aria-hidden />
-                {language === "es" ? "Solicitar recorrido privado" : "Request private tour"}
-              </span>
-            </Link>
-            <Link href="/infraestructura">
-              <span className="btn btn-ghost btn-lg">
-                {language === "es" ? "Explorar instalaciones" : "Explore facilities"}
-              </span>
-            </Link>
-          </motion.div>
-
-          {/* Trust row */}
-          <motion.div variants={item} className="mt-12 flex flex-wrap items-center gap-6">
-            {[
-              { label: language === "es" ? "Quirófanos premium" : "Premium ORs" },
-              { label: language === "es" ? "Soporte 360°" : "360° support" },
-              { label: language === "es" ? "Coordinación dedicada" : "Dedicated coordination" },
-            ].map(({ label }) => (
-              <div key={label} className="flex items-center gap-2.5">
-                <div className="amber-dot" />
-                <span className="text-[13px] font-medium" style={{ color: "rgba(196,200,204,0.6)" }}>{label}</span>
+          {/* Right — floating bento dashboard */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden xl:flex flex-col gap-3 w-[280px] shrink-0"
+          >
+            {/* Stat card 1 */}
+            <div className="bento-card p-5">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="icon-well" style={{ width: 36, height: 36, borderRadius: "0.75rem" }}>
+                  <Activity className="h-4 w-4" />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--op-mist)" }}>
+                  {language === "es" ? "Especialidades" : "Specialties"}
+                </span>
               </div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* ── Floating metric panel (right) ── */}
-        <motion.div
-          initial={{ opacity: 0, x: 40, y: 0 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute right-12 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-3"
-        >
-          {[
-            { value: "5+", label: language === "es" ? "Especialidades" : "Specialties" },
-            { value: "≤24h", label: language === "es" ? "Respuesta" : "Response" },
-            { value: "360°", label: language === "es" ? "Soporte" : "Support" },
-          ].map(({ value, label }) => (
-            <div key={value} className="card-glass px-5 py-4 text-center" style={{ minWidth: "120px" }}>
-              <p className="font-display font-black text-2xl" style={{ color: "var(--op-amber)" }}>{value}</p>
-              <p className="t-label mt-1">{label}</p>
+              <p className="font-display font-bold text-4xl tracking-tight" style={{ color: "var(--op-white)" }}>5+</p>
+              <p className="text-xs mt-1" style={{ color: "rgba(206,207,207,0.45)" }}>
+                {language === "es" ? "Áreas cubiertas" : "Areas covered"}
+              </p>
             </div>
-          ))}
-        </motion.div>
+
+            {/* Stat card 2 — warm copper accent */}
+            <div className="bento-card p-5" style={{ borderColor: "rgba(148,98,81,0.18)", background: "linear-gradient(145deg, rgba(148,98,81,0.06) 0%, rgba(255,255,255,0.02) 100%)" }}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="icon-well" style={{ width: 36, height: 36, borderRadius: "0.75rem", borderColor: "rgba(148,98,81,0.2)", background: "rgba(148,98,81,0.08)", color: "var(--op-warm)" }}>
+                  <Clock className="h-4 w-4" />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--op-mist)" }}>
+                  {language === "es" ? "Respuesta" : "Response"}
+                </span>
+              </div>
+              <p className="font-display font-bold text-4xl tracking-tight" style={{ color: "var(--op-white)" }}>≤24h</p>
+              <p className="text-xs mt-1" style={{ color: "rgba(206,207,207,0.45)" }}>
+                {language === "es" ? "Coordinación garantizada" : "Guaranteed coordination"}
+              </p>
+            </div>
+
+            {/* Stat card 3 */}
+            <div className="bento-card p-5">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="icon-well" style={{ width: 36, height: 36, borderRadius: "0.75rem" }}>
+                  <Shield className="h-4 w-4" />
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: "var(--op-mist)" }}>
+                  {language === "es" ? "Soporte" : "Support"}
+                </span>
+              </div>
+              <p className="font-display font-bold text-4xl tracking-tight" style={{ color: "var(--op-white)" }}>360°</p>
+              <p className="text-xs mt-1" style={{ color: "rgba(206,207,207,0.45)" }}>
+                {language === "es" ? "Perioperatorio completo" : "Full perioperative"}
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* ── Scroll indicator ── */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
+        transition={{ delay: 1.6, duration: 0.8 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
         <span className="t-label" style={{ fontSize: "9px", letterSpacing: "0.4em" }}>SCROLL</span>

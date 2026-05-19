@@ -48,7 +48,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
         <div className="flex h-[60px] items-center justify-between gap-4">
 
           {/* Logo */}
@@ -56,7 +56,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
             <span className="flex items-center gap-3 cursor-pointer group">
               <OperaLogo />
               <div className="flex flex-col leading-none">
-                <span className="font-display font-black text-[15px] tracking-tight" style={{ color: "var(--op-white)" }}>
+                <span className="font-display font-bold text-[15px] tracking-tight" style={{ color: "var(--op-white)" }}>
                   ÓPERA
                 </span>
                 <span className="text-[9px] font-medium uppercase tracking-[0.22em]" style={{ color: "var(--op-amber)" }}>
@@ -74,7 +74,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
               return (
                 <Link key={item.key} href={item.href}>
                   <span className={cn(
-                    "relative px-3.5 py-2 rounded-lg text-[13px] font-medium transition-all duration-300 cursor-pointer",
+                    "relative px-3.5 py-2 rounded-full text-[13px] font-medium transition-all duration-300 cursor-pointer",
                     active
                       ? "text-white"
                       : "text-[color:var(--op-mist)] hover:text-white",
@@ -82,8 +82,8 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
                     {active && (
                       <motion.span
                         layoutId="nav-active"
-                        className="absolute inset-0 rounded-lg"
-                        style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.08)" }}
+                        className="absolute inset-0 rounded-full"
+                        style={{ background: "rgba(95,131,144,0.12)", border: "1px solid rgba(95,131,144,0.2)" }}
                         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       />
                     )}
@@ -98,7 +98,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
           <div className="hidden lg:flex items-center gap-2.5">
             <button
               onClick={() => setLanguage(language === "es" ? "en" : "es")}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-[12px] font-medium transition-all duration-300 hover:border-[color:var(--op-amber-line)] hover:text-white"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-[12px] font-medium transition-all duration-300 hover:border-[color:var(--op-amber-line)] hover:text-white"
               style={{ borderColor: "rgba(255,255,255,0.1)", color: "var(--op-mist)", background: "rgba(255,255,255,0.03)" }}
             >
               <Globe className="h-3.5 w-3.5" aria-hidden />
@@ -115,7 +115,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileOpen((v) => !v)}
-            className="lg:hidden flex h-10 w-10 items-center justify-center rounded-lg transition-colors"
+            className="lg:hidden flex h-10 w-10 items-center justify-center rounded-full transition-colors"
             style={{ border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)", color: "var(--op-fog)" }}
             aria-label="Menu"
           >
@@ -133,20 +133,20 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden lg:hidden"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "rgba(7,9,12,0.97)", backdropFilter: "blur(32px)" }}
+            style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(15,17,21,0.97)", backdropFilter: "blur(32px)" }}
           >
-            <div className="mx-auto max-w-[1380px] px-5 py-5 flex flex-col gap-1">
+            <div className="mx-auto max-w-[1440px] px-5 py-5 flex flex-col gap-1">
               {NAV_ITEMS.map((item) => {
                 const active = location.startsWith(item.href);
                 return (
                   <Link key={item.key} href={item.href}>
                     <span className={cn(
-                      "flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-medium transition-all cursor-pointer",
-                      active
-                        ? "text-white"
-                        : "hover:text-white",
+                      "flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-medium transition-all cursor-pointer",
+                      active ? "text-white" : "hover:text-white",
                     )}
-                    style={active ? { background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.08)", color: "white" } : { color: "var(--op-mist)" }}
+                    style={active
+                      ? { background: "rgba(95,131,144,0.1)", border: "1px solid rgba(95,131,144,0.18)", color: "white" }
+                      : { color: "var(--op-mist)" }}
                     >
                       {t.nav[item.key as NavKey]}
                       <ArrowRight className="h-4 w-4 opacity-40" />
@@ -154,7 +154,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
                   </Link>
                 );
               })}
-              <div className="mt-3 pt-3 flex flex-col gap-2.5" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+              <div className="mt-3 pt-3 flex flex-col gap-2.5" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
                 <a href={whatsappHref(whatsappMsg)} target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp w-full justify-center">
                   WhatsApp
                 </a>
@@ -183,15 +183,14 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
 function OperaLogo() {
   return (
     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden>
-      <circle cx="17" cy="17" r="16" stroke="rgba(201,168,76,0.5)" strokeWidth="1" />
-      <circle cx="17" cy="17" r="11" fill="rgba(201,168,76,0.06)" stroke="rgba(201,168,76,0.25)" strokeWidth="1" />
-      <circle cx="17" cy="17" r="6" fill="none" stroke="rgba(201,168,76,0.5)" strokeWidth="1" />
+      <circle cx="17" cy="17" r="16" stroke="rgba(95,131,144,0.45)" strokeWidth="1" />
+      <circle cx="17" cy="17" r="11" fill="rgba(95,131,144,0.06)" stroke="rgba(95,131,144,0.22)" strokeWidth="1" />
+      <circle cx="17" cy="17" r="6" fill="none" stroke="rgba(95,131,144,0.45)" strokeWidth="1" />
       <circle cx="17" cy="17" r="2.5" fill="var(--op-amber)" />
-      {/* Cross reticle */}
-      <line x1="17" y1="6" x2="17" y2="11" stroke="rgba(201,168,76,0.4)" strokeWidth="0.75" />
-      <line x1="17" y1="23" x2="17" y2="28" stroke="rgba(201,168,76,0.4)" strokeWidth="0.75" />
-      <line x1="6" y1="17" x2="11" y2="17" stroke="rgba(201,168,76,0.4)" strokeWidth="0.75" />
-      <line x1="23" y1="17" x2="28" y2="17" stroke="rgba(201,168,76,0.4)" strokeWidth="0.75" />
+      <line x1="17" y1="6" x2="17" y2="11" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
+      <line x1="17" y1="23" x2="17" y2="28" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
+      <line x1="6" y1="17" x2="11" y2="17" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
+      <line x1="23" y1="17" x2="28" y2="17" stroke="rgba(95,131,144,0.4)" strokeWidth="0.75" />
     </svg>
   );
 }

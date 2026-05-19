@@ -33,7 +33,7 @@ export default function AboutPage() {
               <line x1="0" y1="350" x2="600" y2="350" stroke="white" strokeWidth="0.5" />
             </svg>
           </div>
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export default function AboutPage() {
         {/* ── Vision & Mission ── */}
         <section className="relative s-graphite py-24 md:py-36 overflow-hidden">
           <div className="scene-glow-dark" />
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <div className="grid gap-5 md:grid-cols-2">
               {[
                 { icon: Eye, title: t.about.vision_title, body: t.about.vision },
@@ -79,7 +79,7 @@ export default function AboutPage() {
         <section className="relative s-graphite-2 py-24 md:py-36 overflow-hidden">
           <div className="scene-glow-blue" />
           <div className="grain-overlay" />
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function AboutPage() {
         {/* ── CTA ── */}
         <section className="s-ink py-24 md:py-36 overflow-hidden relative">
           <div className="scene-glow-dark" />
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

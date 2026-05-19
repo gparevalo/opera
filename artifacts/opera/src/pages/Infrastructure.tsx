@@ -7,19 +7,19 @@ import { Calendar } from "lucide-react";
 
 const INFRA_AREAS = [
   { key: "or",        colClass: "lg:col-span-2", minH: 360,
-    bg: "linear-gradient(145deg, #071826 0%, #004875 55%, #071520 100%)", pattern: "reticle" },
+    bg: "linear-gradient(145deg, #0c1a22 0%, #2B4F57 55%, #0a1318 100%)", pattern: "reticle" },
   { key: "rec",       colClass: "",             minH: 240,
-    bg: "linear-gradient(155deg, #0d1117 0%, #1a2332 100%)", pattern: "dots" },
+    bg: "linear-gradient(155deg, #111418 0%, #1a2228 100%)", pattern: "dots" },
   { key: "short",     colClass: "",             minH: 240,
-    bg: "linear-gradient(150deg, #071520 0%, #0e1c2a 100%)", pattern: "grid" },
+    bg: "linear-gradient(150deg, #0a1318 0%, #111c22 100%)", pattern: "grid" },
   { key: "equip",     colClass: "",             minH: 240,
-    bg: "linear-gradient(145deg, #004875 0%, #003a5c 100%)", pattern: "cross" },
+    bg: "linear-gradient(145deg, #2B4F57 0%, #1e3840 100%)", pattern: "cross" },
   { key: "sterile",   colClass: "",             minH: 240,
-    bg: "linear-gradient(160deg, #060a0e 0%, #0d1520 100%)", pattern: "lines" },
+    bg: "linear-gradient(160deg, #0a0e11 0%, #111820 100%)", pattern: "lines" },
   { key: "areas",     colClass: "lg:col-span-2", minH: 300,
-    bg: "linear-gradient(145deg, #003a5c 0%, #004875 100%)", pattern: "radial" },
+    bg: "linear-gradient(145deg, #1e3840 0%, #2B4F57 100%)", pattern: "radial" },
   { key: "reception", colClass: "lg:col-span-3", minH: 280,
-    bg: "linear-gradient(155deg, rgba(201,168,76,0.08) 0%, #0d1117 100%)", pattern: "grid" },
+    bg: "linear-gradient(155deg, rgba(148,98,81,0.1) 0%, #111418 100%)", pattern: "grid" },
 ];
 
 function PatternSvg({ type }: { type: string }) {
@@ -100,7 +100,7 @@ export default function InfrastructurePage() {
               <circle cx="300" cy="350" r="80" fill="none" stroke="white" strokeWidth="0.5" />
             </svg>
           </div>
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ export default function InfrastructurePage() {
 
         {/* ── Gallery ── */}
         <section className="s-graphite py-24 md:py-36 overflow-hidden">
-          <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <div className="grid gap-4 lg:grid-cols-3">
               {INFRA_AREAS.map(({ key, colClass, minH, bg, pattern }, i) => (
                 <motion.div
@@ -131,7 +131,7 @@ export default function InfrastructurePage() {
                   <div className="gallery-card-inner absolute inset-0" style={{ background: bg }} />
                   <PatternSvg type={pattern} />
                   <div className="absolute inset-0 pointer-events-none"
-                    style={{ background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 65%)" }} />
+                    style={{ background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(95,131,144,0.06) 0%, transparent 65%)" }} />
                   <div className="gallery-card-label">
                     <p className="text-[10px] font-bold uppercase tracking-[0.28em] mb-0.5"
                       style={{ color: "var(--op-amber)" }}>
@@ -150,7 +150,7 @@ export default function InfrastructurePage() {
         {/* ── CTA ── */}
         <section className="s-ink py-24 md:py-36 overflow-hidden relative">
           <div className="scene-glow-dark" />
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -56,7 +56,7 @@ export function JourneySection() {
       <div className="scene-glow-dark" />
       <div className="grain-overlay" />
 
-      <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
 
         {/* Header */}
         <div className="grid gap-12 lg:grid-cols-[1fr_1.6fr] lg:items-start">
@@ -102,7 +102,7 @@ export function JourneySection() {
               <div
                 ref={lineRef}
                 className="absolute inset-0 origin-top"
-                style={{ background: "linear-gradient(180deg, var(--op-amber) 0%, rgba(201,168,76,0.3) 100%)" }}
+                style={{ background: "linear-gradient(180deg, var(--op-amber) 0%, rgba(95,131,144,0.25) 100%)" }}
               />
             </div>
 
@@ -120,7 +120,7 @@ export function JourneySection() {
                   <div
                     className="absolute left-[-40px] md:left-[-54px] top-0 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center transition-all duration-400 group-hover:border-[color:var(--op-amber)]"
                     style={{
-                      border: "1px solid rgba(201,168,76,0.3)",
+                      border: "1px solid rgba(95,131,144,0.25)",
                       background: "var(--op-graphite)",
                     }}
                   >

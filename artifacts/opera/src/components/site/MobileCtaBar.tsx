@@ -9,7 +9,7 @@ export function MobileCtaBar() {
       className="fixed bottom-0 left-0 right-0 z-[55] py-3 pl-4 pr-16 md:hidden"
       style={{
         borderTop: "1px solid rgba(255,255,255,0.07)",
-        background: "rgba(7,9,12,0.92)",
+        background: "rgba(15,17,21,0.94)",
         backdropFilter: "blur(24px)",
       }}
     >

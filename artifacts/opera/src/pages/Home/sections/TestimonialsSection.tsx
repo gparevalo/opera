@@ -39,7 +39,7 @@ export function TestimonialsSection() {
       <div className="scene-glow-dark" />
       <div className="grain-overlay" />
 
-      <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
 
         {/* Header */}
         <motion.div
@@ -71,7 +71,7 @@ export function TestimonialsSection() {
               className="testimonial-card flex flex-col gap-6"
             >
               {/* Quotation mark */}
-              <div className="font-display font-black text-6xl leading-none select-none" style={{ color: "rgba(201,168,76,0.2)" }}>
+              <div className="font-display font-black text-6xl leading-none select-none" style={{ color: "rgba(95,131,144,0.22)" }}>
                 "
               </div>
 
@@ -89,8 +89,8 @@ export function TestimonialsSection() {
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-display font-black text-sm"
                   style={{
-                    border: "1px solid rgba(201,168,76,0.3)",
-                    background: "rgba(201,168,76,0.07)",
+                    border: "1px solid rgba(95,131,144,0.28)",
+                    background: "rgba(95,131,144,0.07)",
                     color: "var(--op-amber)",
                   }}
                 >

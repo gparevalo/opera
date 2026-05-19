@@ -27,24 +27,35 @@ A world-class cinematic website for Ópera Surgical Center (Quito, Ecuador), tar
 ## Design system
 
 **Palette (non-negotiable):**
-- `--op-ink: #07090c` — Near-black background (NOT navy)
-- `--op-graphite: #161a20` — Section alt background
-- `--op-amber: #c9a84c` — Sole accent color (amber/gold)
-- `--op-fog: #c4c8cc` — Text muted
-- `--op-white: #fafafa` — Pure text
+- `--op-ink: #0F1115` — Near-black background
+- `--op-graphite: #15191D` — Section alt background
+- `--op-amber: #5F8390` — PRIMARY accent (teal) — used for all `.btn-amber`, `.t-eyebrow`, icon wells, borders
+- `--op-warm: #946251` — SECONDARY accent (copper) — used for warm contrast moments
+- `--op-fog: #CECFCF` — Text muted
+- `--op-white: #F4F5F5` — Pure text
+- `--op-blue: #2B4F57` — Deep teal for gallery gradients
+
+**Fonts:**
+- Display: Plus Jakarta Sans (700)
+- Body: Inter (400/600)
 
 **Component classes:**
-- `.card-glass` — Glassmorphism card with amber hover border
-- `.btn-amber` — Primary CTA button
-- `.btn-ghost` — Secondary ghost button
+- `.card-glass` — Glassmorphism card with teal hover border (radius 1.5rem)
+- `.bento-card` — Floating bento stat card (radius 1.75rem)
+- `.btn-amber` — Primary CTA button (teal, pill-shaped radius 100px)
+- `.btn-ghost` — Secondary ghost button (pill-shaped)
+- `.btn-warm` — Copper accent CTA
 - `.t-display-xl`, `.t-display`, `.t-headline` — Typography scale
-- `.t-eyebrow` — Section label with amber line prefix
+- `.t-eyebrow` — Section label with teal line prefix
 - `.cta-panel-dark` — Full-width dark CTA block
 - `.gallery-card` — Hover cinematic gallery item
 - `.feat-item` — Dashboard feature row
-- `.specialty-pill` — Ecosystem pill hover
+- `.specialty-pill` — Ecosystem pill hover (pill-shaped)
 - `.testimonial-card` — Editorial testimonial
-- `.scene-glow-dark / .scene-glow-blue` — Ambient background radials
+- `.scene-glow-dark / .scene-glow-blue / .scene-glow-warm` — Ambient background radials
+- `.gradient-text-amber` — Animated teal→copper shimmer text
+
+**All inline rgba() color values must use teal (95,131,144) or copper (148,98,81) — never old amber (201,168,76)**
 
 ## Home sections (in order)
 

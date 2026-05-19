@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n";
+import { Star, Package, Shield, Zap, Users } from "lucide-react";
+
+const ICONS = [Star, Package, Shield, Zap, Users];
 
 const WHY_CARDS = [
   {
@@ -69,7 +72,7 @@ export function WhySection() {
     <section className="relative s-ink overflow-hidden py-28 md:py-36">
       <div className="scene-glow-dark" />
 
-      <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
 
         {/* Header */}
         <motion.div

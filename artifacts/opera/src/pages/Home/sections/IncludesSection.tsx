@@ -39,7 +39,7 @@ export function IncludesSection() {
       <div className="scene-glow-blue" />
       <div className="grain-overlay" />
 
-      <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
 
         {/* Header */}
         <motion.div
@@ -84,8 +84,8 @@ export function IncludesSection() {
                 <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center text-xs font-black transition-all duration-400 group-hover:bg-[var(--op-amber)] group-hover:text-[var(--op-ink)]"
                   style={{
-                    border: "1px solid rgba(201,168,76,0.2)",
-                    background: "rgba(201,168,76,0.05)",
+                    border: "1px solid rgba(95,131,144,0.2)",
+                    background: "rgba(95,131,144,0.05)",
                     color: "var(--op-amber)",
                   }}
                 >

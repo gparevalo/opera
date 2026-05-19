@@ -39,7 +39,7 @@ export default function SpecialtiesPage() {
               <circle cx="300" cy="350" r="90" fill="none" stroke="white" strokeWidth="0.5" />
             </svg>
           </div>
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ export default function SpecialtiesPage() {
 
         {/* ── Specialty cards ── */}
         <section className="s-graphite py-24 md:py-36">
-          <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {SPECIALTY_KEYS.map((key, i) => {
                 const item = items[key];
@@ -96,7 +96,7 @@ export default function SpecialtiesPage() {
         {/* ── CTA ── */}
         <section className="s-ink py-24 md:py-36 overflow-hidden relative">
           <div className="scene-glow-dark" />
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

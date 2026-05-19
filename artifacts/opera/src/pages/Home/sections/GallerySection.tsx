@@ -9,7 +9,7 @@ const GALLERY_ITEMS = [
     keyEn: "Operating suites",
     col: "lg:col-span-2",
     height: "min-h-[360px]",
-    bg: "linear-gradient(145deg, #0a1628 0%, #004875 55%, #071520 100%)",
+    bg: "linear-gradient(145deg, #0c1a22 0%, #2B4F57 55%, #0a1318 100%)",
     pattern: "reticle",
   },
   {
@@ -17,7 +17,7 @@ const GALLERY_ITEMS = [
     keyEn: "Recovery",
     col: "",
     height: "min-h-[200px]",
-    bg: "linear-gradient(155deg, #0d1117 0%, #1a2332 100%)",
+    bg: "linear-gradient(155deg, #111418 0%, #1a2228 100%)",
     pattern: "dots",
   },
   {
@@ -25,7 +25,7 @@ const GALLERY_ITEMS = [
     keyEn: "Clinical areas",
     col: "",
     height: "min-h-[200px]",
-    bg: "linear-gradient(150deg, #071520 0%, #0e1c2a 100%)",
+    bg: "linear-gradient(150deg, #0a1318 0%, #111c22 100%)",
     pattern: "grid",
   },
   {
@@ -33,7 +33,7 @@ const GALLERY_ITEMS = [
     keyEn: "Rest area",
     col: "row-span-2",
     height: "min-h-[420px]",
-    bg: "linear-gradient(170deg, #0a0c0f 0%, #161a20 100%)",
+    bg: "linear-gradient(170deg, #0d1014 0%, #15191D 100%)",
     pattern: "lines",
   },
   {
@@ -41,7 +41,7 @@ const GALLERY_ITEMS = [
     keyEn: "Sterilization",
     col: "",
     height: "min-h-[200px]",
-    bg: "linear-gradient(145deg, #060a0e 0%, #0d1520 100%)",
+    bg: "linear-gradient(145deg, #0a0e11 0%, #111820 100%)",
     pattern: "cross",
   },
   {
@@ -49,7 +49,7 @@ const GALLERY_ITEMS = [
     keyEn: "Reception",
     col: "",
     height: "min-h-[200px]",
-    bg: "linear-gradient(150deg, rgba(201,168,76,0.08), #0d1117)",
+    bg: "linear-gradient(150deg, rgba(148,98,81,0.1), #111418)",
     pattern: "radial",
   },
 ];
@@ -122,7 +122,7 @@ export function GallerySection() {
     <section className="relative s-deep overflow-hidden py-28 md:py-40">
       <div className="scene-glow-dark" />
 
-      <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+      <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
 
         {/* Header */}
         <motion.div
@@ -174,7 +174,7 @@ export function GallerySection() {
               {/* Amber glow accent */}
               <div className="absolute inset-0 pointer-events-none"
                 style={{
-                  background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 65%)"
+                  background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(95,131,144,0.07) 0%, transparent 65%)"
                 }} />
 
               {/* Label */}

@@ -47,7 +47,7 @@ export default function ForSpecialistsPage() {
               <path d="M 50 350 L 300 100 L 550 350 L 300 600 Z" fill="none" stroke="white" strokeWidth="0.3" />
             </svg>
           </div>
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export default function ForSpecialistsPage() {
 
         {/* ── Content ── */}
         <section className="s-graphite py-24 md:py-36 overflow-hidden">
-          <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <div className="grid gap-5 md:grid-cols-2">
               {SECTIONS.map(({ key, bodyKey, icon: Icon }, i) => (
                 <motion.div
@@ -119,7 +119,7 @@ export default function ForSpecialistsPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 {Object.values(t.home.b2b.points).map((point) => (
                   <div key={point.title} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 shrink-0 mt-0.5" style={{ color: "rgba(201,168,76,0.7)" }} aria-hidden />
+                    <CheckCircle2 className="h-5 w-5 shrink-0 mt-0.5" style={{ color: "rgba(95,131,144,0.8)" }} aria-hidden />
                     <div>
                       <p className="text-sm font-semibold" style={{ color: "var(--op-ivory)" }}>{point.title}</p>
                       <p className="text-xs leading-relaxed mt-0.5" style={{ color: "rgba(138,144,153,0.7)" }}>{point.body}</p>
@@ -134,7 +134,7 @@ export default function ForSpecialistsPage() {
         {/* ── CTA ── */}
         <section className="s-ink py-24 md:py-36 overflow-hidden relative">
           <div className="scene-glow-dark" />
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}

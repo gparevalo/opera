@@ -36,7 +36,7 @@ function PageFallback() {
           width: 32,
           height: 32,
           borderRadius: "50%",
-          border: "2px solid rgba(201,168,76,0.15)",
+          border: "2px solid rgba(95,131,144,0.15)",
           borderTopColor: "var(--op-amber)",
           animation: "spin 0.8s linear infinite",
         }}

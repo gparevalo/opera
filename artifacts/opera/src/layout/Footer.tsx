@@ -25,24 +25,24 @@ export function Footer() {
     <footer className="footer-bg relative overflow-hidden">
       <div className="amber-line" />
 
-      <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12 py-16 md:py-20">
+      <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12 py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.8fr_1fr_1.2fr]">
 
           {/* Brand column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
               <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden>
-                <circle cx="17" cy="17" r="16" stroke="rgba(201,168,76,0.4)" strokeWidth="1" />
-                <circle cx="17" cy="17" r="11" fill="rgba(201,168,76,0.05)" stroke="rgba(201,168,76,0.2)" strokeWidth="1" />
-                <circle cx="17" cy="17" r="6" fill="none" stroke="rgba(201,168,76,0.4)" strokeWidth="1" />
+                <circle cx="17" cy="17" r="16" stroke="rgba(95,131,144,0.38)" strokeWidth="1" />
+                <circle cx="17" cy="17" r="11" fill="rgba(95,131,144,0.05)" stroke="rgba(95,131,144,0.18)" strokeWidth="1" />
+                <circle cx="17" cy="17" r="6" fill="none" stroke="rgba(95,131,144,0.38)" strokeWidth="1" />
                 <circle cx="17" cy="17" r="2.5" fill="var(--op-amber)" />
-                <line x1="17" y1="6" x2="17" y2="11" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
-                <line x1="17" y1="23" x2="17" y2="28" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
-                <line x1="6" y1="17" x2="11" y2="17" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
-                <line x1="23" y1="17" x2="28" y2="17" stroke="rgba(201,168,76,0.3)" strokeWidth="0.75" />
+                <line x1="17" y1="6" x2="17" y2="11" stroke="rgba(95,131,144,0.28)" strokeWidth="0.75" />
+                <line x1="17" y1="23" x2="17" y2="28" stroke="rgba(95,131,144,0.28)" strokeWidth="0.75" />
+                <line x1="6" y1="17" x2="11" y2="17" stroke="rgba(95,131,144,0.28)" strokeWidth="0.75" />
+                <line x1="23" y1="17" x2="28" y2="17" stroke="rgba(95,131,144,0.28)" strokeWidth="0.75" />
               </svg>
               <div className="leading-none">
-                <p className="font-display font-black text-[16px] tracking-tight" style={{ color: "var(--op-white)" }}>ÓPERA</p>
+                <p className="font-display font-bold text-[16px] tracking-tight" style={{ color: "var(--op-white)" }}>ÓPERA</p>
                 <p className="text-[9px] font-medium uppercase tracking-[0.22em] mt-0.5" style={{ color: "var(--op-amber)" }}>Surgical Center</p>
               </div>
             </div>
@@ -91,8 +91,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <span className="flex items-center gap-3 text-sm" style={{ color: "rgba(138,144,153,0.5)" }}>
-                  <MapPin className="h-4 w-4 shrink-0" style={{ color: "rgba(201,168,76,0.5)" }} />
+                <span className="flex items-center gap-3 text-sm" style={{ color: "rgba(122,132,144,0.5)" }}>
+                  <MapPin className="h-4 w-4 shrink-0" style={{ color: "rgba(95,131,144,0.5)" }} />
                   {t.footer.address_line}
                 </span>
               </li>
@@ -101,11 +101,11 @@ export function Footer() {
         </div>
 
         <div className="mt-14 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-          <p className="text-xs" style={{ color: "rgba(138,144,153,0.4)" }}>
+          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}>
+          <p className="text-xs" style={{ color: "rgba(122,132,144,0.4)" }}>
             © {year} Ópera Surgical Center · {t.footer.rights}
           </p>
-          <p className="text-xs" style={{ color: "rgba(138,144,153,0.3)" }}>
+          <p className="text-xs" style={{ color: "rgba(122,132,144,0.3)" }}>
             {t.footer.designed_by}
           </p>
         </div>

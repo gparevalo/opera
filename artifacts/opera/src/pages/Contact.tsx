@@ -65,7 +65,7 @@ export default function ContactPage() {
         <section className="relative s-ink overflow-hidden py-32 md:py-44">
           <div className="scene-glow-dark" />
           <div className="grain-overlay" />
-          <div className="relative z-10 mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export default function ContactPage() {
 
         {/* ── Main ── */}
         <section className="s-graphite py-24 md:py-36 overflow-hidden">
-          <div className="mx-auto max-w-[1380px] px-5 md:px-8 xl:px-12">
+          <div className="mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12">
             <div className="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:items-start">
 
               {/* Quick actions */}
@@ -117,7 +117,7 @@ export default function ContactPage() {
                     sub: language === "es" ? "Centro quirúrgico privado" : "Private surgical center",
                     href: "https://maps.google.com/?q=Quito+Ecuador",
                     external: true,
-                    iconColor: "rgba(201,168,76,0.6)",
+                    iconColor: "rgba(95,131,144,0.7)",
                   },
                 ].map(({ icon: Icon, label, sub, href, external, iconColor }) => (
                   <a
@@ -134,7 +134,7 @@ export default function ContactPage() {
                       <p className="text-xs mt-0.5" style={{ color: "rgba(138,144,153,0.6)" }}>{sub}</p>
                     </div>
                     <ArrowRight className="h-4 w-4 shrink-0 mt-0.5 transition-all duration-300 group-hover:translate-x-0.5"
-                      style={{ color: "rgba(201,168,76,0.3)" }} aria-hidden />
+                      style={{ color: "rgba(95,131,144,0.28)" }} aria-hidden />
                   </a>
                 ))}
 
@@ -175,13 +175,13 @@ export default function ContactPage() {
                     <div>
                       <label style={labelStyle}>{cp.form_name}</label>
                       <input name="name" required style={inputStyle} placeholder={cp.form_name}
-                        onFocus={(e) => e.target.style.borderColor = "rgba(201,168,76,0.35)"}
+                        onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
                         onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
                     </div>
                     <div>
                       <label style={labelStyle}>{cp.form_email}</label>
                       <input name="email" type="email" required style={inputStyle} placeholder={cp.form_email}
-                        onFocus={(e) => e.target.style.borderColor = "rgba(201,168,76,0.35)"}
+                        onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
                         onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
                     </div>
                   </div>
@@ -190,7 +190,7 @@ export default function ContactPage() {
                     <div>
                       <label style={labelStyle}>{cp.form_phone}</label>
                       <input name="phone" type="tel" style={inputStyle} placeholder="+593..."
-                        onFocus={(e) => e.target.style.borderColor = "rgba(201,168,76,0.35)"}
+                        onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
                         onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
                     </div>
                     <div>
@@ -208,7 +208,7 @@ export default function ContactPage() {
                     <label style={labelStyle}>{cp.form_message}</label>
                     <textarea name="message" rows={5} style={{ ...inputStyle, resize: "none" }}
                       placeholder={cp.form_message}
-                      onFocus={(e) => e.target.style.borderColor = "rgba(201,168,76,0.35)"}
+                      onFocus={(e) => e.target.style.borderColor = "rgba(95,131,144,0.35)"}
                       onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"} />
                   </div>
 

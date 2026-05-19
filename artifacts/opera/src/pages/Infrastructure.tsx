@@ -1,6 +1,6 @@
-import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n";
 import { Layout } from "@/layout/Layout";
+import { SeoHead } from "@/components/SeoHead";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Calendar } from "lucide-react";
@@ -79,11 +79,14 @@ export default function InfrastructurePage() {
   const labels = t.home.infra.labels;
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>{`${t.infrastructure_page.title} · ${t.metadata.base_title_suffix}`}</title>
-        <meta name="description" content={t.infrastructure_page.intro} />
-      </Helmet>
+    <>
+      <SeoHead
+        title="Infraestructura Quirúrgica en Quito | Ópera Surgical Center"
+        description="Quirófanos modernos, área de recuperación, hospitalización corta y esterilización en Quito. Infraestructura premium para especialistas médicos con soporte perioperatorio 360°."
+        path="/infraestructura"
+        ogTitle="Infraestructura Quirúrgica Premium · Ópera Surgical Center Quito"
+        ogDescription="Quirófanos, recuperación, hospitalización corta y esterilización. Infraestructura clínica premium diseñada para especialistas médicos en Quito, Ecuador."
+      />
 
       <Layout>
         {/* ── Hero ── */}
@@ -127,7 +130,6 @@ export default function InfrastructurePage() {
                 >
                   <div className="gallery-card-inner absolute inset-0" style={{ background: bg }} />
                   <PatternSvg type={pattern} />
-                  {/* Amber glow */}
                   <div className="absolute inset-0 pointer-events-none"
                     style={{ background: "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 65%)" }} />
                   <div className="gallery-card-label">
@@ -173,6 +175,6 @@ export default function InfrastructurePage() {
           </div>
         </section>
       </Layout>
-    </HelmetProvider>
+    </>
   );
 }

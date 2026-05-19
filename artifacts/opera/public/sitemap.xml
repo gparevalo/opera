@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://operasurgicalcenter.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://operasurgicalcenter.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://operasurgicalcenter.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://operasurgicalcenter.com/"/>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://operasurgicalcenter.com/nosotros</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://operasurgicalcenter.com/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://operasurgicalcenter.com/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://operasurgicalcenter.com/nosotros"/>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://operasurgicalcenter.com/infraestructura</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://operasurgicalcenter.com/infraestructura"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://operasurgicalcenter.com/infraestructura"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://operasurgicalcenter.com/infraestructura"/>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://operasurgicalcenter.com/especialidades</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://operasurgicalcenter.com/especialidades"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://operasurgicalcenter.com/especialidades"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://operasurgicalcenter.com/especialidades"/>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://operasurgicalcenter.com/para-especialistas</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://operasurgicalcenter.com/para-especialistas"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://operasurgicalcenter.com/para-especialistas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://operasurgicalcenter.com/para-especialistas"/>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://operasurgicalcenter.com/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://operasurgicalcenter.com/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://operasurgicalcenter.com/contacto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://operasurgicalcenter.com/contacto"/>
+    <lastmod>2025-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

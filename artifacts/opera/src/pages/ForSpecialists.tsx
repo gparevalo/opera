@@ -1,6 +1,6 @@
-import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n";
 import { Layout } from "@/layout/Layout";
+import { SeoHead } from "@/components/SeoHead";
 import { motion } from "framer-motion";
 import { whatsappHref } from "@/lib/site";
 import { CheckCircle2, MessageCircle, Calendar, Star, Settings, Shield, CalendarDays } from "lucide-react";
@@ -25,11 +25,14 @@ export default function ForSpecialistsPage() {
       : "Hello, I'm a specialist and I'd like to learn about operating at Ópera Surgical Center.";
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>{`${sp.title} · ${t.metadata.base_title_suffix}`}</title>
-        <meta name="description" content={sp.intro} />
-      </Helmet>
+    <>
+      <SeoHead
+        title="Para Especialistas | Renta de Quirófanos en Quito · Ópera"
+        description="Renta de quirófanos y coordinación quirúrgica premium para especialistas médicos en Quito. Sin inversión inicial, agenda flexible, soporte perioperatorio 360°. Ópera Surgical Center."
+        path="/para-especialistas"
+        ogTitle="Para Especialistas Médicos — Renta de Quirófanos · Quito"
+        ogDescription="Quirófanos premium disponibles para especialistas en Quito. Sin inversión inicial, coordinación dedicada y soporte perioperatorio integral. Ópera Surgical Center."
+      />
 
       <Layout>
         {/* ── Hero ── */}
@@ -161,6 +164,6 @@ export default function ForSpecialistsPage() {
           </div>
         </section>
       </Layout>
-    </HelmetProvider>
+    </>
   );
 }

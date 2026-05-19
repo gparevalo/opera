@@ -1,6 +1,6 @@
-import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n";
 import { Layout } from "@/layout/Layout";
+import { SeoHead } from "@/components/SeoHead";
 import { motion } from "framer-motion";
 import { whatsappHref, OPERA_CONTACT_EMAIL } from "@/lib/site";
 import { MessageCircle, Mail, Calendar, MapPin, ArrowRight } from "lucide-react";
@@ -51,11 +51,14 @@ export default function ContactPage() {
   };
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>{`${cp.title} · ${t.metadata.base_title_suffix}`}</title>
-        <meta name="description" content={cp.intro} />
-      </Helmet>
+    <>
+      <SeoHead
+        title="Contacto | Agendar Visita · Ópera Surgical Center Quito"
+        description="Agenda un recorrido privado por Ópera Surgical Center en Quito. Contacta a coordinación por WhatsApp o correo. Respuesta inmediata para especialistas, pacientes y socios."
+        path="/contacto"
+        ogTitle="Contacto — Agendar Visita · Ópera Surgical Center"
+        ogDescription="Agenda un recorrido privado por Ópera Surgical Center en Quito. WhatsApp directo a coordinación. Respuesta inmediata."
+      />
 
       <Layout>
         {/* ── Hero ── */}
@@ -222,6 +225,6 @@ export default function ContactPage() {
           </div>
         </section>
       </Layout>
-    </HelmetProvider>
+    </>
   );
 }

@@ -1,6 +1,6 @@
-import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n";
 import { Layout } from "@/layout/Layout";
+import { SeoHead } from "@/components/SeoHead";
 import { motion } from "framer-motion";
 import { whatsappHref } from "@/lib/site";
 import { ArrowRight, MessageCircle, Calendar } from "lucide-react";
@@ -18,11 +18,14 @@ export default function SpecialtiesPage() {
       : "Hello, I'd like to ask about a specialty at Ópera Surgical Center.";
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>{`${t.specialties_page.title} · ${t.metadata.base_title_suffix}`}</title>
-        <meta name="description" content={t.specialties_page.intro} />
-      </Helmet>
+    <>
+      <SeoHead
+        title="Especialidades Médicas en Quito | Ópera Surgical Center"
+        description="Cirugía plástica, traumatología, ginecología, urología y cirugía general en Quito. Infraestructura quirúrgica premium con soporte perioperatorio dedicado en Ópera Surgical Center."
+        path="/especialidades"
+        ogTitle="Especialidades Médicas · Ópera Surgical Center Quito"
+        ogDescription="Cirugía plástica, traumatología, ginecología, urología y cirugía general. Quirófanos premium y soporte perioperatorio 360° en Quito, Ecuador."
+      />
 
       <Layout>
         {/* ── Hero ── */}
@@ -65,7 +68,6 @@ export default function SpecialtiesPage() {
                     transition={{ duration: 0.7, delay: i * 0.09, ease: [0.16, 1, 0.3, 1] }}
                     className="card-glass group p-7 flex flex-col"
                   >
-                    {/* Amber accent top */}
                     <div className="h-px w-12 mb-6 transition-all duration-500 group-hover:w-full"
                       style={{ background: "var(--op-amber)" }} />
                     <h2 className="t-headline mb-3" style={{ fontSize: "1.125rem" }}>{item.name}</h2>
@@ -124,6 +126,6 @@ export default function SpecialtiesPage() {
           </div>
         </section>
       </Layout>
-    </HelmetProvider>
+    </>
   );
 }

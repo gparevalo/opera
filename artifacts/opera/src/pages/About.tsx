@@ -1,29 +1,29 @@
-import { HelmetProvider, Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n";
 import { Layout } from "@/layout/Layout";
+import { SeoHead } from "@/components/SeoHead";
 import { motion } from "framer-motion";
 import { Target, Eye, Columns3, Calendar } from "lucide-react";
 import { Link } from "wouter";
-
-const PAGE_BG = "var(--op-ink)";
 
 export default function AboutPage() {
   const { t, language } = useLanguage();
   const pillars = t.about.pillars;
 
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>{`${t.about.title} · ${t.metadata.base_title_suffix}`}</title>
-        <meta name="description" content={t.about.intro} />
-      </Helmet>
+    <>
+      <SeoHead
+        title="Nosotros | Ópera Surgical Center · Quito, Ecuador"
+        description="Conoce la visión, misión y pilares de Ópera Surgical Center: el centro quirúrgico privado de referencia en Ecuador para especialistas que exigen agilidad, seguridad y respaldo institucional."
+        path="/nosotros"
+        ogTitle="Nosotros — Ópera Surgical Center · Quito"
+        ogDescription="Centro quirúrgico privado de referencia en Ecuador. Infraestructura moderna, coordinación disciplinada y acompañamiento perioperatorio para especialistas."
+      />
 
       <Layout>
         {/* ── Hero ── */}
         <section className="relative s-ink overflow-hidden py-32 md:py-44">
           <div className="scene-glow-dark" />
           <div className="grain-overlay" />
-          {/* Geometric accent */}
           <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none" aria-hidden>
             <svg viewBox="0 0 600 700" className="w-full h-full opacity-[0.04]" preserveAspectRatio="xMinYMid slice">
               <circle cx="300" cy="350" r="320" fill="none" stroke="white" strokeWidth="1" />
@@ -142,6 +142,6 @@ export default function AboutPage() {
           </div>
         </section>
       </Layout>
-    </HelmetProvider>
+    </>
   );
 }

@@ -1,0 +1,247 @@
+# FASE 1 — ARQUITECTURA SEO PROFESIONAL
+
+Quiero que trabajemos únicamente la FASE 1 del SEO del proyecto.
+
+NO implementar todavía optimizaciones visuales, animaciones, performance avanzada ni cambios masivos de diseño.
+
+En esta fase quiero construir una base SEO sólida, escalable y correctamente estructurada para Google y motores de IA.
+
+---
+
+# OBJETIVO
+
+Crear una arquitectura SEO-first profesional para todo el sitio.
+
+La prioridad es:
+
+* estructura,
+* semántica,
+* indexación,
+* jerarquía,
+* crawlability,
+* organización,
+* autoridad temática.
+
+---
+
+# ANALIZAR TODO EL PROYECTO
+
+Analiza:
+
+* páginas,
+* subpáginas,
+* layouts,
+* componentes,
+* navegación,
+* URLs,
+* secciones,
+* headings,
+* metadata,
+* sitemap,
+* robots,
+* links internos,
+* CTAs,
+* estructura HTML,
+* renderizado SEO,
+* organización de contenido.
+
+---
+
+# ENTREGABLES ESPERADOS
+
+Antes de implementar cambios, genera un análisis completo con:
+
+## 1. MAPA DEL SITIO ACTUAL
+
+Identificar:
+
+* todas las rutas,
+* páginas huérfanas,
+* duplicaciones,
+* rutas débiles,
+* problemas de jerarquía,
+* problemas de naming.
+
+---
+
+## 2. PROPUESTA DE ARQUITECTURA SEO
+
+Definir:
+
+* estructura ideal de URLs,
+* jerarquía de páginas,
+* hubs semánticos,
+* páginas principales,
+* páginas de intención comercial,
+* páginas informativas,
+* páginas GEO/locales si aplican.
+
+---
+
+## 3. AUDITORÍA DE HEADINGS
+
+Revisar:
+
+* H1,
+* H2,
+* H3,
+* jerarquía semántica,
+* duplicaciones,
+* headings vacíos,
+* problemas de estructura.
+
+Cada página debe tener:
+
+* un H1 claro,
+* intención definida,
+* estructura semántica correcta.
+
+---
+
+## 4. AUDITORÍA DE METADATA
+
+Revisar:
+
+* title tags,
+* meta descriptions,
+* Open Graph,
+* Twitter cards,
+* canonical URLs.
+
+Detectar:
+
+* metadata duplicada,
+* metadata genérica,
+* páginas sin metadata,
+* títulos débiles.
+
+---
+
+## 5. SITEMAP Y ROBOTS
+
+Validar:
+
+* sitemap.xml,
+* robots.txt,
+* indexabilidad,
+* rutas bloqueadas,
+* canonicalización,
+* páginas innecesarias indexadas.
+
+---
+
+## 6. INTERNAL LINKING
+
+Analizar:
+
+* navegación,
+* enlaces internos,
+* profundidad de páginas,
+* distribución de autoridad,
+* enlaces rotos,
+* oportunidades semánticas.
+
+---
+
+## 7. SEO SEMÁNTICO
+
+Detectar:
+
+* intención de búsqueda por página,
+* keywords objetivo,
+* entidades semánticas,
+* topic clusters,
+* páginas débiles o mezcladas.
+
+---
+
+## 8. GEO / AI SEO
+
+Preparar estructura optimizada para:
+
+* Google AI Overviews,
+* ChatGPT browsing,
+* Gemini,
+* Claude,
+* Perplexity,
+* motores RAG.
+
+Priorizar:
+
+* claridad semántica,
+* contenido estructurado,
+* FAQs reales,
+* headings claros,
+* respuestas explícitas,
+* contexto entendible para IA.
+
+---
+
+# IMPLEMENTACIONES QUE SÍ PUEDES HACER EN ESTA FASE
+
+Puedes:
+
+* corregir headings,
+* mejorar metadata,
+* crear sitemap,
+* mejorar robots,
+* crear canonical URLs,
+* mejorar estructura semántica,
+* mejorar URLs,
+* organizar internal linking,
+* agregar JSON-LD,
+* mejorar estructura SEO del layout.
+
+---
+
+# IMPLEMENTACIONES QUE NO QUIERO TODAVÍA
+
+NO tocar todavía:
+
+* diseño visual,
+* animaciones,
+* scrollytelling,
+* 3D,
+* branding visual,
+* performance extrema,
+* refactors gigantes,
+* cambios agresivos de UI.
+
+---
+
+# PRIORIDADES
+
+Priorizar:
+
+1. indexación correcta,
+2. claridad semántica,
+3. arquitectura escalable,
+4. SEO comercial,
+5. GEO / AI SEO,
+6. organización profesional.
+
+---
+
+# EVITAR
+
+NO hacer:
+
+* keyword stuffing,
+* metadata genérica,
+* SEO artificial,
+* texto oculto,
+* contenido spam,
+* hacks black hat,
+* cambios destructivos.
+
+---
+
+# RESULTADO ESPERADO
+
+Quiero terminar esta fase con:
+
+* una arquitectura SEO profesional,
+* estructura escalable,
+* páginas correctamente organizadas,
+* base sólida para SEO futuro,
+* y optimización preparada tanto para buscadores tradicionales como para motores de IA.

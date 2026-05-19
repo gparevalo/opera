@@ -1,0 +1,238 @@
+Create an ultra-premium futuristic AI healthcare landing page inspired by top-tier Dribbble studios like Eloqwnt, Linear, Stripe, Raycast, Vercel and modern biotech startups.
+
+the reference is this template: 
+https://dribbble.com/shots/25772303-AI-Prescription-Medicine-Website-Design?utm_source=Clipboard_Shot&utm_campaign=mirhayot&utm_content=AI%20Prescription%20Medicine%20Website%20Design&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=mirhayot&utm_content=AI%20Prescription%20Medicine%20Website%20Design&utm_medium=Social_Share
+
+Analizalizalo a fondo y saca todo el estilo y aplicalo.
+
+The final result must feel cinematic, luxurious, editorial, minimal and highly polished — not like a generic SaaS template.
+
+DESIGN DIRECTION:
+- luxury healthcare aesthetic
+- futuristic but warm
+- dark premium interface
+- AI-powered medical branding
+- cinematic composition
+- soft brutalism + editorial minimalism
+- glassmorphism used subtly
+- sophisticated whitespace usage
+- modern biotech startup visual language
+- elegant and calm visual hierarchy
+- highly immersive scrolling experience
+
+VISUAL STYLE:
+- very large typography
+- oversized editorial headlines
+- asymmetric bento layouts
+- floating UI cards
+- layered depth
+- soft shadows
+- subtle glow effects
+- translucent panels
+- radial gradient lighting
+- organic composition
+- premium spacing system
+- clean modern healthcare visuals
+- sophisticated motion design
+
+COLOR PALETTE:
+Background:
+- #0F1115
+- #111418
+- #15191D
+
+Primary Accent:
+- #5F8390
+- #2B4F57
+
+Warm Accent:
+- #946251
+- #C9B7A7
+
+Text:
+- #CECFCF
+- rgba(255,255,255,0.72)
+
+BACKGROUND EFFECTS:
+- animated radial gradients
+- soft blur blobs
+- subtle ambient lighting
+- premium grain/noise texture overlay
+- cinematic dark gradients
+- layered opacity effects
+- depth through blur and lighting
+- no harsh contrasts
+
+TYPOGRAPHY:
+Headings:
+- use General Sans, Satoshi, Clash Display or Cabinet Grotesk
+- extremely large typography
+- font-weight 600–700
+- tight letter spacing
+- editorial composition
+- line-height around 0.9
+
+Body:
+- use Inter or Plus Jakarta Sans
+- clean readable spacing
+- elegant muted text
+- large breathing room
+
+LAYOUT:
+- fullscreen hero section
+- max-width around 1440px
+- generous side paddings
+- huge vertical spacing
+- asymmetric sections
+- modern bento grids
+- overlapping cards
+- floating interface blocks
+- layered visual hierarchy
+- sticky storytelling sections
+- premium responsive behavior
+
+HERO SECTION:
+Left side:
+- giant editorial headline
+- elegant supporting text
+- premium CTA buttons
+- subtle trust indicators
+
+Right side:
+- floating AI medical dashboard
+- translucent UI cards
+- animated charts or health data
+- floating pills/cards
+- layered glassmorphism panels
+- cinematic gradient lighting
+
+COMPONENT STYLE:
+Cards:
+- large border radius (24px–32px)
+- semi-transparent backgrounds
+- subtle borders
+- soft shadows
+- backdrop blur
+- floating depth
+
+Buttons:
+- pill-shaped
+- magnetic hover effect
+- smooth transitions
+- subtle lift interaction
+- premium hover glow
+- elegant microinteractions
+
+ICONS:
+- thin outline icons
+- Lucide style
+- minimal and elegant
+- consistent stroke width
+
+ANIMATIONS:
+Use Framer Motion extensively.
+
+Animation philosophy:
+- smooth
+- slow
+- cinematic
+- elegant
+- subtle
+- premium
+
+Avoid:
+- aggressive animations
+- bouncing
+- flashy transitions
+- exaggerated motion
+
+Include:
+- fade-up reveals
+- stagger animations
+- parallax scrolling
+- floating cards
+- ambient movement
+- smooth hover interactions
+- gradient motion
+- animated blur blobs
+- section reveal animations
+- scroll-triggered transitions
+- subtle scale animations
+- depth-based motion
+
+SCROLL EXPERIENCE:
+- implement smooth scrolling using Lenis
+- cinematic scroll pacing
+- scroll-based reveals
+- layered parallax
+- immersive transitions
+- sticky sections where appropriate
+- elegant motion choreography
+
+INTERACTIONS:
+- magnetic buttons
+- hover lift effects
+- smooth opacity transitions
+- cursor-aware interactions
+- premium card hover behavior
+- animated CTA states
+- interactive floating elements
+
+TECH STACK:
+- React
+- Tailwind CSS
+- Framer Motion
+- Lenis smooth scrolling
+- GSAP ScrollTrigger if needed
+- fully responsive
+- componentized architecture
+- reusable sections
+- production-quality code
+
+QUALITY REQUIREMENTS:
+- must look like an award-winning Awwwards website
+- extremely polished UI
+- modern startup quality
+- no generic Tailwind appearance
+- no basic gradients
+- no template-looking sections
+- avoid visual clutter
+- prioritize whitespace and composition
+- every section must feel premium
+
+SEO + PERFORMANCE:
+- semantic HTML
+- optimized loading
+- accessibility best practices
+- responsive typography
+- optimized animations
+- clean code structure
+- proper heading hierarchy
+- fast rendering
+
+IMPORTANT:
+The site should feel like:
+“Apple meets futuristic healthcare AI startup.”
+
+The emotional response should be:
+- trust
+- innovation
+- sophistication
+- calmness
+- futuristic intelligence
+- exclusivity
+
+Do NOT create a generic SaaS dashboard.
+Do NOT overuse glassmorphism.
+Do NOT overcrowd sections.
+Do NOT use flashy neon cyberpunk aesthetics.
+
+Prioritize:
+- typography
+- spacing
+- motion
+- composition
+- atmosphere
+- premium execution
+
+The final experience should feel immersive, cinematic and world-class.

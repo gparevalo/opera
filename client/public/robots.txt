@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Internal/system routes if present
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://tosellmore.com/sitemap.xml

@@ -4,10 +4,7 @@ import { useLanguage } from "@/i18n";
 import { Link } from "wouter";
 import { whatsappHref } from "@/lib/site";
 import { ChevronDown, Calendar } from "lucide-react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 // ── Floating amber particle ───────────────────────────────────────────────────
 function Particle({ style }: { style: React.CSSProperties }) {
@@ -90,11 +87,17 @@ export function HeroSection() {
 
   const stagger = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.11, delayChildren: 0.3 } },
+    show: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
   };
+  // H1 and lead text: animate transform only — opacity stays 1 so LCP is immediate
+  const itemVisible = {
+    hidden: { y: 20 },
+    show: { y: 0, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] as [number,number,number,number] } },
+  };
+  // Secondary elements (CTAs, trust row): full fade+slide
   const item = {
-    hidden: { opacity: 0, y: 22 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as [number,number,number,number] } },
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] as [number,number,number,number] } },
   };
 
   return (
@@ -135,14 +138,14 @@ export function HeroSection() {
         <motion.div variants={stagger} initial="hidden" animate="show" className="max-w-[780px]">
 
           {/* Eyebrow */}
-          <motion.div variants={item} className="mb-8">
+          <motion.div variants={itemVisible} className="mb-8">
             <span className="t-eyebrow">
               {language === "es" ? "Centro quirúrgico premium · Quito, Ecuador" : "Premium surgical center · Quito, Ecuador"}
             </span>
           </motion.div>
 
-          {/* Main headline */}
-          <motion.h1 variants={item} className="t-display-xl">
+          {/* Main headline — uses itemVisible so LCP element is never opacity:0 */}
+          <motion.h1 variants={itemVisible} className="t-display-xl">
             {language === "es" ? (
               <>
                 Opera en una<br />
@@ -161,7 +164,7 @@ export function HeroSection() {
           </motion.h1>
 
           {/* Subheadline */}
-          <motion.p variants={item} className="t-lead mt-7 max-w-[640px]">
+          <motion.p variants={itemVisible} className="t-lead mt-7 max-w-[640px]">
             {language === "es"
               ? "Transforma la experiencia de tus pacientes con instalaciones premium, soporte especializado y una operación quirúrgica sin fricción."
               : "Transform your patients' experience with premium facilities, specialized support, and a frictionless surgical operation."}

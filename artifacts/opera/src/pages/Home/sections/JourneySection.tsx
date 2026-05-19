@@ -1,10 +1,7 @@
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/i18n";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 const STEPS_ES = [
   { num: "01", title: "Llegada del especialista", detail: "Acceso directo, parqueo reservado, recepción discreta sin colas." },

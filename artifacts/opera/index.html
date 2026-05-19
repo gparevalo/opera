@@ -2,7 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, viewport-fit=cover" />
+    <meta name="theme-color" content="#07090c" />
 
     <!-- Base metadata (overridden per-page via react-helmet-async) -->
     <title>Ópera Surgical Center | Centro Quirúrgico Premium · Quito, Ecuador</title>
@@ -36,12 +37,38 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Fonts -->
+    <!-- Fonts: preconnect first, then load with display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Spinner keyframe for lazy-load fallback -->
+    <style>
+      @keyframes spin { to { transform: rotate(360deg); } }
+      /* Prevent FOUC — app background matches site ink */
+      html, body { background: #07090c; margin: 0; }
+    </style>
   </head>
   <body>
+    <noscript>
+      <style>
+        .noscript-msg {
+          display: flex; align-items: center; justify-content: center;
+          min-height: 100vh; background: #07090c;
+          font-family: Inter, system-ui, sans-serif;
+          color: #c4c8cc; text-align: center; padding: 2rem;
+        }
+        .noscript-msg strong { color: #c9a84c; display: block; font-size: 1.25rem; margin-bottom: 0.5rem; }
+      </style>
+      <div class="noscript-msg">
+        <div>
+          <strong>Ópera Surgical Center</strong>
+          Este sitio requiere JavaScript para funcionar. Por favor activa JavaScript en tu navegador.
+        </div>
+      </div>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

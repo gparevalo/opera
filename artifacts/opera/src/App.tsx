@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
@@ -8,29 +9,58 @@ import { useLenis } from "@/hooks/useLenis";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
 import HomePage from "@/pages/Home/index";
-import AboutPage from "@/pages/About";
-import InfrastructurePage from "@/pages/Infrastructure";
-import SpecialtiesPage from "@/pages/Specialties";
-import ForSpecialistsPage from "@/pages/ForSpecialists";
-import ContactPage from "@/pages/Contact";
 import NotFound from "@/pages/not-found";
 
+const AboutPage         = lazy(() => import("@/pages/About"));
+const InfrastructurePage = lazy(() => import("@/pages/Infrastructure"));
+const SpecialtiesPage   = lazy(() => import("@/pages/Specialties"));
+const ForSpecialistsPage = lazy(() => import("@/pages/ForSpecialists"));
+const ContactPage       = lazy(() => import("@/pages/Contact"));
+
 const queryClient = new QueryClient();
+
+function PageFallback() {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "var(--op-ink)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      aria-hidden
+    >
+      <div
+        style={{
+          width: 32,
+          height: 32,
+          borderRadius: "50%",
+          border: "2px solid rgba(201,168,76,0.15)",
+          borderTopColor: "var(--op-amber)",
+          animation: "spin 0.8s linear infinite",
+        }}
+      />
+    </div>
+  );
+}
 
 function AppRoutes() {
   useLenis();
   return (
     <>
       <ScrollToTop />
-      <Switch>
-        <Route path="/" component={HomePage} />
-        <Route path="/nosotros" component={AboutPage} />
-        <Route path="/infraestructura" component={InfrastructurePage} />
-        <Route path="/especialidades" component={SpecialtiesPage} />
-        <Route path="/para-especialistas" component={ForSpecialistsPage} />
-        <Route path="/contacto" component={ContactPage} />
-        <Route component={NotFound} />
-      </Switch>
+      <Suspense fallback={<PageFallback />}>
+        <Switch>
+          <Route path="/" component={HomePage} />
+          <Route path="/nosotros" component={AboutPage} />
+          <Route path="/infraestructura" component={InfrastructurePage} />
+          <Route path="/especialidades" component={SpecialtiesPage} />
+          <Route path="/para-especialistas" component={ForSpecialistsPage} />
+          <Route path="/contacto" component={ContactPage} />
+          <Route component={NotFound} />
+        </Switch>
+      </Suspense>
     </>
   );
 }

@@ -17,7 +17,7 @@ export function Layout({ children, navTransparent = false }: LayoutProps) {
       <JsonLd />
       <ScrollProgress />
       <Navbar transparent={navTransparent} />
-      <main className="pt-[60px]">{children}</main>
+      <main className="pt-[0px]">{children}</main>
       <Footer />
       <WhatsAppFab />
       <MobileCtaBar />

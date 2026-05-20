@@ -18,14 +18,14 @@ export default function PremiumButtonRef({
           rounded-full
           border border-[#c7dde2]
           bg-white
-          px-6 py-3
+          pl-6 px-2 py-1
           text-sm font-medium
-          text-[#2b7b8c]
+          text-[#004875]
           shadow-[0_4px_20px_rgba(43,123,140,0.08)]
           transition-all duration-300
-          hover:bg-[#2b7b8c]
+          hover:bg-[#004875]
           hover:text-white
-          hover:border-[#2b7b8c]
+          hover:border-[#004875]
           hover:shadow-[0_10px_30px_rgba(43,123,140,0.18)]
           hover:-translate-y-0.5
           ${className}
@@ -37,7 +37,7 @@ export default function PremiumButtonRef({
           className="
             flex h-8 w-8 items-center justify-center
             rounded-full
-            bg-[#2b7b8c]
+            bg-[#004875]
             transition-all duration-300
             group-hover:bg-white
           "

@@ -76,15 +76,12 @@ export function WhySection() {
           <span className="t-eyebrow mb-5 inline-flex">
             {language === "es" ? "Por qué Ópera" : "Why Ópera"}
           </span>
-          <h2
-            className="t-display  text-primary mt-5 mx-auto"
-            style={{ maxWidth: 680 }}
-          >
+          <h2 className="t-display  text-primary mt-5 mx-auto">
             {language === "es"
               ? "Infraestructura pensada para tu práctica."
               : "Infrastructure built for your practice."}
           </h2>
-          <p className="t-lead mt-5 mx-auto" style={{ maxWidth: 520 }}>
+          <p className="t-lead mt-5 mx-auto">
             {language === "es"
               ? "No inviertas en construcción. Opera en un entorno ya diseñado para resultados predecibles."
               : "Don't invest in construction. Operate in an environment already designed for predictable results."}

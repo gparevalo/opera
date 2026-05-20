@@ -38,9 +38,9 @@ const sampleMediaContent: MediaContentCollection = {
     },
   },
   image: {
-    src: "/clinica/operahero2.png",
+    src: "https://images.unsplash.com/photo-1682687982501-1e58ab814714?q=80&w=1280&auto=format&fit=crop",
     background:
-      "/clinica/operahero3.png",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop",
     title: "Dynamic Image Showcase",
     date: "Underwater Adventure",
     scrollToExpand: "Scroll to Expand Demo",
@@ -197,30 +197,6 @@ const HeroHome = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="fixed top-4 right-4 z-50 flex gap-2">
-        <button
-          onClick={() => setMediaType("video")}
-          className={`px-4 py-2 rounded-lg ${
-            mediaType === "video"
-              ? "bg-white text-black"
-              : "bg-black/50 text-white border border-white/30"
-          }`}
-        >
-          Video
-        </button>
-
-        <button
-          onClick={() => setMediaType("image")}
-          className={`px-4 py-2 rounded-lg ${
-            mediaType === "image"
-              ? "bg-white text-black"
-              : "bg-black/50 text-white border border-white/30"
-          }`}
-        >
-          Image
-        </button>
-      </div>
-
       <HeroPage
         mediaType={mediaType as "video" | "image"}
         mediaSrc={currentMedia.src}

@@ -9,9 +9,9 @@ import { Link, useLocation } from "wouter";
 
 const NAV_ITEMS = [
   { key: "home", href: "/" },
-  { key: "about", href: "/nosotros" },
-  { key: "infrastructure", href: "/infraestructura" },
   { key: "specialties", href: "/especialidades" },
+  { key: "infrastructure", href: "/infraestructura" },
+  { key: "about", href: "/nosotros" },
   { key: "contact", href: "/contacto" },
 ] as const;
 

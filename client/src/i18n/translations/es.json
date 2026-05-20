@@ -7,7 +7,7 @@
     "home": "Inicio",
     "about": "Nosotros",
     "infrastructure": "Infraestructura",
-    "specialties": "Especialidades",
+    "specialties": "Operar en Ópera",
     "specialists": "Para especialistas",
     "contact": "Contacto",
     "visit": "Agendar visita",
@@ -47,12 +47,30 @@
       "title": "Diseñado para resultados predecibles",
       "subtitle": "Un entorno quirúrgico premium pensado para jornadas seguras, predecibles y eficientes.",
       "items": {
-        "agility": { "title": "Agilidad operativa", "body": "Programación ágil y comunicación clara para que los procedimientos avancen con ritmo." },
-        "safety": { "title": "Seguridad perioperatoria", "body": "Rutas estructuradas, listas de verificación y disciplina clínica en cada etapa." },
-        "team": { "title": "Equipo médico interno", "body": "Respaldo experimentado para que el especialista mantenga el foco en el acto quirúrgico." },
-        "stay": { "title": "Hospitalización corta", "body": "Recuperación confortable alineada con cirugía ambulatoria y estadía breve." },
-        "infra": { "title": "Infraestructura moderna", "body": "Espacios listos para quirófano, ambientes controlados y estética clínica premium." },
-        "care": { "title": "Acompañamiento integral", "body": "Coordinación desde la evaluación hasta el seguimiento, sin ruido administrativo." }
+        "agility": {
+          "title": "Agilidad operativa",
+          "body": "Programación ágil y comunicación clara para que los procedimientos avancen con ritmo."
+        },
+        "safety": {
+          "title": "Seguridad perioperatoria",
+          "body": "Rutas estructuradas, listas de verificación y disciplina clínica en cada etapa."
+        },
+        "team": {
+          "title": "Equipo médico interno",
+          "body": "Respaldo experimentado para que el especialista mantenga el foco en el acto quirúrgico."
+        },
+        "stay": {
+          "title": "Hospitalización corta",
+          "body": "Recuperación confortable alineada con cirugía ambulatoria y estadía breve."
+        },
+        "infra": {
+          "title": "Infraestructura moderna",
+          "body": "Espacios listos para quirófano, ambientes controlados y estética clínica premium."
+        },
+        "care": {
+          "title": "Acompañamiento integral",
+          "body": "Coordinación desde la evaluación hasta el seguimiento, sin ruido administrativo."
+        }
       }
     },
     "b2b": {
@@ -60,12 +78,30 @@
       "title": "Diseñado para que operes con claridad y tranquilidad.",
       "lead": "Ópera simplifica la coordinación quirúrgica: menos fricción, tiempos claros y respaldo institucional alrededor de tu práctica.",
       "points": {
-        "admin": { "title": "Menos carga administrativa", "body": "Absorbemos el detalle operativo para que tu equipo no persiga cabos sueltos." },
-        "coord": { "title": "Coordinación alineada", "body": "Un solo flujo responsable entre preoperatorio, intraoperatorio y recuperación." },
-        "backup": { "title": "Respaldo clínico", "body": "Soporte perioperatorio estructurado para complementar tu liderazgo médico." },
-        "speed": { "title": "Rapidez en programación", "body": "Agenda reactiva y bloques quirúrgicos predecibles." },
-        "safety": { "title": "Cultura de seguridad", "body": "Estándares, protocolos y trazabilidad que puedes transmitir a tus pacientes con confianza." },
-        "ops": { "title": "Partnership operativo", "body": "Un entorno premium que eleva la percepción de tu práctica antes del primer contacto." }
+        "admin": {
+          "title": "Menos carga administrativa",
+          "body": "Absorbemos el detalle operativo para que tu equipo no persiga cabos sueltos."
+        },
+        "coord": {
+          "title": "Coordinación alineada",
+          "body": "Un solo flujo responsable entre preoperatorio, intraoperatorio y recuperación."
+        },
+        "backup": {
+          "title": "Respaldo clínico",
+          "body": "Soporte perioperatorio estructurado para complementar tu liderazgo médico."
+        },
+        "speed": {
+          "title": "Rapidez en programación",
+          "body": "Agenda reactiva y bloques quirúrgicos predecibles."
+        },
+        "safety": {
+          "title": "Cultura de seguridad",
+          "body": "Estándares, protocolos y trazabilidad que puedes transmitir a tus pacientes con confianza."
+        },
+        "ops": {
+          "title": "Partnership operativo",
+          "body": "Un entorno premium que eleva la percepción de tu práctica antes del primer contacto."
+        }
       }
     },
     "process": {
@@ -73,11 +109,26 @@
       "title": "Flujo claro de la indicación al seguimiento",
       "subtitle": "Un flujo claro y ordenado, tipo enterprise healthcare, de la indicación al seguimiento.",
       "steps": {
-        "1": { "title": "Evaluación del procedimiento", "body": "Viabilidad clínica y logística alineada a tus criterios." },
-        "2": { "title": "Coordinación preoperatoria", "body": "Documentación, tiempos y preparación del paciente bajo un solo plan orquestado." },
-        "3": { "title": "Programación quirúrgica", "body": "Asignación de quirófano con turnover predecible y readiness premium." },
-        "4": { "title": "Soporte perioperatorio", "body": "Equipo dedicado en inducción, procedimiento y recuperación inmediata." },
-        "5": { "title": "Recuperación y seguimiento", "body": "Monitoreo de estadía corta e instrucciones de continuidad estructuradas." }
+        "1": {
+          "title": "Evaluación del procedimiento",
+          "body": "Viabilidad clínica y logística alineada a tus criterios."
+        },
+        "2": {
+          "title": "Coordinación preoperatoria",
+          "body": "Documentación, tiempos y preparación del paciente bajo un solo plan orquestado."
+        },
+        "3": {
+          "title": "Programación quirúrgica",
+          "body": "Asignación de quirófano con turnover predecible y readiness premium."
+        },
+        "4": {
+          "title": "Soporte perioperatorio",
+          "body": "Equipo dedicado en inducción, procedimiento y recuperación inmediata."
+        },
+        "5": {
+          "title": "Recuperación y seguimiento",
+          "body": "Monitoreo de estadía corta e instrucciones de continuidad estructuradas."
+        }
       }
     },
     "infra": {
@@ -120,9 +171,18 @@
     "mission": "Ofrecer infraestructura moderna, coordinación disciplinada y acompañamiento perioperatorio humano—para que cada jornada quirúrgica se sienta controlada, serena y excelente.",
     "pillars_title": "Pilares",
     "pillars": {
-      "excellence": { "title": "Excelencia médica", "body": "Estándares rigurosos y mejora continua en la práctica clínica y operativa." },
-      "safety": { "title": "Cultura de seguridad", "body": "Listas de verificación, responsabilidades claras y entornos diseñados para flujos controlados." },
-      "innovation": { "title": "Innovación operativa", "body": "Procesos modernos que reducen fricción para equipos y pacientes." }
+      "excellence": {
+        "title": "Excelencia médica",
+        "body": "Estándares rigurosos y mejora continua en la práctica clínica y operativa."
+      },
+      "safety": {
+        "title": "Cultura de seguridad",
+        "body": "Listas de verificación, responsabilidades claras y entornos diseñados para flujos controlados."
+      },
+      "innovation": {
+        "title": "Innovación operativa",
+        "body": "Procesos modernos que reducen fricción para equipos y pacientes."
+      }
     }
   },
   "infrastructure_page": {
@@ -136,11 +196,38 @@
     "cta_title": "Conversemos sobre tu especialidad",
     "cta_body": "Indícanos tu especialidad y mix de casos: mapeamos soporte, documentación y programación.",
     "items": {
-      "plastic": { "name": "Cirugía plástica", "desc": "Entornos controlados para procedimientos estéticos y reconstructivos con recuperación discreta." },
-      "trauma": { "name": "Traumatología / ortopedia", "desc": "Preparación de quirófano y soporte para intervenciones ortopédicas focalizadas dentro de nuestro alcance de complejidad." },
-      "gyn": { "name": "Ginecología", "desc": "Coordinación privada para cirugía ginecológica con énfasis en confort y comunicación perioperatoria clara." },
-      "uro": { "name": "Urología", "desc": "Programación eficiente y flujos alineados a equipamiento para procedimientos endoscópicos y abiertos seleccionados." },
-      "general": { "name": "Cirugía general", "desc": "Rutas estructuradas para indicaciones quirúrgicas frecuentes con optimización de estadía corta." }
+      "plastic": {
+        "name": "Cirugía plástica",
+        "desc": "Procedimientos estéticos y reconstructivos con recuperación ambulatoria en un entorno privado y controlado."
+      },
+      "derm": {
+        "name": "Dermatología quirúrgica",
+        "desc": "Espacios preparados para procedimientos dermatológicos ambulatorios con soporte clínico y recuperación inmediata."
+      },
+      "gyn": {
+        "name": "Ginecología",
+        "desc": "Infraestructura y coordinación para procedimientos ginecológicos de corta estancia y rápida recuperación."
+      },
+      "uro": {
+        "name": "Urología ambulatoria",
+        "desc": "Flujos eficientes para procedimientos urológicos seleccionados con alta el mismo día."
+      },
+      "ent": {
+        "name": "Otorrinolaringología",
+        "desc": "Soporte quirúrgico para intervenciones ORL ambulatorias con protocolos orientados a confort y seguridad."
+      },
+      "oph": {
+        "name": "Oftalmología",
+        "desc": "Entorno diseñado para procedimientos oftalmológicos programados con recuperación breve."
+      },
+      "vascular": {
+        "name": "Cirugía vascular menor",
+        "desc": "Coordinación y soporte para procedimientos vasculares ambulatorios de baja complejidad."
+      },
+      "maxilo": {
+        "name": "Cirugía maxilofacial",
+        "desc": "Espacios quirúrgicos preparados para procedimientos maxilofaciales ambulatorios y recuperación controlada."
+      }
     }
   },
   "specialists_page": {

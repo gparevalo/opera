@@ -11,17 +11,21 @@ import {
 import {
   ArrowRight,
   Award,
+  BedDouble,
   BriefcaseMedical,
   Building2,
   Calendar,
   CheckCircle,
   Cpu,
   HeartPulse,
+  Pill,
   Shield,
   Sparkles,
   Star,
+  Stethoscope,
   TrendingUp,
   Users,
+  UtensilsCrossed,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
@@ -77,9 +81,9 @@ export default function AboutUsSection() {
       secondaryIcon: (
         <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
       ),
-      title: "Bloque quirúrgico de alto estándar",
+      title: "Quirófanos equipados",
       description:
-        "Quirófanos completamente equipados con tecnología avanzada y protocolos de esterilización estrictos que garantizan seguridad y precisión en cada procedimiento.",
+        "Espacios quirúrgicos con tecnología de vanguardia para procedimientos de baja y media complejidad, bajo altos estándares de calidad y seguridad.",
       position: "left",
     },
     {
@@ -87,49 +91,49 @@ export default function AboutUsSection() {
       secondaryIcon: (
         <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
       ),
-      title: "Recuperación y soporte clínico continuo",
+      title: "Recuperación ambulatoria",
       description:
-        "Área de recuperación equipada con monitoreo constante y un equipo de enfermería interna especializado en cuidado perioperatorio.",
+        "Área de recuperación con monitoreo profesional, atención médica continua y un ambiente tranquilo diseñado para el confort del paciente.",
       position: "left",
     },
     {
-      icon: <Cpu className="w-6 h-6" />,
+      icon: <BedDouble className="w-6 h-6" />,
       secondaryIcon: (
-        <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
+        <Star className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
       ),
-      title: "Soporte operativo integral",
+      title: "Hospitalización privada",
       description:
-        "Mantenimiento técnico continuo de equipos médicos y espacios funcionales diseñados para descanso y preparación entre procedimientos.",
+        "Habitaciones individuales confortables equipadas con TV, internet, teléfono y sofá para acompañantes, pensadas para una experiencia más humana y privada.",
       position: "left",
     },
     {
-      icon: <Calendar className="w-6 h-6" />,
-      secondaryIcon: (
-        <Star className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
-      ),
-      title: "Coordinación quirúrgica inteligente",
-      description:
-        "Un único punto de contacto para toda la operación médica con agenda estructurada que asegura fluidez y predictibilidad en cada jornada quirúrgica.",
-      position: "right",
-    },
-    {
-      icon: <Sparkles className="w-6 h-6" />,
+      icon: <UtensilsCrossed className="w-6 h-6" />,
       secondaryIcon: (
         <CheckCircle className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
       ),
-      title: "Experiencia premium para especialistas",
+      title: "Centro gástrico especializado",
       description:
-        "Recepción de alto nivel y parqueo reservado que garantizan una experiencia fluida, privada y sin fricciones desde la llegada.",
+        "Diagnóstico, tratamiento y seguimiento integral para pacientes con patologías del aparato digestivo en un entorno médico coordinado.",
       position: "right",
     },
     {
-      icon: <Shield className="w-6 h-6" />,
+      icon: <Pill className="w-6 h-6" />,
+      secondaryIcon: (
+        <Sparkles className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
+      ),
+      title: "Farmacia interna",
+      description:
+        "Amplio inventario de medicamentos y recetas disponibles dentro del centro para brindar mayor comodidad y continuidad al paciente.",
+      position: "right",
+    },
+    {
+      icon: <Stethoscope className="w-6 h-6" />,
       secondaryIcon: (
         <Star className="w-4 h-4 absolute -top-1 -right-1 text-[#A9BBC8]" />
       ),
-      title: "Infraestructura médica integrada",
+      title: "Más de 20 especialidades médicas",
       description:
-        "Un entorno diseñado para centralizar todos los recursos necesarios del acto quirúrgico, optimizando eficiencia, tiempos y experiencia médica.",
+        "Equipo médico multidisciplinario preparado para atender distintas necesidades clínicas y acompañar cada etapa del tratamiento.",
       position: "right",
     },
   ];
@@ -293,11 +297,11 @@ export default function AboutUsSection() {
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
                 >
-                  <PremiumButtonRef href="/nosotros">
+                  <PremiumButtonRef href="/especialidades">
                     {language === "es"
                       ? "Deseas saber más?"
                       : "Check availability"}
-                  </PremiumButtonRef> 
+                  </PremiumButtonRef>
                 </motion.div>
               </motion.div>
               <motion.div
@@ -468,8 +472,7 @@ function ServiceItem({
             transition: { duration: 0.5 },
           }}
         >
-          {icon}
-          {secondaryIcon}
+          {icon} 
         </motion.div>
         <h3 className="text-xl font-medium text-primary group-hover:text-[#88734C] transition-colors duration-300">
           {title}

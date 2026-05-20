@@ -6,6 +6,7 @@ import { Layout } from "@/layout/Layout";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { Link } from "wouter";
+import HeroHome from "./Home/sections/HeroHome";
 
 export default function InfrastructurePage() {
   const { t, language } = useLanguage();
@@ -20,12 +21,14 @@ export default function InfrastructurePage() {
         ogDescription="Quirófanos, recuperación, hospitalización corta y esterilización. Infraestructura clínica premium diseñada para especialistas médicos en Quito, Ecuador."
       />
 
+      <HeroHome />
       <Layout>
         {/* ── Hero ── */}
         <PremiumHero
           eyebrow={t.home.infra.eyebrow}
           title={t.infrastructure_page.title}
           description={t.infrastructure_page.intro}
+          image="/clinica/operahero4.png"
           actions={[
             {
               label: t.nav.visit,

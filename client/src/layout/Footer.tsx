@@ -19,7 +19,7 @@ const COLS = {
     {
       title: "Servicios",
       links: [
-        { label: "Especialidades", href: "/especialidades" },
+        { label: "Operar en Ópera", href: "/especialidades" },
         { label: "Quirófanos", href: "/infraestructura" },
         { label: "Coordinación", href: "/contacto" },
       ],

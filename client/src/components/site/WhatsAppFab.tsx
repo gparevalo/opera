@@ -14,7 +14,7 @@ export function WhatsAppFab() {
 
   return (
     <div className="hidden md:block">
-      <div className="fixed bottom-6 right-8 z-[60] flex items-center gap-2 bg-[]">
+      <div className="fixed bottom-8 right-8 z-[60] flex items-center gap-2 ">
         {/* CTA Button */}
         <Link href="/contacto">
           <span

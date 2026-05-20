@@ -12,7 +12,6 @@ const NAV_ITEMS = [
   { key: "about", href: "/nosotros" },
   { key: "infrastructure", href: "/infraestructura" },
   { key: "specialties", href: "/especialidades" },
-  { key: "specialists", href: "/para-especialistas" },
   { key: "contact", href: "/contacto" },
 ] as const;
 
@@ -90,7 +89,7 @@ export function Navbar({ transparent = false }: { transparent?: boolean }) {
                       "relative px-3.5 py-2 rounded-full text-md font-medium transition-all duration-300 cursor-pointer",
                       active
                         ? "text-primary"
-                        : "text-[color:var(--op-mist)] hover:text-[color:#ae9338]",
+                        : "text-[color:var(--op-mist)] hover:text-secondary",
                     )}
                   >
                     {active && (

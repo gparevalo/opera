@@ -8,6 +8,7 @@ import { JourneySection } from "./sections/JourneySection";
 import { SpecialtiesSection } from "./sections/SpecialtiesSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection";
 import { WhySection } from "./sections/WhySection";
+import AboutUsSection from "./sections/AbautSection";
 
 export default function HomePage() {
   return (
@@ -23,9 +24,9 @@ export default function HomePage() {
       <Layout navTransparent>
         <HeroSection />
         <WhySection />
-        <JourneySection />
+        <AboutUsSection />
+        <JourneySection /> 
         <GallerySection />
-        <IncludesSection />
         <SpecialtiesSection />
         <TestimonialsSection />
         <FinalCtaSection />

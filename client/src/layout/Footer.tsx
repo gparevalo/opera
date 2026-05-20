@@ -20,7 +20,6 @@ const COLS = {
       title: "Servicios",
       links: [
         { label: "Especialidades", href: "/especialidades" },
-        { label: "Para especialistas", href: "/para-especialistas" },
         { label: "Quirófanos", href: "/infraestructura" },
         { label: "Coordinación", href: "/contacto" },
       ],
@@ -28,8 +27,8 @@ const COLS = {
     {
       title: "Recursos",
       links: [
-        { label: "Proceso quirúrgico", href: "/para-especialistas" },
-        { label: "Guía del especialista", href: "/para-especialistas" },
+        { label: "Proceso quirúrgico", href: "/especialidades" },
+        { label: "Guía del especialista", href: "/especialidades" },
         { label: "Tecnología médica", href: "/infraestructura" },
         { label: "Preguntas frecuentes", href: "/contacto" },
       ],
@@ -58,7 +57,6 @@ const COLS = {
       title: "Services",
       links: [
         { label: "Specialties", href: "/especialidades" },
-        { label: "For specialists", href: "/para-especialistas" },
         { label: "Operating rooms", href: "/infraestructura" },
         { label: "Coordination", href: "/contacto" },
       ],
@@ -66,8 +64,8 @@ const COLS = {
     {
       title: "Resources",
       links: [
-        { label: "Surgical process", href: "/para-especialistas" },
-        { label: "Specialist guide", href: "/para-especialistas" },
+        { label: "Surgical process", href: "/especialidades" },
+        { label: "Specialist guide", href: "/especialidades" },
         { label: "Medical technology", href: "/infraestructura" },
         { label: "FAQ", href: "/contacto" },
       ],
@@ -140,84 +138,29 @@ export function Footer() {
           >
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <svg
-                width="34"
-                height="34"
-                viewBox="0 0 34 34"
-                fill="none"
-                aria-hidden
-              >
-                <circle
-                  cx="17"
-                  cy="17"
-                  r="16"
-                  stroke="rgba(43,122,140,0.25)"
-                  strokeWidth="1"
-                />
-                <circle
-                  cx="17"
-                  cy="17"
-                  r="11"
-                  fill="rgba(43,122,140,0.05)"
-                  stroke="rgba(43,122,140,0.12)"
-                  strokeWidth="1"
-                />
-                <circle
-                  cx="17"
-                  cy="17"
-                  r="6"
-                  fill="none"
-                  stroke="rgba(43,122,140,0.22)"
-                  strokeWidth="1"
-                />
-                <circle cx="17" cy="17" r="2.5" fill="#2B7A8C" />
-                <line
-                  x1="17"
-                  y1="6"
-                  x2="17"
-                  y2="11"
-                  stroke="rgba(43,122,140,0.2)"
-                  strokeWidth="0.75"
-                />
-                <line
-                  x1="17"
-                  y1="23"
-                  x2="17"
-                  y2="28"
-                  stroke="rgba(43,122,140,0.2)"
-                  strokeWidth="0.75"
-                />
-                <line
-                  x1="6"
-                  y1="17"
-                  x2="11"
-                  y2="17"
-                  stroke="rgba(43,122,140,0.2)"
-                  strokeWidth="0.75"
-                />
-                <line
-                  x1="23"
-                  y1="17"
-                  x2="28"
-                  y2="17"
-                  stroke="rgba(43,122,140,0.2)"
-                  strokeWidth="0.75"
-                />
-              </svg>
-              <div>
-                <p
-                  className="font-display font-bold text-[15px] tracking-tight"
-                  style={{ color: "#00223f" }}
+              {/* Logo */}
+              <Link href="/">
+                <span
+                  className="
+      flex items-center justify-center
+      rounded-full
+      border border-white/20
+      bg-white/80
+      backdrop-blur-xl
+      px-4 py-2
+      shadow-[0_8px_30px_rgba(0,0,0,0.06)]
+      transition-all duration-300
+      hover:scale-[1.02]
+      hover:bg-white
+    "
                 >
-                  ÓPERA
-                </p>
-                <p
-                  className="text-[9px] font-semibold uppercase tracking-[0.2em] mt-0.5"
-                  style={{ color: "#2B7A8C" }}
-                >
-                  Surgical Center
-                </p>
-              </div>
+                  <img
+                    src="/clinica/logo.png"
+                    alt="Ópera Surgical Center"
+                    className="h-20 w-auto object-contain"
+                  />
+                </span>
+              </Link>
             </div>
 
             {/* Tagline */}
@@ -263,12 +206,12 @@ export function Footer() {
                         language === "es" ? "Tu correo" : "Your email"
                       }
                       className="flex-1 h-full px-4 bg-transparent text-sm outline-none placeholder:text-[rgba(0,34,63,0.3)]"
-                      style={{ color: "#00223f" }}
+                      style={{ color: "#004875" }}
                     />
                     <button
                       type="submit"
                       className="h-9 w-9 rounded-full flex items-center justify-center mr-1 transition-all duration-200 hover:scale-105"
-                      style={{ background: "#2B7A8C" }}
+                      style={{ background: "#004875" }}
                       aria-label={
                         language === "es" ? "Suscribirse" : "Subscribe"
                       }
@@ -364,7 +307,7 @@ export function Footer() {
                       <motion.span
                         className="text-sm cursor-pointer inline-block"
                         style={{ color: "rgba(0,34,63,0.45)" }}
-                        whileHover={{ color: "#2B7A8C", x: 2 }}
+                        whileHover={{ color: "#ae9338", x: 2 }}
                         transition={{ duration: 0.15 }}
                       >
                         {link.label}
@@ -384,7 +327,7 @@ export function Footer() {
         >
           <p className="text-[11px]" style={{ color: "rgba(0,34,63,0.3)" }}>
             © {year} Ópera Surgical Center · {t.footer.rights}
-          </p> 
+          </p>
           {/* PD AGENCIA */}
           <a
             href="https://pdagencia.com/"
@@ -406,8 +349,8 @@ export function Footer() {
               className="
                 w-3.5
                 h-3.5
-                text-[#2b7b8c]
-                fill-[#2b7b8c]
+                text-primary
+                fill-[#004875]
                 group-hover:scale-110
                 transition-transform
               "
@@ -421,7 +364,7 @@ export function Footer() {
                 tracking-[0.18em]
                 uppercase
                 text-black/80
-                group-hover:text-[#2b7b8c]
+                group-hover:text-primary
                 transition-colors
               "
             >

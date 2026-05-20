@@ -1,7 +1,6 @@
-import { motion } from "framer-motion";
+import PremiumButtonRef from "@/components/site/PremiumButtonRef";
 import { useLanguage } from "@/i18n";
-import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const SPECIALTIES = [
   { es: "Cirugía plástica", en: "Plastic surgery" },
@@ -22,13 +21,18 @@ export function SpecialtiesSection() {
   const { language } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden" style={{ background: "var(--op-surface)", borderTop: "1px solid var(--op-border)", borderBottom: "1px solid var(--op-border)" }}>
+    <section
+      className="relative overflow-hidden"
+      style={{
+        background: "var(--op-surface)",
+        borderTop: "1px solid var(--op-border)",
+        borderBottom: "1px solid var(--op-border)",
+      }}
+    >
       <div className="scene-glow-warm" />
 
       <div className="relative z-10 mx-auto max-w-[1440px] px-5 md:px-8 xl:px-12 py-32 md:py-48">
-
         <div className="grid gap-16 lg:grid-cols-[1fr_1.6fr] lg:items-center">
-
           {/* Left — heading */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
@@ -39,23 +43,30 @@ export function SpecialtiesSection() {
             <span className="t-eyebrow mb-5 inline-flex">
               {language === "es" ? "Especialidades" : "Specialties"}
             </span>
-            <h2 className="t-display mt-5">
+            <h2
+              className=" mt-5 
+                font-display
+                text-5xl
+                md:text-7xl
+                leading-[0.95]
+                tracking-tight
+                text-primary"
+            >
               {language === "es"
                 ? "Compatible con tu especialidad."
                 : "Compatible with your specialty."}
             </h2>
-            <p className="t-lead mt-5">
+            <p className="t-lead mt-5 text-lg leading-snug tracking-tight  ">
               {language === "es"
                 ? "Ópera está diseñada para procedimientos de mediana y baja complejidad. Conversemos si tienes dudas sobre compatibilidad."
                 : "Ópera is designed for medium and low-complexity procedures. Let's talk if you have compatibility questions."}
             </p>
             <div className="mt-8">
-              <Link href="/contacto">
-                <span className="btn btn-amber flex items-center gap-2">
-                  {language === "es" ? "Consultar disponibilidad" : "Check availability"}
-                  <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
+              <PremiumButtonRef href="/contacto">
+                {language === "es"
+                  ? "Consultar disponibilidad"
+                  : "Check availability"}
+              </PremiumButtonRef>
             </div>
           </motion.div>
 
@@ -67,10 +78,17 @@ export function SpecialtiesSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.55, delay: i * 0.04, ease: [0.16, 1, 0.3, 1] }}
+                transition={{
+                  duration: 0.55,
+                  delay: i * 0.04,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className="specialty-pill"
               >
-                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "var(--op-amber)" }} />
+                <span
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{ background: "var(--op-amber)" }}
+                />
                 {language === "es" ? spec.es : spec.en}
               </motion.div>
             ))}

@@ -59,7 +59,7 @@ export function HeroSection() {
         justify-start
         mt-20
         mx-5
-        md:mx-6
+        md:mx-10
       "
     >
       {/* Background */}
@@ -78,7 +78,7 @@ export function HeroSection() {
         className="absolute inset-0 z-[1] rounded-[2rem]"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0,0,0,0.42))",
+            "linear-gradient(to bottom, rgba(0,0,0,0.18), rgba(0, 0, 0, 0.19))",
         }}
       />
 
@@ -131,7 +131,7 @@ export function HeroSection() {
             ) : (
               <>
                 Surgical infrastructure{" "}
-                <span className="text-[#ae9338]">designed for</span>{" "}
+                <span className="text-secondary">designed for</span>{" "}
                 specialists.
               </>
             )}
@@ -170,7 +170,7 @@ export function HeroSection() {
             className="flex items-center justify-center"
           >
             <Link href="/infraestructura">
-              <span className="btn btn-blue btn-lg flex items-center gap-2.5 text-[#ae9338]">
+              <span className="btn btn-blue btn-lg flex items-center gap-2.5 text-secondary">
                 <Hospital className="h-5 w-5" />
                 {language === "es" ? "Ver instalaciones" : "View facilities"}
               </span>
@@ -263,7 +263,7 @@ export function HeroSection() {
                     height: 38,
                   }}
                 >
-                  <stat.icon className="h-4 w-4 text-[#ae9338]" />
+                  <stat.icon className="h-4 w-4 text-secondary" />
                 </div>
 
                 <span

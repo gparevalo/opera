@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  ReactNode,
-  TouchEvent,
-  useEffect,
-  useRef,
-  useState,
-  WheelEvent,
-} from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 interface HeroPageProps {
   mediaType?: "video" | "image";
@@ -31,246 +24,257 @@ const HeroPage = ({
   textBlend,
   children,
 }: HeroPageProps) => {
-  const [scrollProgress, setScrollProgress] = useState<number>(0);
-  const [showContent, setShowContent] = useState<boolean>(false);
-  const [mediaFullyExpanded, setMediaFullyExpanded] = useState<boolean>(false);
-  const [touchStartY, setTouchStartY] = useState<number>(0);
-  const [isMobileState, setIsMobileState] = useState<boolean>(false);
-
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobileState, setIsMobileState] = useState(false);
+
+  /* ───────────────────────────────
+     MOBILE CHECK
+  ─────────────────────────────── */
   useEffect(() => {
-    setScrollProgress(0);
-    setShowContent(false);
-    setMediaFullyExpanded(false);
-  }, [mediaType]);
-
-  useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (mediaFullyExpanded && e.deltaY < 0 && window.scrollY <= 5) {
-        setMediaFullyExpanded(false);
-        e.preventDefault();
-      } else if (!mediaFullyExpanded) {
-        e.preventDefault();
-        const scrollDelta = e.deltaY * 0.0009;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
-          1,
-        );
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
-        }
-      }
-    };
-
-    const handleTouchStart = (e: TouchEvent) => {
-      setTouchStartY(e.touches[0].clientY);
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      if (!touchStartY) return;
-
-      const touchY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchY;
-
-      if (mediaFullyExpanded && deltaY < -20 && window.scrollY <= 5) {
-        setMediaFullyExpanded(false);
-        e.preventDefault();
-      } else if (!mediaFullyExpanded) {
-        e.preventDefault();
-        // Increase sensitivity for mobile, especially when scrolling back
-        const scrollFactor = deltaY < 0 ? 0.008 : 0.005; // Higher sensitivity for scrolling back
-        const scrollDelta = deltaY * scrollFactor;
-        const newProgress = Math.min(
-          Math.max(scrollProgress + scrollDelta, 0),
-          1,
-        );
-        setScrollProgress(newProgress);
-
-        if (newProgress >= 1) {
-          setMediaFullyExpanded(true);
-          setShowContent(true);
-        } else if (newProgress < 0.75) {
-          setShowContent(false);
-        }
-
-        setTouchStartY(touchY);
-      }
-    };
-
-    const handleTouchEnd = (): void => {
-      setTouchStartY(0);
-    };
-
-    const handleScroll = (): void => {
-      if (!mediaFullyExpanded) {
-        window.scrollTo(0, 0);
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel as unknown as EventListener, {
-      passive: false,
-    });
-    window.addEventListener("scroll", handleScroll as EventListener);
-    window.addEventListener(
-      "touchstart",
-      handleTouchStart as unknown as EventListener,
-      { passive: false },
-    );
-    window.addEventListener(
-      "touchmove",
-      handleTouchMove as unknown as EventListener,
-      { passive: false },
-    );
-    window.addEventListener("touchend", handleTouchEnd as EventListener);
-
-    return () => {
-      window.removeEventListener(
-        "wheel",
-        handleWheel as unknown as EventListener,
-      );
-      window.removeEventListener("scroll", handleScroll as EventListener);
-      window.removeEventListener(
-        "touchstart",
-        handleTouchStart as unknown as EventListener,
-      );
-      window.removeEventListener(
-        "touchmove",
-        handleTouchMove as unknown as EventListener,
-      );
-      window.removeEventListener("touchend", handleTouchEnd as EventListener);
-    };
-  }, [scrollProgress, mediaFullyExpanded, touchStartY]);
-
-  useEffect(() => {
-    const checkIfMobile = (): void => {
+    const checkMobile = () => {
       setIsMobileState(window.innerWidth < 768);
     };
 
-    checkIfMobile();
-    window.addEventListener("resize", checkIfMobile);
+    checkMobile();
 
-    return () => window.removeEventListener("resize", checkIfMobile);
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
-  const mediaWidth = 300 + scrollProgress * (isMobileState ? 650 : 1250);
-  const mediaHeight = 400 + scrollProgress * (isMobileState ? 200 : 400);
-  const textTranslateX = scrollProgress * (isMobileState ? 180 : 150);
+  /* ───────────────────────────────
+     SCROLL PROGRESS
+     PURE CSS STICKY TIMELINE
+  ─────────────────────────────── */
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+
+      const viewportHeight = window.innerHeight;
+
+      /**
+       * Progress based on section scroll
+       * 0 -> section enters
+       * 1 -> section fully scrolled
+       */
+      const progress = Math.min(
+        Math.max(-rect.top / (viewportHeight * 2.2), 0),
+        1,
+      );
+
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  /* ───────────────────────────────
+     CINEMATIC VALUES
+  ─────────────────────────────── */
+
+  const mediaWidth =
+    (isMobileState ? 320 : 540) +
+    scrollProgress * (isMobileState ? 80 : 900);
+
+  const mediaHeight =
+    (isMobileState ? 420 : 620) +
+    scrollProgress * (isMobileState ? 120 : 260);
+
+  const radius =
+    (isMobileState ? 24 : 32) -
+    scrollProgress * (isMobileState ? 12 : 26);
 
   const firstWord = title ? title.split(" ")[0] : "";
   const restOfTitle = title ? title.split(" ").slice(1).join(" ") : "";
 
+  const textOffset = scrollProgress * (isMobileState ? 30 : 120);
+
+  const contentOpacity = Math.max(0, (scrollProgress - 0.72) * 4);
+
   return (
     <div
       ref={sectionRef}
-      className="transition-colors duration-700 ease-in-out overflow-x-hidden"
+      className="relative w-full"
     >
-      <section className="relative flex flex-col items-center justify-start min-h-[100dvh]">
-        <div className="relative w-full flex flex-col items-center min-h-[100dvh]">
+      {/* ───────────────────────────────
+          HUGE SCROLL TIMELINE
+      ─────────────────────────────── */}
+      <section className="relative h-[320vh]">
+        
+        {/* ───────────────────────────────
+            STICKY HERO
+        ─────────────────────────────── */}
+        <div className="sticky top-0 h-screen overflow-hidden">
+          
+          {/* BACKGROUND */}
           <motion.div
-            className="absolute inset-0 z-0 h-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 - scrollProgress }}
-            transition={{ duration: 0.1 }}
+            className="absolute inset-0"
+            animate={{
+              scale: 1 + scrollProgress * 0.05,
+              opacity: 1 - scrollProgress * 0.85,
+            }}
+            transition={{
+              duration: 0.08,
+            }}
           >
             <img
               src={bgImageSrc}
               alt="Background"
-              width={1920}
-              height={1080}
-              className="w-screen h-screen"
-              style={{
-                objectFit: "cover",
-                objectPosition: "center",
-              }}
+              className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/10" />
+
+            <div className="absolute inset-0 bg-black/30" />
           </motion.div>
 
-          <div className="container mx-auto flex flex-col items-center justify-start relative z-10">
-            <div className="flex flex-col items-center justify-center w-full h-[100dvh] relative">
-              <div
-                className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-none rounded-2xl"
-                style={{
-                  width: `${mediaWidth}px`,
-                  height: `${mediaHeight}px`,
-                  maxWidth: "95vw",
-                  maxHeight: "85vh",
-                  boxShadow: "0px 0px 50px rgba(0, 0, 0, 0.3)",
+          {/* CENTER */}
+          <div className="relative z-10 w-full h-full flex items-center justify-center">
+            
+            {/* MEDIA REVEAL */}
+            <motion.div
+              className="relative overflow-hidden"
+              animate={{
+                width: mediaWidth,
+                height: mediaHeight,
+                borderRadius: radius,
+                y: scrollProgress * -20,
+              }}
+              transition={{
+                ease: [0.16, 1, 0.3, 1],
+                duration: 0.08,
+              }}
+              style={{
+                boxShadow:
+                  "0 32px 120px rgba(0,0,0,0.32)",
+              }}
+            >
+              {/* MEDIA */}
+              {mediaType === "video" ? (
+                <video
+                  src={mediaSrc}
+                  poster={posterSrc}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <img
+                  src={mediaSrc}
+                  alt={title || "Hero media"}
+                  className="w-full h-full object-cover"
+                />
+              )}
+
+              {/* DARK OVERLAY */}
+              <motion.div
+                className="absolute inset-0 bg-black"
+                animate={{
+                  opacity: 0.45 - scrollProgress * 0.22,
+                }}
+                transition={{
+                  duration: 0.08,
+                }}
+              />
+            </motion.div>
+
+            {/* HERO TEXT */}
+            <div
+              className={`absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6 ${
+                textBlend
+                  ? "mix-blend-difference"
+                  : "mix-blend-normal"
+              }`}
+            >
+              {date && (
+                <motion.p
+                  className="uppercase tracking-[0.28em] text-white/70 text-xs md:text-sm mb-6"
+                  animate={{
+                    opacity: 1 - scrollProgress * 1.5,
+                    y: scrollProgress * -20,
+                  }}
+                  transition={{
+                    duration: 0.08,
+                  }}
+                >
+                  {date}
+                </motion.p>
+              )}
+
+              <motion.h1
+                className="font-display font-bold text-white leading-[0.9] tracking-tight text-5xl md:text-7xl lg:text-[7rem]"
+                animate={{
+                  x: -textOffset,
+                  opacity: 1 - scrollProgress * 0.55,
+                  scale: 1 - scrollProgress * 0.04,
+                }}
+                transition={{
+                  duration: 0.08,
                 }}
               >
-                <div className="relative w-full h-full">
-                  <img
-                    src={mediaSrc}
-                    alt={title || "Media content"}
-                    width={1280}
-                    height={720}
-                    className="w-full h-full object-cover rounded-xl"
-                  />
+                {firstWord}
+              </motion.h1>
 
-                  <motion.div
-                    className="absolute inset-0 bg-black/50 rounded-xl"
-                    initial={{ opacity: 0.7 }}
-                    animate={{ opacity: 0.7 - scrollProgress * 0.3 }}
-                    transition={{ duration: 0.2 }}
-                  />
-                </div>
-                <div className="flex flex-col items-center text-center relative z-10 mt-4 transition-none">
-                  {date && (
-                    <p
-                      className="text-2xl text-blue-200"
-                      style={{ transform: `translateX(-${textTranslateX}vw)` }}
-                    >
-                      {date}
-                    </p>
-                  )}
-                  {scrollToExpand && (
-                    <p
-                      className="text-blue-200 font-medium text-center"
-                      style={{ transform: `translateX(${textTranslateX}vw)` }}
-                    >
-                      {scrollToExpand}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div
-                className={`flex items-center justify-center text-center gap-4 w-full relative z-10 transition-none flex-col ${
-                  textBlend ? "mix-blend-difference" : "mix-blend-normal"
-                }`}
+              <motion.h1
+                className="font-display font-bold text-white leading-[0.9] tracking-tight text-5xl md:text-7xl lg:text-[7rem]"
+                animate={{
+                  x: textOffset,
+                  opacity: 1 - scrollProgress * 0.55,
+                  scale: 1 - scrollProgress * 0.04,
+                }}
+                transition={{
+                  duration: 0.08,
+                }}
               >
-                <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-200 transition-none"
-                  style={{ transform: `translateX(-${textTranslateX}vw)` }}
-                >
-                  {firstWord}
-                </motion.h2>
-                <motion.h2
-                  className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-blue-200 transition-none"
-                  style={{ transform: `translateX(${textTranslateX}vw)` }}
-                >
-                  {restOfTitle}
-                </motion.h2>
-              </div>
-            </div>
+                {restOfTitle}
+              </motion.h1>
 
-            <motion.section
-              className="flex flex-col w-full px-8 py-10 md:px-16 lg:py-20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: showContent ? 1 : 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              {children}
-            </motion.section>
+              {scrollToExpand && (
+                <motion.p
+                  className="mt-8 text-white/65 text-sm tracking-wide"
+                  animate={{
+                    opacity: 1 - scrollProgress * 2,
+                    y: scrollProgress * 16,
+                  }}
+                  transition={{
+                    duration: 0.08,
+                  }}
+                >
+                  {scrollToExpand}
+                </motion.p>
+              )}
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ───────────────────────────────
+          REAL PAGE CONTENT
+      ─────────────────────────────── */}
+      <motion.section
+        className="relative z-30 bg-[var(--op-canvas)] px-6 md:px-10 lg:px-16 py-24"
+        animate={{
+          opacity: contentOpacity,
+          y: 80 - contentOpacity * 80,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+      >
+        {children}
+      </motion.section>
     </div>
   );
 };

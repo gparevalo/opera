@@ -52,7 +52,7 @@ export function HeroSection() {
       className="
         relative
         overflow-hidden
-        h-[84vh]
+        h-[85vh]
         bg-white
         pt-20
         flex items-start

@@ -76,6 +76,7 @@ export default function ContactPage() {
           eyebrow={t.metadata.base_title_suffix}
           title={cp.title}
           description={cp.intro}
+          image="/clinica/operahero6.png"
         />
 
         {/* ── Main ── */}
@@ -333,17 +334,17 @@ export default function ContactPage() {
 
                   <button
                     type="submit"
-                    className="btn btn-amber w-full flex items-center justify-center gap-2"
+                    className="btn btn-blue w-full flex items-center justify-center gap-2"
                   >
                     <Calendar className="h-4 w-4" />
                     {cp.form_submit}
                   </button>
-                  <p
+                {/*  <p
                     className="text-xs text-center"
                     style={{ color: "var(--op-fog)" }}
                   >
                     {cp.form_note}
-                  </p>
+                  </p>*/}
                 </form>
               </motion.div>
             </div>

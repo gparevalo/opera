@@ -19,7 +19,7 @@ const GALLERY_ITEMS = [
     height: "min-h-[220px]",
     bg: "linear-gradient(150deg, #0A131800 0%, #111C2269 100%)",
     pattern: "grid",
-    imagen: "/clinica/ofina1.png",
+    imagen: "/clinica/operahero12.png",
   },
   {
     keyEs: "Recuperación",

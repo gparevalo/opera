@@ -60,7 +60,7 @@ export function PremiumHero({
             </h1>
 
             {description && (
-              <p className="t-lead mt-5 text-xl leading-snug tracking-tight sm:text-[2.3rem]">
+              <p className="t-lead mt-5 text-xl leading-snug tracking-tight">
                 {description}
               </p>
             )}

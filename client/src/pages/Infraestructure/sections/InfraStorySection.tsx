@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/site/scroll-reveal";
 import { useLanguage } from "@/i18n";
 import { motion } from "framer-motion";
 import { StorySection } from "./StorySection";
@@ -45,7 +46,8 @@ export function InfraStorySection() {
           </p>
         </motion.div>
 
-        <StorySection />
+       
+
       </div>
     </section>
   );

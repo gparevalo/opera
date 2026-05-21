@@ -141,9 +141,9 @@ export default function AboutUsSection() {
   const stats = [
     {
       icon: <Award />,
-      value: 150,
-      label: "Operaciones Realizadas",
-      suffix: "+",
+      value: 0,
+      label: "Complicaciones",
+      suffix: "",
     },
     { icon: <Users />, value: 1, label: "Punto de contacto", suffix: "" },
     {
@@ -287,7 +287,7 @@ export default function AboutUsSection() {
                 whileHover={{ scale: 1.03, transition: { duration: 0.3 } }}
               >
                 <img
-                  src="/clinica/ofina1.png"
+                  src="/clinica/operahero12.png"
                   alt="Modern House"
                   className="w-full h-full object-cover"
                 />

@@ -1,5 +1,67 @@
 import { useLanguage } from "@/i18n";
 import { motion } from "framer-motion";
+import { TestimonialsColumn } from "./TestimonialsColumn";
+
+const testimonials = [
+  {
+    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    name: "Briana Patton",
+    role: "Operations Manager",
+  },
+  {
+    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    name: "Bilal Ahmed",
+    role: "IT Manager",
+  },
+  {
+    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    name: "Saman Malik",
+    role: "Customer Support Lead",
+  },
+  {
+    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    name: "Omar Raza",
+    role: "CEO",
+  },
+  {
+    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    name: "Zainab Hussain",
+    role: "Project Manager",
+  },
+  {
+    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    name: "Aliza Khan",
+    role: "Business Analyst",
+  },
+  {
+    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    image: "https://randomuser.me/api/portraits/men/7.jpg",
+    name: "Farhan Siddiqui",
+    role: "Marketing Director",
+  },
+  {
+    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    image: "https://randomuser.me/api/portraits/women/8.jpg",
+    name: "Sana Sheikh",
+    role: "Sales Manager",
+  },
+  {
+    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    image: "https://randomuser.me/api/portraits/men/9.jpg",
+    name: "Hassan Ali",
+    role: "E-commerce Manager",
+  },
+];
+
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
 
 const TESTIMONIALS = [
   {
@@ -72,75 +134,18 @@ export function TestimonialsSection() {
           </h2>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid gap-5 md:grid-cols-3">
-          {TESTIMONIALS.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.85,
-                delay: i * 0.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="testimonial-card flex flex-col gap-5"
-            >
-              {/* Large open quote */}
-              <div
-                className="font-display font-bold text-6xl leading-none select-none -mb-2"
-                style={{
-                  color: "var(--op-amber-pale)",
-                  fontFamily: "Georgia, serif",
-                }}
-              >
-                "
-              </div>
-
-              {/* Quote */}
-              <blockquote
-                className="font-display font-medium leading-snug flex-1"
-                style={{
-                  fontSize: "clamp(1rem, 1.4vw, 1.1rem)",
-                  color: "var(--op-ink-2)",
-                }}
-              >
-                {language === "es" ? t.quoteEs : t.quoteEn}
-              </blockquote>
-
-              {/* Author */}
-              <div
-                className="flex items-center gap-3.5 pt-4"
-                style={{ borderTop: "1px solid var(--op-border)" }}
-              >
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 font-display font-bold text-sm"
-                  style={{
-                    border: "1px solid var(--op-border-teal)",
-                    background: "var(--op-amber-dim)",
-                    color: "var(--op-amber)",
-                  }}
-                >
-                  {t.initials}
-                </div>
-                <div>
-                  <p
-                    className="text-sm font-semibold"
-                    style={{ color: "var(--op-ink)" }}
-                  >
-                    {language === "es" ? t.nameEs : t.nameEn}
-                  </p>
-                  <p
-                    className="text-[11px] font-medium uppercase tracking-wide mt-0.5"
-                    style={{ color: "var(--op-amber)", opacity: 0.75 }}
-                  >
-                    {language === "es" ? t.roleEs : t.roleEn}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+          <TestimonialsColumn testimonials={firstColumn} duration={15} />
+          <TestimonialsColumn
+            testimonials={secondColumn}
+            className="hidden md:block"
+            duration={19}
+          />
+          <TestimonialsColumn
+            testimonials={thirdColumn}
+            className="hidden lg:block"
+            duration={17}
+          />
         </div>
       </div>
     </section>

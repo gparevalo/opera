@@ -1,12 +1,12 @@
 import { SeoHead } from "@/components/SeoHead";
-import { InfraStorySection } from "@/pages/Infraestructure/sections/InfraStorySection";
 import { PremiumHero } from "@/components/site/PremiumHero";
 import { useLanguage } from "@/i18n";
 import { Layout } from "@/layout/Layout";
 import { motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { Link } from "wouter";
-import HeroHome from "./Home/sections/HeroHome";
+import { ImageGallery } from "./Infraestructure/sections/galery/ImageGallery";
+import { StorySection } from "./Infraestructure/sections/StorySection";
 
 export default function InfrastructurePage() {
   const { t, language } = useLanguage();
@@ -21,7 +21,6 @@ export default function InfrastructurePage() {
         ogDescription="Quirófanos, recuperación, hospitalización corta y esterilización. Infraestructura clínica premium diseñada para especialistas médicos en Quito, Ecuador."
       />
 
-      <HeroHome />
       <Layout>
         {/* ── Hero ── */}
         <PremiumHero
@@ -36,11 +35,9 @@ export default function InfrastructurePage() {
             },
           ]}
         />
-
         {/* ── Scroll storytelling section ── */}
-        <InfraStorySection />
-
-        {/* ── CTA ── */}
+        <StorySection />
+        <ImageGallery />;{/* ── CTA ── */}
         <section
           className="relative overflow-hidden"
           style={{

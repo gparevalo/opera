@@ -124,7 +124,7 @@ export default function SpecialtiesPage() {
                   ? "El estándar operativo detrás de cada procedimiento."
                   : "El estándar operativo detrás de cada procedimiento"}
               </h2>
-              <p className="t-lead mt-5 text-xl leading-snug tracking-tight sm:text-[2.3rem]">
+              <p className="t-lead mt-5 text-xl leading-snug tracking-tight ">
                 {language === "es"
                   ? "La experiencia quirúrgica comienza mucho antes del procedimiento."
                   : "Don't invest in construction. Operate in an environment already designed for predictable results."}
@@ -278,7 +278,7 @@ export default function SpecialtiesPage() {
                   ? "Trae tu práctica a un entorno diseñado para operar con precisión"
                   : "Trae tu práctica a un entorno diseñado para operar con precisión"}
               </h2>
-              <p className="t-lead mt-5 text-xl leading-snug tracking-tight sm:text-[2.3rem] px-20">
+              <p className="t-lead mt-5 text-xl leading-snug tracking-tight  px-20">
                 {language === "es"
                   ? "Infraestructura, coordinación y soporte clínico diseñados para integrarse naturalmente a tu práctica quirúrgica."
                   : "Infraestructura, coordinación y soporte clínico diseñados para integrarse naturalmente a tu práctica quirúrgica."}
